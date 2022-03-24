@@ -1,0 +1,14 @@
+number,question,short
+1,What type of stool did you most often experience while eating the bar?,most_frequent_stool
+2,"What is the hardest type of stool you recall experiencing while eating the bar? (Type 1 is the hardest, type 7 is the softest)  ",hardest_stool
+3,"What is the softest type of stool you recall experiencing while eating the bar?(Type 1 is the hardest, type 7 is the softest)  ",softest_stool
+4,The bar caused me gastrointestinal discomfort ,GI_discomfort_caused
+5,The bar reduced my gastrointestinal discomfort,GI_discomfort_reduced
+6,The bar was unpleasant to consume,unpleasant
+7,I would like to continue taking this bar or one like it,would_continue
+8,This bar __________ abdominal pain.,abdominal_pain
+9,This bar __________ bloating.,bloating
+10,This bar __________ flatulence (gas).,flatulence
+11,This bar __________ nausea.,nausea
+12,This bar __________ reflux (heartburn).,heartburn
+13,This bar __________ stomach rumblings.,borborygmi
