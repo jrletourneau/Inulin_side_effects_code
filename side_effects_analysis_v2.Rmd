@@ -1,0 +1,392 @@
+
+ONR side effects analysis
+
+Load libraries
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(lme4)
+library(lmerTest)
+library(RColorBrewer)
+library(patchwork)
+library(ggsignif)
+library(pheatmap)
+library(patchwork)
+
+```
+
+
+Load data
+```{r}
+post <- read.csv("postintervention.csv")
+questions <- read.csv("questions.csv")
+likert_map <- read.csv("likert_keys.csv")
+
+demo <- read.csv("onr_demographics.csv")
+
+```
+
+
+Prep data and run Mann-Whitney U tests
+```{r}
+# For each side effect, non-parametric test if there's a difference
+
+bristol <- gather(post[,1:6], key=var, value=score, 4:6)
+#Rename
+bristol[bristol$var == "hardest_stool", "var"] <- "Hardest"
+bristol[bristol$var == "most_frequent_stool", "var"] <- "Most Frequent"
+bristol[bristol$var == "softest_stool", "var"] <- "Softest"
+
+bristol.data <- bristol %>% group_by(group, var) %>%
+  summarize(mean=mean(score), se=sd(score)/sqrt(length(score)))
+
+
+# independent 2-group Mann-Whitney U Test
+wilcox.test(post[post$group=="Placebo",]$hardest_stool, post[post$group=="Prebiotic",]$hardest_stool, exact = F) # 0.5717
+wilcox.test(post[post$group=="Placebo",]$most_frequent_stool, post[post$group=="Prebiotic",]$most_frequent_stool, exact = F) # 0.1808
+wilcox.test(post[post$group=="Placebo",]$softest_stool, post[post$group=="Prebiotic",]$softest_stool, exact = F) # 0.9219
+
+stool <- ggplot(bristol, aes(x=var, y=score, group=group, color=group)) +
+  geom_hline(yintercept = 4, color="black", linetype="dashed") +
+  geom_point(position=position_jitterdodge(jitter.width = 0.1, jitter.height = 0.1), alpha=0.5) +
+  geom_errorbar(bristol.data, mapping = aes(x=var, ymin=mean, ymax=mean, group=group), color="red",
+                inherit.aes = F, position=position_dodge(0.7), width=0.5, size=1) +
+  geom_errorbar(bristol.data, mapping = aes(x=var, ymin=mean-se, ymax=mean+se, group=group), color="black",
+                inherit.aes = F, position=position_dodge(0.7), width=0.25, size=1) +
+  theme_bw() +
+  labs(x="____ Stool During Treatment", y="Bristol Score", color="Group")
+#ggsave("figures/bristol summary.svg", stool, height=2.5, width=3.5)
+
+
+# Convert agree-disagree scales to numbers 1:5
+for(r in 1:5) {
+  post[post == likert_map[r,1] | post == likert_map[r,2]] <- r
+}
+
+for(c in 7:16) {
+  post[,c] <- as.numeric(post[,c])
+}
+
+lik <- gather(post[,c(1:3,7:16)], key=var, value=score, 4:13)
+lik.data <- lik %>% group_by(group, var) %>%
+  summarize(mean=mean(score), se=sd(score)/sqrt(length(score)))
+
+# independent 2-group Mann-Whitney U Test
+wilcox.test(post[post$group=="Placebo",]$GI_discomfort_caused, post[post$group=="Prebiotic",]$GI_discomfort_caused, exact = F) # 0.00101
+wilcox.test(post[post$group=="Placebo",]$GI_discomfort_reduced, post[post$group=="Prebiotic",]$GI_discomfort_reduced, exact = F) # 0.3144
+wilcox.test(post[post$group=="Placebo",]$unpleasant, post[post$group=="Prebiotic",]$unpleasant, exact = F) # 0.2514
+wilcox.test(post[post$group=="Placebo",]$would_continue, post[post$group=="Prebiotic",]$would_continue, exact = F) # 0.4781
+wilcox.test(post[post$group=="Placebo",]$abdominal_pain, post[post$group=="Prebiotic",]$abdominal_pain, exact = F) # 0.04323
+wilcox.test(post[post$group=="Placebo",]$bloating, post[post$group=="Prebiotic",]$bloating, exact = F) # 0.03171
+wilcox.test(post[post$group=="Placebo",]$flatulence, post[post$group=="Prebiotic",]$flatulence, exact = F) # 0.00067
+wilcox.test(post[post$group=="Placebo",]$heartburn, post[post$group=="Prebiotic",]$heartburn, exact = F) # 0.9714
+wilcox.test(post[post$group=="Placebo",]$nausea, post[post$group=="Prebiotic",]$nausea, exact = F) # 0.9714
+wilcox.test(post[post$group=="Placebo",]$borborygmi, post[post$group=="Prebiotic",]$borborygmi, exact = F) # 0.05738
+
+post$ae_total <- post$GI_discomfort_caused + post$abdominal_pain + post$bloating + post$flatulence + post$borborygmi
+total.data <- post %>% group_by(group) %>%
+  dplyr::summarize(mean=mean(ae_total), se=sd(ae_total)/sqrt(length(ae_total)))
+wilcox.test(post[post$group=="Placebo",]$ae_total, post[post$group=="Prebiotic",]$ae_total, exact = F) # 0.00209
+
+
+```
+
+
+
+Make paper Fig. 1
+```{r}
+# Split by question
+# For paper figure, let's do
+## A. Stool statistics
+## B. cause/reduced discomfort
+## C. other side effects
+## Fig. S2 - unpleasant and would continue
+
+# (Strongly) Agree/Disagree or Neither agree nor disagree
+# "The bar caused me gastrointestinal discomfort"
+# "The bar reduced my gastrointestinal discomfort"
+# "The bar was unpleasant to consume"
+# "I would like to continue taking this bar or one like it"
+lik.supp <- lik[lik$var %in% c("unpleasant", "would_continue"),]
+lik.data.supp <- lik.data[lik.data$var %in% c("unpleasant", "would_continue"),]
+lik.B <- lik[lik$var %in% c("GI_discomfort_caused", "GI_discomfort_reduced"),]
+lik.data.B <- lik.data[lik.data$var %in% c("GI_discomfort_caused", "GI_discomfort_reduced"),]
+# Recode variables
+lik.B$var[lik.B$var == "GI_discomfort_caused"] <- "Caused"
+lik.data.B$var[lik.data.B$var == "GI_discomfort_caused"] <- "Caused"
+lik.B$var[lik.B$var == "GI_discomfort_reduced"] <- "Reduced"
+lik.data.B$var[lik.data.B$var == "GI_discomfort_reduced"] <- "Reduced"
+
+# This bar _______ [effect].
+# (Greatly) increased / did not affect / (greatly) reduced
+# Recode "flatulence" to "flatulence (gas)"; "heartburn" to "reflux (heartburn)"; and "borborygmi" to "stomach rumblings."
+lik.C <- lik[lik$var %in% c("abdominal_pain", "bloating", "flatulence", "nausea", "heartburn", "borborygmi"),]
+lik.data.C <- lik.data[lik.data$var %in% c("abdominal_pain", "bloating", "flatulence", "nausea", "heartburn", "borborygmi"),]
+# Recode variables
+lik.C$var[lik.C$var == "abdominal_pain"] <- "Abdominal Pain"
+lik.data.C$var[lik.data.C$var == "abdominal_pain"] <- "Abdominal Pain"
+lik.C$var[lik.C$var == "bloating"] <- "Bloating"
+lik.data.C$var[lik.data.C$var == "bloating"] <- "Bloating"
+lik.C$var[lik.C$var == "borborygmi"] <- "Stomach\nRumblings"
+lik.data.C$var[lik.data.C$var == "borborygmi"] <- "Stomach\nRumblings"
+lik.C$var[lik.C$var == "flatulence"] <- "Flatulence (Gas)"
+lik.data.C$var[lik.data.C$var == "flatulence"] <- "Flatulence (Gas)"
+lik.C$var[lik.C$var == "heartburn"] <- "Reflux (Heartburn)"
+lik.data.C$var[lik.data.C$var == "heartburn"] <- "Reflux (Heartburn)"
+lik.C$var[lik.C$var == "nausea"] <- "Nausea"
+lik.data.C$var[lik.data.C$var == "nausea"] <- "Nausea"
+
+
+# Plots
+# Panel B - GI discomfort
+signif_df <- data.frame(xmin="Placebo", xmax="Prebiotic", y = 5.25, var="caused", group="Placebo")
+
+lik.B.plot <- ggplot(lik.B, aes(x=var, y=score, color=group)) +
+  geom_hline(yintercept = 3, color="black", linetype="dashed") +
+  geom_point(position=position_jitterdodge(jitter.width = 0.1, jitter.height = 0.1, dodge.width = 0.7), alpha=0.5) +
+  geom_errorbar(lik.data.B, position=position_dodge(0.7),
+                mapping = aes(x=var, ymin=mean, ymax=mean, group=group), color="red",
+                inherit.aes = F, width=0.5, size=1) +
+  geom_errorbar(lik.data.B, position=position_dodge(0.7),
+                mapping = aes(x=var, ymin=mean-se, ymax=mean+se, group=group), color="black",
+                inherit.aes = F, width=0.25, size=1) +
+  theme_bw() +
+  labs(x="Effect on Gastrointestinal Discomfort", y="Survey Response") +
+  geom_signif(xmin=0.825, xmax=1.175, y_position=5.25, annotations="**", tip_length=0, color="black",
+              size=1, textsize=9, vjust=0.4) +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5)) +
+  geom_hline(yintercept = 5.6, color="black", alpha=0)
+
+
+
+# Panel C - side effects
+lik.C.plot <- ggplot(lik.C, aes(x=var, y=score, color=group)) +
+  geom_hline(yintercept = 3, color="black", linetype="dashed") +
+  geom_point(position=position_jitterdodge(jitter.width = 0.1, jitter.height = 0.1, dodge.width = 0.7), alpha=0.5) +
+  geom_errorbar(lik.data.C, position=position_dodge(0.7),
+                mapping = aes(x=var, ymin=mean, ymax=mean, group=group), color="red",
+                inherit.aes = F, width=0.5, size=1) +
+  geom_errorbar(lik.data.C, position=position_dodge(0.7),
+                mapping = aes(x=var, ymin=mean-se, ymax=mean+se, group=group), color="black",
+                inherit.aes = F, width=0.25, size=1) +
+  theme_bw() +
+  labs(x="Side Effect", y="Survey Response") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5)) +
+  geom_signif(xmin=c(0.825, 1.825, 2.825), xmax=c(1.175, 2.175, 3.175),
+              y_position=c(4.25, 5.25, 5.25),annotations=c("*", "*", "***"),
+              tip_length=0, color="black", size=1, textsize=9, vjust = 0.35) +
+  geom_hline(yintercept = 5.5, color="black", alpha=0)
+
+# Patch figure together
+fig1 <- (stool + lik.B.plot) / lik.C.plot + plot_annotation(tag_levels = 'A')
+
+#ggsave(filename = "figures/figure1.png", fig1, height=6, width=7)
+
+# Supp 2 - other questions
+lik.supp$var[lik.supp$var == "unpleasant"] <- "The bar was\nunpleasant to\nconsume."
+lik.data.supp$var[lik.data.supp$var == "unpleasant"] <- "The bar was\nunpleasant to\nconsume."
+lik.supp$var[lik.supp$var == "would_continue"] <- "I would like to\ncontinue taking\nthis bar or one\nlike it."
+lik.data.supp$var[lik.data.supp$var == "would_continue"] <- "I would like to\ncontinue taking\nthis bar or one\nlike it."
+
+lik.supp.plot <- ggplot(lik.supp, aes(x=var, y=score, color=group)) +
+  geom_hline(yintercept = 3, color="black", linetype="dashed") +
+  geom_point(position=position_jitterdodge(jitter.width = 0.1, jitter.height = 0.1, dodge.width = 0.7), alpha=0.5) +
+  geom_errorbar(lik.data.supp, position=position_dodge(0.7),
+                mapping = aes(x=var, ymin=mean, ymax=mean, group=group), color="red",
+                inherit.aes = F, width=0.5, size=1) +
+  geom_errorbar(lik.data.supp, position=position_dodge(0.7),
+                mapping = aes(x=var, ymin=mean-se, ymax=mean+se, group=group), color="black",
+                inherit.aes = F, width=0.25, size=1) +
+  theme_bw() +
+  labs(x="Survey Prompt", y="Survey Response", color="Group")
+#ggsave(filename = "figures/figure_s2.png", lik.supp.plot, height=3, width=4)
+
+
+```
+
+Side effects and baseline data - paper Fig. 2
+```{r}
+# Use independent 2-group Mann-Whitney U Test
+# Response (4-5) vs. non-response (1-3)
+
+# Create matrices
+se <- post %>%
+  #filter(group == "Prebiotic") %>%
+  dplyr::select(c(1,2,4:16)) %>%
+  arrange(ID)
+
+demo <- demo %>% filter(ID %in% se$ID) %>%
+  dplyr::select(c(1, 5:8, 11, 13)) %>%
+  arrange(ID)
+
+# Diet data
+ffq <- read.csv("../diet data/FFQ results fixed.csv") %>%
+  filter(ID %in% se$ID) %>%
+  arrange(ID) %>%
+  dplyr::select(c(2, 4, 7, 9, 10, 15, 17:19, 26:27, 43, 45:46))
+
+# Combine
+## Recode response (4-5) vs. non-response (1-3)
+recode_likert <- function(x) {
+  ifelse(x > 3, "yes", "no")
+}
+sedemo <- cbind(se, demo[,2:ncol(demo)])
+merge_df <- merge(x = sedemo, y = ffq, by.x = "ID", by.y = "ID", all.x = T)
+merge_df$weight <- merge_df$weight * 0.453592
+
+# Make graphs for Fig. 2
+## Borbor/diarrhea vs. weight/fiber
+dat_text2a <- data.frame(label = c("rho = 0.221\np = 0.336", "rho = -0.597\np = 0.00699"),
+                         group = c("Placebo", "Prebiotic"), softest_stool = c(6.75, 6.75), weight = c(81, 81))
+
+fig2a <- ggplot(merge_df, aes(x=weight, y = softest_stool)) +
+  geom_point() +
+  geom_smooth(method = "lm", se=F) +
+  facet_wrap(~group) +
+  labs(x="Weight (kg)", y = "Highest Bristol Score") +
+  theme_bw() +
+  geom_text(dat_text2a, mapping = aes(x=weight, y = softest_stool, label=label))
+
+dat_text2b <- data.frame(label = c("rho = 0.108\np = 0.640", "rho = -0.429\np = 0.0756"),
+                         group = c("Placebo", "Prebiotic"), softest_stool = c(6.75, 6.75), fiber = c(30, 30))
+
+fig2b <- ggplot(merge_df, aes(x=Dietary.fiber..g., y = softest_stool)) +
+  geom_point() +
+  geom_smooth(method = "lm", se=F) +
+  facet_wrap(~group) +
+  labs(x="Dietary Fiber Intake (g/day)", y = "Highest Bristol Score") +
+  theme_bw() +
+  geom_text(dat_text2b, mapping = aes(x=fiber, y = softest_stool, label=label))
+
+dat_text2c <- data.frame(label = c("rho = 0.0811\np = 0.727", "rho = -0.550\np = 0.0148"),
+                         group = c("Placebo", "Prebiotic"), borborygmi = c(4.5, 4.5), weight = c(81, 81))
+
+fig2c <- ggplot(merge_df, aes(x=weight, y = borborygmi)) +
+  geom_point() +
+  geom_smooth(method = "lm", se=F) +
+  facet_wrap(~group) +
+  labs(x="Weight (kg)", y = "Stomach Rumblings") +
+  theme_bw() +
+  geom_text(dat_text2c, mapping = aes(x=weight, y = borborygmi, label=label))
+
+dat_text2d <- data.frame(label = c("rho = -0.324\np = 0.152", "rho = -0.657\np = 0.00308"),
+                         group = c("Placebo", "Prebiotic"), borborygmi = c(4.5, 4.5), fiber = c(30, 30))
+
+fig2d <- ggplot(merge_df, aes(x=Dietary.fiber..g., y = borborygmi)) +
+  geom_point() +
+  geom_smooth(method = "lm", se=F) +
+  facet_wrap(~group) +
+  labs(x="Dietary Fiber Intake (g/day)", y = "Stomach Rumblings") +
+  theme_bw() +
+  geom_text(dat_text2d, mapping = aes(x=fiber, y = borborygmi, label=label))
+
+fig2e <- readRDS("../diet data/fig2e.RDS")
+fig2f <- readRDS("../diet data/fig2f.RDS")
+
+patch2 <- (fig2a + fig2c) / (fig2b + fig2d) / (fig2e + fig2f) + plot_annotation(tag_levels = 'A')
+#ggsave("figures/figure2.png", patch2, height=9, width=9)
+
+# Supp fig
+cor.test(merge_df[merge_df$group == "Prebiotic",]$weight, merge_df[merge_df$group == "Prebiotic",]$Dietary.fiber..g., method="spearman") # rho = 0.2849768, p = 0.2517
+cor.test(merge_df[merge_df$group == "Placebo",]$weight, merge_df[merge_df$group == "Placebo",]$Dietary.fiber..g., method="spearman") # rho = -0.02859, p = 0.9021
+
+dat_text_s3a <- data.frame(label = c("rho = -0.0286\np = 0.902", "rho = 0.285\np = 0.252"),
+                         group = c("Placebo", "Prebiotic"), weight = c(90, 90), fiber = c(36, 36))
+
+fig_s3a <- ggplot(merge_df, aes(x=Dietary.fiber..g., y = weight)) +
+  geom_point() +
+  facet_wrap(~group) +
+  labs(x="Dietary Fiber Intake (g/day)", y = "Weight (kg)") +
+  theme_bw() +
+  geom_text(dat_text_s3a, mapping = aes(x=fiber, y = weight, label=label))
+
+merge_df$fiber.prop <- merge_df$Dietary.fiber..g. / merge_df$Energy..kcal.
+
+cor.test(merge_df[merge_df$group == "Prebiotic",]$softest_stool, merge_df[merge_df$group == "Prebiotic",]$Energy..kcal., method="spearman") # rho = -0.3656606, p = 0.1356
+cor.test(merge_df[merge_df$group == "Placebo",]$softest_stool, merge_df[merge_df$group == "Placebo",]$Energy..kcal., method="spearman") # rho = -0.08917507, p = 0.7007
+
+dat_text_s3b <- data.frame(label = c("rho = -0.0892\np = 0.701", "rho = -0.366\np = 0.136"),
+                         group = c("Placebo", "Prebiotic"), softest_stool = c(6.5, 6.5), energy = c(2200, 2200))
+
+fig_s3b <- ggplot(merge_df, aes(x=Energy..kcal., y = softest_stool)) +
+  geom_point() +
+  facet_wrap(~group) +
+  labs(x="Total Energy Intake (kcal/day)", y = "Highest Bristol Score") +
+  theme_bw()+
+  geom_text(dat_text_s3b, mapping = aes(x=energy, y = softest_stool, label=label))
+
+cor.test(merge_df[merge_df$group == "Prebiotic",]$borborygmi, merge_df[merge_df$group == "Prebiotic",]$Energy..kcal., method="spearman") # rho = -0.4842828 , p = 0.04169
+cor.test(merge_df[merge_df$group == "Placebo",]$borborygmi, merge_df[merge_df$group == "Placebo",]$Energy..kcal., method="spearman") # rho = -0.2883, p = 0.205
+
+dat_text_s3c <- data.frame(label = c("rho = -0.288\np = 0.205", "rho = -0.484\np = 0.0417"),
+                         group = c("Placebo", "Prebiotic"), borborygmi = c(4.5, 4.5), energy = c(2200, 2200))
+
+fig_s3c <- ggplot(merge_df, aes(x=Energy..kcal., y = borborygmi)) +
+  geom_point() +
+  facet_wrap(~group) +
+  labs(x="Total Energy Intake (kcal/day)", y = "Stomach Rumblings") +
+  theme_bw() +
+  geom_text(dat_text_s3c, mapping = aes(x=energy, y = borborygmi, label=label))
+
+cor.test(merge_df[merge_df$group == "Prebiotic",]$borborygmi, merge_df[merge_df$group == "Prebiotic",]$fiber.prop, method="spearman") # rho = -0.4484928  , p = 0.06193
+cor.test(merge_df[merge_df$group == "Placebo",]$borborygmi, merge_df[merge_df$group == "Placebo",]$fiber.prop, method="spearman") # rho = -0.4144312, p = 0.06178
+
+dat_text_s3d <- data.frame(label = c("rho = -0.414\np = 0.0612", "rho = -0.448\np = 0.0619"),
+                         group = c("Placebo", "Prebiotic"), borborygmi = c(4.5, 4.5), fiber.prop = c(0.02, 0.02))
+
+fig_s3d <- ggplot(merge_df, aes(x=fiber.prop, y = borborygmi)) +
+  geom_point() +
+  facet_wrap(~group) +
+  labs(x="Proportional Fiber Intake (g/kcal)", y = "Stomach Rumblings") +
+  theme_bw() +
+  geom_text(dat_text_s3d, mapping = aes(x=fiber.prop, y = borborygmi, label=label))
+
+patch_s3 <- (fig_s3a + fig_s3b) / (fig_s3c + fig_s3d) + plot_annotation(tag_levels = 'A')
+#ggsave("figures/figure_s3.png", patch_s3, height=6, width=9)
+
+
+
+# Additional stats testing...
+merge_df <- merge_df %>% mutate(across(6:15, recode_likert))
+
+# Test weight vs. borborygmi
+## Weight x borborygmi 0.03516; x dietary fiber unadjusted 0.04559 (note: energy kcal NS)
+wilcox.test(merge_df[merge_df$borborygmi=="yes",]$fiber.prop,
+            merge_df[merge_df$borborygmi=="no",]$fiber.prop, exact = F) 
+
+# Softest stool
+cor.test(merge_df$softest_stool, merge_df$fiber.prop, method="spearman")
+
+# Linear model with both fiber and weight
+lm(formula = se$GI_discomfort_caused ~ weight + Dietary.fiber..g., data = merge_df) %>% summary()
+
+wilcox.test(merge_df[merge_df$softest_stool > 6,]$Dietary.fiber..g.,
+            merge_df[merge_df$softest_stool <= 6,]$Dietary.fiber..g., exact = F, na.rm=T) 
+
+
+# Other things to test
+# BMI/Height/diet/age
+# Check correlation on: softest_stool vs. BMI
+p <- ggplot(merge_df, aes(x=flatulence, y=Which.of.these.options.best.describes.your.diet...Select.one)) +
+  geom_point(position=position_jitter(width = 0.05, height = 0)) + theme_bw()
+
+
+
+
+
+# Softest stool
+cor.test(postffq[postffq$group == "Placebo",]$softest_stool, postffq[postffq$group == "Placebo",]$Energy..kcal.,  method="spearman")
+# rho = 0.108382, p = 0.64
+cor.test(postffq[postffq$group == "Prebiotic",]$borborygmi, postffq[postffq$group == "Prebiotic",]$Dietary.fiber..g.,  method="spearman")
+# rho = -0.42907, p = 0.0756
+
+sedemo <- cormat(se, demo)
+sedemo.p <- pmat(se, demo, p.adj = "none")
+
+sediet <- cormat(taxa, cog.sum)
+sediet.p <- pmat(taxa, cog.sum, p.adj = "fdr")
+
+
+
+```
