@@ -1,0 +1,6 @@
+likert1,likert2,numerical
+Strongly disagree,greatly reduced,1
+Disagree,reduced,2
+Neither agree nor disagree,did not affect,3
+Agree,increased,4
+Strongly agree,greatly increased,5
