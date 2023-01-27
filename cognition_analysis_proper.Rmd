@@ -1,0 +1,239 @@
+
+# Cognition data proper
+
+Load libraries
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+library(stats)
+library(lme4)
+library(lmerTest)
+library(arm)
+library(fitdistrplus)
+library(RColorBrewer)
+
+```
+
+
+Load data
+```{r}
+set.seed(1911981)
+
+cog <- read.csv(file = "data/cog_zscored_blind_simple.csv", stringsAsFactors = T)
+
+# Set T1 as intercept
+cog$time_adj <- factor(cog$time_adj, levels=c("T1", "F1", "T2", "F2", "T3", "F3"))
+
+```
+
+Build and run linear model
+```{r}
+# Identify model output variable names
+fit <- lmer(Efficiency ~ time_adj * group + (1 | ID_blind), data=cog)
+summary(fit)
+
+
+# Build an empty data frame to load effect estimates and p-values into
+tests <- colnames(cog)[6:28]
+
+indiv.tests <- data.frame(test = tests, intercept.es=NA, intercept.pval=NA,
+                          day_approxF1.es = NA, day_approxF1.pval = NA, day_approxT2.es = NA,
+                          day_approxT2.pval = NA, day_approxF2.es = NA, day_approxF2.pval = NA,
+                          day_approxT3.es = NA, day_approxT3.pval = NA, day_approxF3.es = NA,
+                          day_approxF3.pval = NA, groupGREEN.es = NA, groupGREEN.pval = NA, 
+                          day_approxF1_groupGREEN.es = NA, day_approxF1_groupGREEN.pval = NA,
+                          day_approxT2_groupGREEN.es = NA, day_approxT2_groupGREEN.pval = NA,
+                          day_approxF2_groupGREEN.es = NA, day_approxF2_groupGREEN.pval = NA,
+                          day_approxT3_groupGREEN.es = NA, day_approxT3_groupGREEN.pval = NA,
+                          day_approxF3_groupGREEN.es = NA, day_approxF3_groupGREEN.pval = NA)
+
+for(test in tests) {
+  indiv.tests[indiv.tests$test == test, c(1:12*2)] <- lmer(eval(parse(text=test)) ~ time_adj*group + (1 | ID_blind),
+                                                            data=cog) %>%
+    summary(.) %>% .$coefficients %>% .[,"Estimate"]
+  
+  indiv.tests[indiv.tests$test == test, c(1:12*2+1)] <- lmer(eval(parse(text=test)) ~ time_adj*group + (1 | ID_blind),
+                                                            data=cog) %>%
+    summary(.) %>% .$coefficients %>% .[,"Pr(>|t|)"]
+}
+
+for(c in colnames(indiv.tests)[c(1:12*2+1)]) {
+  indiv.tests[,c] <- p.adjust(indiv.tests[,c], "BH")
+}
+
+#write.csv(x = indiv.tests, file = "cognition lmer results T1 ref.csv")
+
+
+```
+
+Graph
+```{r}
+
+cog.melt <- gather(cog, test, zscore, 6:28)
+
+# Rename things
+cog.melt$group <- as.character(cog.melt$group)
+cog.melt$time_adj <- as.character(cog.melt$time_adj)
+cog.melt[cog.melt$group == "BLACK",  "group"] <- "Placebo"
+cog.melt[cog.melt$group == "GREEN",  "group"] <- "Prebiotic"
+cog.melt[cog.melt$time_adj == "T1",  "time_adj"] <- "B2"
+cog.melt[cog.melt$time_adj == "F1",  "time_adj"] <- "B5"
+cog.melt[cog.melt$time_adj == "T2",  "time_adj"] <- "T2"
+cog.melt[cog.melt$time_adj == "F2",  "time_adj"] <- "T5"
+cog.melt[cog.melt$time_adj == "T3",  "time_adj"] <- "F2"
+cog.melt[cog.melt$time_adj == "F3",  "time_adj"] <- "F5"
+cog.melt$time_adj <- factor(cog.melt$time_adj, levels=c("B2", "B5", "T2", "T5", "F2", "F5")) 
+
+
+# Reorder tests
+cog.melt$test <- factor(cog.melt$test, levels=c("AM_pCorr", "BART_RiskScoreP", "DSST_pCorr", "ERT_pCorr", "LOT_Accuracy", "MP_Accuracy", "MRT_pCorr", "NBCK_Av_pCorr", "PVT_Accuracy", "VOLT_pCorr", "AM_AvRT", "BART_AvRT", "DSST_AvRT", "ERT_AvRT", "LOT_AvRT", "MP_AvRT", "MRT_AvRT", "NBCK_AvRT", "PVT_Slowness", "VOLT_AvRT", "Accuracy", "Speed", "Efficiency"))
+
+cog.data <- cog.melt %>% group_by(group, time_adj, test) %>%
+  dplyr::summarize(mean=mean(zscore), n = length(zscore), se=sd(zscore)/sqrt(length(zscore)))
+
+cog.plot2 <- ggplot(cog.melt, aes(x=time_adj, y=zscore, group=group, color=group)) +
+  geom_point(position=position_jitterdodge(0.1), alpha=0.25) + 
+  facet_wrap(~test, scales="free_y") +
+  geom_point(data=cog.data, aes(x=time_adj, y=mean), position=position_dodge(0.75), size=3) +
+  geom_line(data=cog.data, aes(x=time_adj, y=mean)) +
+  geom_linerange(data=cog.data, aes(x=time_adj,ymin=mean-se, ymax=mean+se, group=group, color=group), 
+               position=position_dodge(0.75), size=1, inherit.aes = F) +
+  #scale_color_manual(values=c("black", "forestgreen")) +
+  labs(y="Z-score", x="Time Point", color="Group") +
+  theme_bw() + theme(legend.position = "bottom")
+
+ggsave(filename = "./figures 02/all results COG for side effects.png", plot = cog.plot2, height=8, width=8)
+
+accuracy <- colnames(cog)[5+(1:10 * 2)]
+speed <- colnames(cog)[5+(1:10 * 2 - 1)]
+overall <- colnames(cog)[26:28]
+
+acc.pts <- cog.melt[cog.melt$test %in% accuracy,]
+speed.pts <- cog.melt[cog.melt$test %in% speed,]
+overall.pts <- cog.melt[cog.melt$test %in% overall,]
+
+acc.data <- cog.data[cog.data$test %in% accuracy,]
+speed.data <- cog.data[cog.data$test %in% speed,]
+overall.data <- cog.data[cog.data$test %in% overall,]
+
+
+acc.plot <- ggplot(acc.pts, aes(x=time_adj, y=zscore, group=group, color=group)) +
+  geom_point(position=position_jitterdodge(0.1), alpha=0.25) + theme_test() +
+  facet_wrap(~test, scales="free_y") +
+  geom_point(data=acc.data, aes(x=time_adj, y=mean), position=position_dodge(0.75), size=3) +
+  geom_line(data=acc.data, aes(x=time_adj, y=mean)) +
+  geom_linerange(data=acc.data, aes(x=time_adj,ymin=mean-se, ymax=mean+se, group=group, color=group), 
+               position=position_dodge(0.75), size=1, inherit.aes = F) +
+  scale_color_manual(values=c("black", "forestgreen"))
+
+#ggsave(filename = "./figures 02/accuracy.svg", plot = acc.plot, height=8, width=12)
+
+speed.plot <- ggplot(speed.pts, aes(x=time_adj, y=zscore, group=group, color=group)) +
+  geom_point(position=position_jitterdodge(0.1), alpha=0.25) + theme_test() +
+  facet_wrap(~test, scales="free_y") +
+  geom_point(data=speed.data, aes(x=time_adj, y=mean), position=position_dodge(0.75), size=3) +
+  geom_line(data=speed.data, aes(x=time_adj, y=mean)) +
+  geom_linerange(data=speed.data, aes(x=time_adj,ymin=mean-se, ymax=mean+se, group=group, color=group), 
+               position=position_dodge(0.75), size=1, inherit.aes = F) +
+  scale_color_manual(values=c("black", "forestgreen"))
+
+#ggsave(filename = "./figures 02/speed.svg", plot = speed.plot, height=8, width=12)
+
+overall.plot <- ggplot(overall.pts, aes(x=time_adj, y=zscore, group=group, color=group)) +
+  geom_point(position=position_jitterdodge(0.1), alpha=0.25) + theme_test() +
+  facet_wrap(~test, scales="free_y") +
+  geom_point(data=overall.data, aes(x=time_adj, y=mean), position=position_dodge(0.75), size=3) +
+  geom_line(data=overall.data, aes(x=time_adj, y=mean)) +
+  geom_linerange(data=overall.data, aes(x=time_adj,ymin=mean-se, ymax=mean+se, group=group, color=group), 
+               position=position_dodge(0.75), size=1, inherit.aes = F) +
+  scale_color_manual(values=c("black", "forestgreen"))
+
+#ggsave(filename = "./figures 02/overall.svg", plot = overall.plot, height=3.5, width=10)
+
+
+
+```
+
+
+Results
+# BLACK improved over GREEN in a few RT metrics
+
+Just to make ourselves extra (or less...) confident, let's run the model with F1 as the intercept
+Build and run linear model
+```{r}
+cog$time_adj <- factor(cog$time_adj, levels=c("F1", "T1", "T2", "F2", "T3", "F3"))
+
+
+# Build an empty data frame to load effect estimates and p-values into
+tests <- colnames(cog)[6:28]
+
+indiv.tests <- data.frame(test = tests, intercept.es=NA, intercept.pval=NA,
+                          day_approxF1.es = NA, day_approxF1.pval = NA, day_approxT2.es = NA,
+                          day_approxT2.pval = NA, day_approxF2.es = NA, day_approxF2.pval = NA,
+                          day_approxT3.es = NA, day_approxT3.pval = NA, day_approxF3.es = NA,
+                          day_approxF3.pval = NA, groupGREEN.es = NA, groupGREEN.pval = NA, 
+                          day_approxF1_groupGREEN.es = NA, day_approxF1_groupGREEN.pval = NA,
+                          day_approxT2_groupGREEN.es = NA, day_approxT2_groupGREEN.pval = NA,
+                          day_approxF2_groupGREEN.es = NA, day_approxF2_groupGREEN.pval = NA,
+                          day_approxT3_groupGREEN.es = NA, day_approxT3_groupGREEN.pval = NA,
+                          day_approxF3_groupGREEN.es = NA, day_approxF3_groupGREEN.pval = NA)
+
+for(test in tests) {
+  indiv.tests[indiv.tests$test == test, c(1:12*2)] <- lmer(eval(parse(text=test)) ~ time_adj*group + (1 | ID_blind),
+                                                            data=cog) %>%
+    summary(.) %>% .$coefficients %>% .[,"Estimate"]
+  
+  indiv.tests[indiv.tests$test == test, c(1:12*2+1)] <- lmer(eval(parse(text=test)) ~ time_adj*group + (1 | ID_blind),
+                                                            data=cog) %>%
+    summary(.) %>% .$coefficients %>% .[,"Pr(>|t|)"]
+}
+
+for(c in colnames(indiv.tests)[c(1:12*2+1)]) {
+  indiv.tests[,c] <- p.adjust(indiv.tests[,c], "BH")
+}
+
+#write.csv(x = indiv.tests, file = "cognition lmer results F1 ref.csv")
+
+
+```
+
+Map side effects
+```{r}
+post <- read.csv("../side effects/side effect summary.csv", row.names=1)
+
+map <- read.csv("unblind_map.csv")
+
+cog.ae <- cog
+cog.ae$ID_blind <- mapvalues(cog.ae$ID_blind, map$blind, map$orig)
+colnames(cog.ae)[1] <- "ID"
+cog.ae$group <- as.character(cog.ae$group)
+cog.ae[cog.ae$group == "BLACK", "group"] <- "Placebo"
+cog.ae[cog.ae$group == "GREEN", "group"] <- "Prebiotic"
+
+cog.ae$weight <- mapvalues(cog.ae$ID, post$ID, post$weight) %>% as.character() %>% as.numeric()
+cog.ae$softest_stool <- mapvalues(cog.ae$ID, post$ID, post$softest_stool) %>% as.character() %>% as.numeric()
+cog.ae$GI_discomfort_caused <- mapvalues(cog.ae$ID, post$ID, post$GI_discomfort_caused) %>% as.character() %>% as.numeric()
+cog.ae$borborygmi <- mapvalues(cog.ae$ID, post$ID, post$borborygmi) %>% as.character() %>% as.numeric()
+cog.ae$flatulence <- mapvalues(cog.ae$ID, post$ID, post$flatulence) %>% as.character() %>% as.numeric()
+cog.ae$bloating <- mapvalues(cog.ae$ID, post$ID, post$bloating) %>% as.character() %>% as.numeric()
+cog.ae$ae_total <- mapvalues(cog.ae$ID, post$ID, post$ae_total) %>% as.character() %>% as.numeric()
+
+cog.ae <- gather(cog.ae, key=cogtest, value=zscore, 6:28)
+cog.ae <- cog.ae[cog.ae$cogtest %in% c("Accuracy", "Efficiency", "Speed"),]
+cog.data <- cog.ae %>% group_by(group, time_adj, cogtest) %>%
+  dplyr::summarize(mean=mean(zscore), se=sd(zscore)/sqrt(length(zscore)))
+
+cog.plot3 <- ggplot(cog.ae, aes(x=time_adj, y=zscore, group=group, shape=group, color=GI_discomfort_caused)) +
+  geom_point(position=position_jitterdodge(0.1)) + theme_test() +
+  facet_wrap(~cogtest, scales="free_y") +
+  geom_point(data=cog.data, aes(x=time_adj, y=mean), position=position_dodge(0.75), size=3, color="red") +
+  geom_line(data=cog.data, aes(x=time_adj, y=mean), color="red") +
+  geom_linerange(data=cog.data, aes(x=time_adj,ymin=mean-se, ymax=mean+se, group=group), 
+               position=position_dodge(0.75), size=1, inherit.aes = F, color="black") +
+  scale_color_distiller(palette="RdBu")
+
+# Side effects really do not seem connected to change in cognition score!
+
+```
+
