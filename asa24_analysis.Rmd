@@ -10,11 +10,19 @@ library(dplyr)
 library(ggplot2)
 library(patchwork)
 library(ggsignif)
+
+theme_set(theme_bw() +
+            theme(axis.text = element_text(color = "black"),
+                  axis.ticks = element_line(color = "black"),
+                  plot.title = element_text(hjust = 0.5)))
+
+set.seed(123)
+
 ```
 
 Load data
 ```{r}
-totals <- read.csv("onr_2021-02-24_42373_Totals.csv")
+totals <- read.csv("data/onr_2021-02-24_42373_Totals.csv")
 
 map <- totals %>% select(UserName, ONR_ID) %>%
   distinct()
@@ -30,7 +38,7 @@ totals <- totals %>% mutate(group= if_else(ONR_ID %in% blue, "Prebiotic", "Place
   relocate(group, .after=ONR_ID)
 
 # Did anyone enter the study bar despite being instructed not to?
-items <- read.csv("onr_2021-06-18_51447_Items.csv") %>%
+items <- read.csv("data/onr_2021-06-18_51447_Items.csv") %>%
   left_join(map) %>%
   relocate(ONR_ID, .after=UserName) %>%
   filter(!is.na(ONR_ID))
@@ -45,7 +53,7 @@ bars <- items %>%
 ## A few others were slightly suspect (e.g. Clif Bar) but either present both weeks or only week 1
 
 # Add in study bar
-bars <- read.csv("placebo_bar_nutrition.csv", row.names = 1) %>%
+bars <- read.csv("data/placebo_bar_nutrition.csv", row.names = 1) %>%
   t()
 bars <- bars * 2
 
@@ -75,7 +83,6 @@ p_kcal <- ggplot(totals, aes(x=group, y=KCAL, group=RecallNo, color=RecallNo)) +
                 position = position_dodge(0.7), color="red", width=0.5, inherit.aes = F) +
   geom_errorbar(kcal_summary, mapping = aes(x=group, ymin=mean-se, ymax=mean+se, group=RecallNo),
                 position = position_dodge(0.7), width=0.25, inherit.aes = F) +
-  theme_bw() +
   labs(color="Week", x = "Group", y = "Total Calories") +
   theme(legend.position = "none")
   
@@ -93,12 +100,11 @@ p_fiber <- ggplot(totals, aes(x=group, y=FIBE)) +
                 position = position_dodge(0.7), color="red", width=0.5, inherit.aes = F) +
   geom_errorbar(fiber_summary, mapping = aes(x=group, ymin=mean-se, ymax=mean+se, group=RecallNo),
                 position = position_dodge(0.7), width=0.25, inherit.aes = F) +
-  theme_bw() +
   labs(color="Week", x = "Group", y = "Fiber Intake (g)")
 
 patch <- p_fiber + p_kcal + plot_annotation(tag_levels = 'A')
 
-#ggsave("figures/figure_s2.png", patch, height=3, width=6)
+#ggsave("plots/figure_s2.png", patch, height=3, width=6)
 
 ```
 
@@ -140,20 +146,20 @@ baseline_asa24_fiber <- ggplot(diff_fiber, aes(x=group, y=Baseline, color=group)
                 color="red", width=0.5, inherit.aes = F) +
   geom_errorbar(fiber_summary[fiber_summary$RecallNo == "Baseline",], mapping = aes(x=group, ymin=mean-se, ymax=mean+se),
                 width=0.25, inherit.aes = F) +
-  theme_bw() +
   theme(legend.position="none")
 
 # DHQ3
-dhq3 <- read.csv("FFQ results fixed.csv") %>%
+dhq3 <- read.csv("data/FFQ results fixed.csv") %>%
   left_join(totals[,3:4], by=c("ID" = "ONR_ID")) %>%
-  relocate(group, .after=ID)
+  relocate(group, .after=ID) %>%
+  distinct()
 
 dhq_summary <- dhq3 %>% select(ID, group, Dietary.fiber..g.) %>%
   group_by(group) %>%
-  summarize(mean=mean(Dietary.fiber..g.), se=sd(Dietary.fiber..g.)/sqrt(length(Dietary.fiber..g.)))
+  dplyr::summarize(mean=mean(Dietary.fiber..g.), se=sd(Dietary.fiber..g.)/sqrt(length(Dietary.fiber..g.)))
 
 wilcox.test(dhq3[dhq3$group == "Prebiotic",]$Dietary.fiber..g.,
-            dhq3[dhq3$group == "Placebo",]$Dietary.fiber..g., paired = F) # p-value = 0.527944
+            dhq3[dhq3$group == "Placebo",]$Dietary.fiber..g., paired = F) # p-value = 0.6863
 
 baseline_dhq3_fiber <- ggplot(dhq3, aes(x=group, y=Dietary.fiber..g., color=group)) +
   geom_point(position=position_jitter(0.1), alpha=0.5) +
@@ -162,12 +168,11 @@ baseline_dhq3_fiber <- ggplot(dhq3, aes(x=group, y=Dietary.fiber..g., color=grou
                 color="red", width=0.5, inherit.aes = F) +
   geom_errorbar(dhq_summary, mapping = aes(x=group, ymin=mean-se, ymax=mean+se),
                 width=0.25, inherit.aes = F) +
-  theme_bw() +
   theme(legend.position="none")
 
 patch2 <- baseline_dhq3_fiber + baseline_asa24_fiber + plot_annotation(tag_levels = 'A')
 
-#ggsave("figures/figure_s_baseline_fiber.png", patch2, height=3, width=6)
+#ggsave("plots/figure_s_baseline_fiber.png", patch2, height=3, width=6)
 
 ```
 
@@ -176,7 +181,7 @@ patch2 <- baseline_dhq3_fiber + baseline_asa24_fiber + plot_annotation(tag_level
 Did side effects correlate with ~difference~ in fiber intake?
 ```{r}
 # Side effects
-se <- read.csv("../side effects/postintervention.csv")
+se <- read.csv("data/postintervention.csv")
 
 # Recode
 se[se == "Strongly disagree" | se == "greatly reduced"] <- 1
@@ -196,7 +201,7 @@ mean(se_fiber[se_fiber$group == "Prebiotic", "change"]) # 16.29213
 
 cor.test(se_fiber[se_fiber$group == "Prebiotic", ]$change,
          se_fiber[se_fiber$group == "Prebiotic", ]$hardest_stool, method = "spearman")
-# I ran the sollowing tests:
+# I ran the following tests:
 # Change with hardest_stool: p = 0.008132 **
 # Change with most_frequent_stool: p = 0.01513 *
 # Change with softest_stool: p = 0.02365 *
@@ -212,12 +217,11 @@ dat_text1 <- data.frame(label = c("rho = -0.0909\np = 0.720", "rho = 0.516\np = 
 p_soft <- ggplot(se_fiber, aes(x=change, y=softest_stool)) +
   geom_point() +
   geom_smooth(method="lm", se=F) +
-  theme_bw() +
   facet_wrap(~group, scales = "free_x") +
   labs(x="Change in Fiber Intake (g)", y="Highest Bristol Score") +
   geom_text(dat_text1, mapping = aes(x=change, y = bristol, label=label))
 
-saveRDS(p_soft, "fig2e.RDS")
+saveRDS(p_soft, "plots/fig2e.RDS")
 
 dat_text2 <- data.frame(label = c("rho = -0.296\np = 0.233", "rho = 0.507\np = 0.0267"),
                          group = c("Placebo", "Prebiotic"), bristol = c(4.5, 4.5), change = c(-15, 7.5))
@@ -225,12 +229,11 @@ dat_text2 <- data.frame(label = c("rho = -0.296\np = 0.233", "rho = 0.507\np = 0
 p_bor <- ggplot(se_fiber, aes(x=change, y=borborygmi)) +
   geom_point() +
   geom_smooth(method="lm", se=F) +
-  theme_bw() +
   facet_wrap(~group, scales = "free_x") +
   labs(x="Change in Fiber Intake (g)", y="Stomach Rumblings") +
   geom_text(dat_text2, mapping = aes(x=change, y = bristol, label=label))
 
-saveRDS(p_bor, "fig2f.RDS")
+saveRDS(p_bor, "plots/fig2f.RDS")
 
 dat_text3 <- data.frame(label = c("rho = -0.389\np = 0.111", "rho = 0.548\np = 0.0151"),
                          group = c("Placebo", "Prebiotic"), bristol = c(6.3,6), change = c(0, 7.5))
@@ -238,7 +241,6 @@ dat_text3 <- data.frame(label = c("rho = -0.389\np = 0.111", "rho = 0.548\np = 0
 p_avg <- ggplot(se_fiber, aes(x=change, y=most_frequent_stool)) +
   geom_point() +
   geom_smooth(method="lm", se=F) +
-  theme_bw() +
   facet_wrap(~group, scales = "free_x") +
   labs(x="Change in Fiber Intake (g)", y="Most Frequent Bristol Score") +
   geom_text(dat_text3, mapping = aes(x=change, y = bristol, label=label))
@@ -249,14 +251,13 @@ dat_text4 <- data.frame(label = c("rho = -0.370\np = 0.130", "rho = 0.588\np = 0
 p_hard <- ggplot(se_fiber, aes(x=change, y=hardest_stool)) +
   geom_point() +
   geom_smooth(method="lm", se=F) +
-  theme_bw() +
   facet_wrap(~group, scales = "free_x") +
   labs(x="Change in Fiber Intake (g)", y="Lowest Bristol Score") +
   geom_text(dat_text4, mapping = aes(x=change, y = bristol, label=label))
 
 patch3 <- p_avg / p_hard + plot_annotation(tag_levels = 'A')
 
-#ggsave("figures/figure_s_change.png", patch3, height=6, width=5)
+#ggsave("plots/figure_s_change.png", patch3, height=6, width=5)
 
 
 ```
