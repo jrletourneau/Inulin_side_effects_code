@@ -1,0 +1,432 @@
+---
+title: "16S analysis for ONR paper"
+output: html_notebook
+---
+
+# Setup
+
+## Load libraries
+```{r}
+library(phyloseq) # Note: this has plyr as a dependency (which messes up dplyr)
+library(ggplot2)
+library(vegan)
+library(dplyr)
+library(RColorBrewer)
+library(lme4)
+library(microbiome)
+library(data.table)
+library(MLeval)
+library(caret)
+library(tidyverse)
+library(here)
+```
+
+## Load in Data
+Load in the 16s data 
+```{r}
+ps <- readRDS(here("data/phyloseq_05042022.rds"))
+
+# remove taxa not seen more than 3 times in at least 25% of samples
+ps <- prune_samples(sample_sums(ps) >= 5000,ps) %>%
+  filter_taxa(function(x) sum(x > 3) > 0.25*length(x), TRUE)
+
+# Only consider the prebiotic group
+ps <- subset_samples(ps, group == "Prebiotic")
+
+# Convert to CLR-transformed
+ps.clr <- microbiome::transform(ps, 'clr')
+```
+
+Load in side effects data
+```{r}
+sideEffects <- read.csv(file = here("data/sideEffectsNumerical.csv"), row.names = 1)
+```
+
+
+## Preprocess the Data
+### Side Effects Data
+Convert side effects into binary classification based upon falling above or below the median value among the prebiotic group
+```{r}
+# Note: Modified some of these  from > to >= s.t. classes are more evenly distributed 
+sideEffects_binarized <- sideEffects %>% 
+  filter(group == "Prebiotic") 
+sideEffects_binarized <- sideEffects_binarized %>%
+  mutate(most_frequent_stool_bin = factor(ifelse(most_frequent_stool > median(sideEffects_binarized$most_frequent_stool), 'upper', 'lower'))) %>%
+  mutate(hardest_stool_bin = factor(ifelse(hardest_stool>=median(sideEffects_binarized$hardest_stool), 'upper', 'lower'))) %>% 
+  mutate(softest_stool_bin = factor(ifelse(softest_stool>median(sideEffects_binarized$softest_stool), 'upper', 'lower'))) %>%
+  mutate(GI_discomfort_caused_bin = factor(ifelse(GI_discomfort_caused >= median(sideEffects_binarized$GI_discomfort_caused), 'upper', 'lower'))) %>%
+  mutate(abdominal_pain_bin = factor(ifelse(abdominal_pain > median(sideEffects_binarized$abdominal_pain), 'upper', 'lower'))) %>%
+  mutate(bloating_bin = factor(ifelse(bloating > median(sideEffects_binarized$bloating), 'upper', 'lower'))) %>%
+  mutate(flatulence_bin = factor(ifelse(flatulence > median(sideEffects_binarized$flatulence), 'upper', 'lower'))) %>%
+  mutate(borborygmi_bin = factor(ifelse(borborygmi > median(sideEffects_binarized$borborygmi), 'upper', 'lower'))) %>%
+  mutate(participant = ID) %>%
+  select(most_frequent_stool_bin, GI_discomfort_caused_bin, abdominal_pain_bin,hardest_stool_bin, softest_stool_bin, bloating_bin, flatulence_bin, borborygmi_bin, participant)
+
+```
+
+### Gather data into form for RF algorithm
+
+Create data frames for the random forest algorithm
+```{r}
+# create tables associated with T1, F1, T2, and F2 timepoints
+t1_ps<- subset_samples(ps.clr, day == "T1")
+t1_df <- data.frame(otu_table(t1_ps))
+t1_df$participant <- sample_data(t1_ps)$participant
+
+f1_ps<- subset_samples(ps.clr, day == "F1")
+f1_df <- data.frame(otu_table(f1_ps))
+f1_df$participant <- sample_data(f1_ps)$participant
+
+t2_ps<- subset_samples(ps.clr, day == "T2")
+t2_df <- data.frame(otu_table(t2_ps))
+t2_df$participant <- sample_data(t2_ps)$participant
+
+f2_ps<- subset_samples(ps.clr, day == "F2")
+f2_df <- data.frame(otu_table(f2_ps))
+f2_df$participant <- sample_data(f2_ps)$participant
+
+# ensure that the participants we are looking at have data across all of the timepoints
+completeParticipants <- Reduce(intersect, list(as.vector(t1_df$participant), as.vector(f1_df$participant),as.vector(t2_df$participant), as.vector(f2_df$participant)))
+
+t1_df <- t1_df %>% 
+  filter(participant %in% completeParticipants)
+f1_df <- f1_df %>% 
+  filter(participant %in% completeParticipants)
+t2_df <- t2_df %>% 
+  filter(participant %in% completeParticipants)
+f2_df <- f2_df %>% 
+  filter(participant %in% completeParticipants)
+
+
+# dataframe formed based upon change in clr from average(T1+F1) to average(T2+F2) 
+df_deltaCLR <- ((t2_df[,1:(dim(t2_df)[2]-1)]+f2_df[,1:(dim(f2_df)[2]-1)])/2) - ((t1_df[,1:(dim(t1_df)[2]-1)]+f1_df[,1:(dim(f1_df)[2]-1)])/2)
+df_deltaCLR$participant <- t1_df$participant
+
+
+# Add symptom data to the dfs
+df_clr_asv <- df_deltaCLR %>%
+  left_join(sideEffects_binarized, by = "participant") %>%
+  select(-participant)
+```
+
+
+# Machine Learning
+
+## Random Forest Function
+```{r}
+# RF pipeline to test each variable input. Applies LOOCV and analyzes AUC performance
+# inputData: dataframe of samples x features. Features include the variables you want to predict
+# variables: variables that you want to predict using the OTU data
+# iterations: number of different iterations to run
+rfTester <- function(inputData, variables,  iterations = 100){
+
+  aucROCDf <- data.frame()
+
+  for (i in 1:iterations){
+    # create training/testing split
+    data <- inputData
+    rows <- sample(nrow(inputData)) # randomly shuffle rows of the dataset to create additional variation between iterations
+    data <- data[rows,]
+    
+    # empty lists to store model metric
+    aucROC <- c()
+  
+    
+    # cycle through each of the variables you want to build a model to predict
+    for (variable in variables) {
+      # remove all variables we don't care about for this particular model
+      currentData <- data %>% 
+        select(-variables[variables != variable])
+    
+      # Train the model using leave one out cross-validation
+      fitControl <- trainControl(method = "LOOCV",
+                                 summaryFunction = prSummary,
+                                 classProbs = T,
+                                 savePredictions = TRUE) 
+      f <- as.formula(paste0(variable, " ~ ."))
+      rf <- train(f, data = currentData,
+                  method = "rf",
+                  trControl = fitControl,
+                  tuneGrid = expand.grid(.mtry=sqrt(ncol(currentData)-1)), # default val of sqrt(# features)
+                  verbose = FALSE, 
+                  metric = "AUC")
+      
+      
+      # Compile resulting metrics
+      plots <- evalm(rf, showplots = FALSE, silent = TRUE)
+      aucROC <- append(aucROC, plots$stdres$`Group 1`[13,1]) # 13th position in this array shows the AUC-ROC score
+    }
+    
+    # add AUCs across the tested variables to the main dataframe for this iteration
+    aucROC <- aucROC %>% 
+      t() %>% 
+      data.frame()
+    names(aucROC) <- variables
+    rownames(aucROC) <- i
+    aucROCDf <- rbind(aucROCDf, aucROC)
+    
+  
+  
+    # Print out how far through the iterations we are
+    print(paste0(i, "/" ,iterations," iterations complete"))
+  }
+  
+  # plot the resulting data into a box plot
+  p <- ggplot(melt(aucROCDf), aes(y = value, x = variable)) +
+    geom_boxplot() +
+    labs(x = "Side Effect", y = "AUC ROC") + 
+    ylim(-1,1)
+  print(p)
+  
+  
+  return(list(aucROC = aucROCDf, plotData = p))
+}
+
+
+# RF pipeline to test each variable input. Applies LOOCV and analyzes AUC performance. This function randomly shuffles outcomes to assess how the model would perform due to random chance
+# inputData: dataframe of samples x features. Features include the variables you want to predict
+# variables: variables that you want to predict using the OTU data
+# iterations: number of different iterations to run
+rfTesterRandom <- function(inputData, variables, iterations = 100){
+  aucROCDf <- data.frame()
+
+  for (i in 1:iterations){
+    data <- inputData
+    # shuffle the outcome variables
+    data[,variables] <- data[sample(nrow(data)),variables]
+    rows <- sample(nrow(data)) # randomly shuffle rows of the dataset to create additional variation between iterations
+    data <- data[rows,]
+    
+    # empty list to store model metric
+    aucROC <- c()
+
+    # cycle through each of the variables you want to build a model to predict
+    for (variable in variables) {
+      # remove all variables we don't care about for this particular model
+      currentData <- data %>% 
+        select(-variables[variables != variable])
+    
+      # Train the model using leave one out cross-validation
+      fitControl <- trainControl(method = "LOOCV",
+                                 summaryFunction = prSummary,
+                                 classProbs = T,
+                                 savePredictions = TRUE) 
+      f <- as.formula(paste0(variable, " ~ ."))
+      rf <- train(f, data = currentData,
+                  method = "rf",
+                  trControl = fitControl,
+                  tuneGrid = expand.grid(.mtry=sqrt(ncol(currentData)-1)), # default val of sqrt(# features)
+                  verbose = FALSE, 
+                  metric = "AUC")
+
+      
+      # Compile resulting metrics
+      plots <- evalm(rf, showplots = FALSE, silent = TRUE)
+      aucROC <- append(aucROC, plots$stdres$`Group 1`[13,1]) # 13th position in this array shows the AUC-ROC score 14 is AUC-PR
+
+          }
+    
+    # add auc across the tested variables to the main dataframe for this iteration
+    aucROC <- aucROC %>% 
+      t() %>% 
+      data.frame()
+    names(aucROC) <- variables
+    rownames(aucROC) <- i
+    aucROCDf <- rbind(aucROCDf, aucROC)
+
+    # Print out how far through the iterations we are
+    if(i %% 10 == 0){
+      print(paste0(i, "/" ,iterations," iterations complete"))
+    }
+  }
+    
+  # plot the resulting data into a box plot
+  # p <- ggplot(melt(aucROCDf), aes(y = value, x = variable, color = variable)) +
+  #   geom_boxplot() +
+  #   labs(x = "Side Effect", y = "AUC") +
+  #   ylim(0,1) +
+  #   theme_bw()  +
+  #   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none")
+
+  # print(p)
+  
+  
+  return(list(aucROC = aucROCDf))
+  
+}
+
+```
+
+
+
+
+
+## Models for each symptom
+Run models with each symptom. Compare performance to that of randomly shuffled outcome data.
+```{r}
+set.seed(12345) # Random seed, keep this to obtain the same figure as in the paper
+
+# Make sure to keep variables in this order so colnames works properly
+variables <- c("most_frequent_stool_bin", "hardest_stool_bin","softest_stool_bin","GI_discomfort_caused_bin", "abdominal_pain_bin", "bloating_bin", "flatulence_bin", "borborygmi_bin")
+
+inputData <- df_clr_asv 
+aucDf_clr_asv <- rfTester(inputData = inputData, variables = variables, iterations = 100)
+aucDf_clr_asv_random <- rfTesterRandom(inputData = inputData, variables = variables, iterations = 1000)
+```
+
+
+
+What percent of the random shuffles does the true data perform better than?
+```{r fig.width  = 14}
+(lapply(aucDf_clr_asv$aucROC, mean)>=aucDf_clr_asv_random$aucROC) %>%
+  colSums() / 1000
+
+colnames(aucDf_clr_asv$aucROC) <- c("Most Frequent Bristol Score", "Highest Bristol Score", "Lowest Bristol Score", "GI Discomfort", "Abdominal Pain", "Bloating", "Flatulence", "Stomach Rumblings")
+colnames(aucDf_clr_asv_random$aucROC) <- c("Most Frequent Bristol Score", "Highest Bristol Score", "Lowest Bristol Score", "GI Discomfort", "Abdominal Pain", "Bloating", "Flatulence", "Stomach Rumblings")
+
+ggplot(data = melt(rbind(data.frame(aucDf_clr_asv$aucROC, type = "True"), data.frame(aucDf_clr_asv_random$aucROC, type = "Shuffled"))), aes(x = variable, y = value, color = type))  + 
+  geom_boxplot() +
+  labs(y = "AUC") +
+  scale_x_discrete(labels=c("Most.Frequent.Bristol.Score" = "Most Frequent Bristol Score", "Highest.Bristol.Score" = "Highest Bristol Score", "Lowest.Bristol.Score" = "Lowest Bristol Score", "GI.Discomfort" = "GI Discomfort", "Abdominal.Pain" = "Abdominal Pain", "Bloating" = "Bloating", "Flatulence" = "Flatulence", "Stomach.Rumblings" = "Stomach Rumblings"))
+
+
+```
+
+
+
+## Run Focused Random Forest Models for Flatulence
+```{r}
+set.seed(12345) # Random seed, keep this to obtain the same figure as in the paper
+
+# Create empty objects to be loaded with output statistics
+importanceDf <- data.frame()
+auc <- c()
+roc.data <- data.frame()
+
+# isolate just the variable we care about here - flatulence
+clrData <- df_clr_asv %>% 
+  select(-"most_frequent_stool_bin", -"hardest_stool_bin",-"softest_stool_bin",-"GI_discomfort_caused_bin", -"abdominal_pain_bin", -"bloating_bin", -"borborygmi_bin")
+
+# Iterate through the random forest model 100 times
+for (i in 1:100){
+
+  data <- clrData
+  rows <- sample(nrow(clrData)) # randomly shuffle rows of the dataset to create additional variation between iterations
+  data <- data[rows,]
+  
+  # Train the model
+  fitControl <- trainControl(method = "LOOCV",
+                             summaryFunction = prSummary,
+                             classProbs = T,
+                             savePredictions = TRUE) 
+  rf <- train(flatulence_bin ~ ., data = data,
+              method = "rf",
+              trControl = fitControl,
+              tuneGrid = expand.grid(.mtry=sqrt(ncol(data)-1)), # default val of sqrt(# features)
+              verbose = FALSE, 
+              metric = "AUC")
+  
+  # Store the scaled importance values
+  importances <- varImp(rf)$importance %>% as.matrix %>% t()
+  
+  # Compile resulting metrics
+  importanceDf <- rbind(importanceDf, importances)
+  
+  # Compile data for plotting ROC curve
+  plots <- evalm(rf, silent = TRUE, plots=FALSE)
+  roc.data.tmp <- data.frame(SENS=plots$roc$data$SENS, FPR=plots$roc$data$FPR,
+                             point=1:19, iteration=paste0("iteration", i))
+  roc.data <- rbind(roc.data, roc.data.tmp)
+  auc <- append(auc, plots$stdres$`Group 1`[13,1])
+
+  # Print out how far through the iterations we are
+  if((i %% 10) == 0){
+    print(paste0(i, "/100 iterations complete"))
+  }
+}
+
+
+```
+
+
+Summarize AUC across all iterations
+
+```{r}
+mean(auc)
+
+# Summary ROC plot
+roc.avg <- roc.data[,1:3] %>%
+  gather(key=variable, value=val, 1:2) %>%
+  group_by(variable, point) %>%
+  summarize(mean=mean(val)) %>%
+  spread(key=variable, value=mean)
+
+roc.plot <- ggplot(roc.data, aes(x=FPR, y=SENS, group=iteration)) +
+  geom_line(color="red", alpha=0.1) +
+  geom_line(data=roc.avg, aes(x=FPR, y=SENS), inherit.aes = F, color="black", size=1) +
+  theme_bw() +
+  labs(x="False Positive Rate", y="True Positive Rate") +
+  geom_abline(intercept = 0, slope = 1, color="darkgray") +
+  annotate(geom="text", x=0.7, y=0.25, label=paste0("Mean AUC = ", round(mean(auc), 3), "\n"),
+           size=2.8)
+ggsave("plots/fig3a.pdf", roc.plot, height=3, width=3, dpi = 600)
+print(roc.plot)
+```
+
+Plot most important taxa for these classifiers
+```{r}
+# calculate average importance across runs and then sort the data
+avgImportances <- importanceDf %>% 
+  colMeans() %>% 
+  sort(decreasing = TRUE) %>%
+  .[1:10] # select top 10 taxa
+
+importantTaxa <- names(avgImportances)
+taxaNames <- tax_table(ps.clr)[importantTaxa,] %>% data.frame()
+taxaNames$Species[is.na(taxaNames$Species)] <- "sp."
+
+taxaNames <- taxaNames[,c("Family","Genus", "Species")]
+taxaNames <- paste0(taxaNames$Family, " ",taxaNames$Genus, " ", taxaNames$Species)
+taxaNames <- make.unique(taxaNames)
+
+top10 <- data.frame(tax=names(avgImportances), importance=avgImportances, binom = taxaNames)
+top10$binom <- factor(top10$binom, levels=rev(top10$binom))
+
+# Importance plot
+importance.plot <- ggplot(top10, aes(x=importance, y=binom)) +
+  geom_point() +
+  theme_bw() +
+  labs(x="Importance", y=NULL) +
+  theme(axis.text.y=element_text(size=6))
+
+# CLR plot
+clr <- df_clr_asv
+clr.select <- clr[,colnames(clr) %in% c("flatulence_bin", rownames(top10))]
+clr.select <- rownames_to_column(clr.select)
+colnames(clr.select) <- c("rowname", taxaNames, "flatulence_bin")
+clr.select <- melt(clr.select, id.vars = c("rowname","flatulence_bin"))
+clr.select$variable <- factor(clr.select$variable, levels = levels(top10$binom))
+
+clr.summary <- clr.select %>%
+  group_by(flatulence_bin, variable) %>%
+  summarize(mean_clr=mean(value), se=sd(value)/sqrt(length(value))) 
+
+clr.plot <- ggplot(clr.select, aes(x=value, y=variable, group=flatulence_bin, color=flatulence_bin)) +
+  geom_point(position=position_jitter(height=0.1), alpha=0.5, size=0.5) +
+  geom_errorbar(data=clr.summary, aes(y=variable, xmin=mean_clr, xmax=mean_clr, group=flatulence_bin, color=flatulence_bin),
+                size=0.75, width=0.6, inherit.aes = F) +
+    geom_errorbar(data=clr.summary, aes(y=variable, xmin=mean_clr-se, xmax=mean_clr+se, group=flatulence_bin, color=flatulence_bin),
+                size=0.75, width=0.3, inherit.aes = F) +
+  scale_color_discrete(labels = c("Low", "High"))+
+  theme_bw() +
+  labs(x="\u0394 CLR (Relative Abundance)", y=NULL, color="Flatulence Level") +
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
+
+ggsave("plots/fig3b.pdf", importance.plot, device = "pdf",height=4, width=4, dpi = 600)
+ggsave("plots/fig3c.png", clr.plot, height=4, device = "png", width=4, dpi = 600) # png since PDF has a hard time with delta symbol
+
+importance.plot
+clr.plot
+```
+
+
