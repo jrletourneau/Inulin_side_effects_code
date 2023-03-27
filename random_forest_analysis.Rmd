@@ -277,18 +277,22 @@ aucDf_clr_asv_random <- rfTesterRandom(inputData = inputData, variables = variab
 
 
 What percent of the random shuffles does the true data perform better than?
-```{r fig.width  = 14}
+```{r fig.width  = 7}
 (lapply(aucDf_clr_asv$aucROC, mean)>=aucDf_clr_asv_random$aucROC) %>%
   colSums() / 1000
 
 colnames(aucDf_clr_asv$aucROC) <- c("Most Frequent Bristol Score", "Highest Bristol Score", "Lowest Bristol Score", "GI Discomfort", "Abdominal Pain", "Bloating", "Flatulence", "Stomach Rumblings")
 colnames(aucDf_clr_asv_random$aucROC) <- c("Most Frequent Bristol Score", "Highest Bristol Score", "Lowest Bristol Score", "GI Discomfort", "Abdominal Pain", "Bloating", "Flatulence", "Stomach Rumblings")
 
-ggplot(data = melt(rbind(data.frame(aucDf_clr_asv$aucROC, type = "True"), data.frame(aucDf_clr_asv_random$aucROC, type = "Shuffled"))), aes(x = variable, y = value, color = type))  + 
+aucTrueVsRandom <- ggplot(data = melt(rbind(data.frame(aucDf_clr_asv$aucROC, type = "True"), data.frame(aucDf_clr_asv_random$aucROC, type = "Shuffled"))), aes(x = variable, y = value, color = type))  + 
   geom_boxplot() +
-  labs(y = "AUC") +
-  scale_x_discrete(labels=c("Most.Frequent.Bristol.Score" = "Most Frequent Bristol Score", "Highest.Bristol.Score" = "Highest Bristol Score", "Lowest.Bristol.Score" = "Lowest Bristol Score", "GI.Discomfort" = "GI Discomfort", "Abdominal.Pain" = "Abdominal Pain", "Bloating" = "Bloating", "Flatulence" = "Flatulence", "Stomach.Rumblings" = "Stomach Rumblings"))
+  labs(y = "AUC ROC", color = "", x = "Side Effect") +
+  scale_x_discrete(labels=c("Most.Frequent.Bristol.Score" = "Most Frequent Bristol Score", "Highest.Bristol.Score" = "Highest Bristol Score", "Lowest.Bristol.Score" = "Lowest Bristol Score", "GI.Discomfort" = "GI Discomfort", "Abdominal.Pain" = "Abdominal Pain", "Bloating" = "Bloating", "Flatulence" = "Flatulence", "Stomach.Rumblings" = "Stomach Rumblings")) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black"), axis.ticks = element_line(color = "black"), plot.title = element_text(hjust = 0.5))
+ggsave("plots/figure_s_aucTrueVsRandom.pdf", aucTrueVsRandom, height=3, width=14, dpi = 600)
 
+aucTrueVsRandom
 
 ```
 
@@ -368,7 +372,10 @@ roc.plot <- ggplot(roc.data, aes(x=FPR, y=SENS, group=iteration)) +
   labs(x="False Positive Rate", y="True Positive Rate") +
   geom_abline(intercept = 0, slope = 1, color="darkgray") +
   annotate(geom="text", x=0.7, y=0.25, label=paste0("Mean AUC = ", round(mean(auc), 3), "\n"),
-           size=2.8)
+           size=2.8) +
+  theme(axis.text = element_text(color = "black"),
+  axis.ticks = element_line(color = "black"),
+  plot.title = element_text(hjust = 0.5))
 ggsave("plots/fig3a.pdf", roc.plot, height=3, width=3, dpi = 600)
 print(roc.plot)
 ```
@@ -397,7 +404,9 @@ importance.plot <- ggplot(top10, aes(x=importance, y=binom)) +
   geom_point() +
   theme_bw() +
   labs(x="Importance", y=NULL) +
-  theme(axis.text.y=element_text(size=6))
+  theme(axis.text.y=element_text(size=6), axis.text = element_text(color = "black"),
+  axis.ticks = element_line(color = "black"),
+  plot.title = element_text(hjust = 0.5))
 
 # CLR plot
 clr <- df_clr_asv
@@ -420,7 +429,9 @@ clr.plot <- ggplot(clr.select, aes(x=value, y=variable, group=flatulence_bin, co
   scale_color_discrete(labels = c("Low", "High"))+
   theme_bw() +
   labs(x="\u0394 CLR (Relative Abundance)", y=NULL, color="Flatulence Level") +
-  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.text = element_text(color = "black"),
+  axis.ticks = element_line(color = "black"),
+  plot.title = element_text(hjust = 0.5))
 
 ggsave("plots/fig3b.pdf", importance.plot, device = "pdf",height=4, width=4, dpi = 600)
 ggsave("plots/fig3c.png", clr.plot, height=4, device = "png", width=4, dpi = 600) # png since PDF has a hard time with delta symbol
