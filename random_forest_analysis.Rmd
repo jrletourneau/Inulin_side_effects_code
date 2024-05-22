@@ -107,6 +107,7 @@ df_deltaCLR$participant <- t1_df$participant
 df_clr_asv <- df_deltaCLR %>%
   left_join(sideEffects_binarized, by = "participant") %>%
   select(-participant)
+
 ```
 
 

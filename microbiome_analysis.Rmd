@@ -1,0 +1,134 @@
+---
+title: "Microbiome analysis for side effects paper (non-ML parts)"
+output: html_notebook
+---
+
+# Setup
+
+## Load libraries
+```{r}
+library(tidyverse)
+library(here)
+library(phyloseq) # Note: this has plyr as a dependency (which messes up dplyr)
+library(vegan)
+#library(microbiome)
+
+theme_set(theme_bw() +
+            theme(axis.text = element_text(color = "black"),
+                  axis.ticks = element_line(color = "black"),
+                  plot.title = element_text(hjust = 0.5)))
+
+set.seed(123)
+
+```
+
+## Load in Data
+Load in the 16s data 
+```{r}
+ps <- readRDS(here("data/phyloseq_05042022.rds"))
+
+# remove taxa not seen more than 3 times in at least 25% of samples
+ps <- prune_samples(sample_sums(ps) >= 5000,ps) %>%
+  filter_taxa(function(x) sum(x > 3) > 0.25*length(x), TRUE)
+
+# Only consider the prebiotic group
+ps <- subset_samples(ps, group == "Prebiotic")
+
+# Convert to CLR-transformed
+ps_clr <- microbiome::transform(ps, 'clr')
+
+```
+
+Load in side effects data
+```{r}
+sideEffects <- read.csv(file = here("data/sideEffectsNumerical.csv"), row.names = 1)
+
+```
+
+
+## Preprocess the Data
+### Side Effects Data
+Convert side effects into binary classification based upon falling above or below the median value among the prebiotic group
+```{r}
+# Note: Modified some of these  from > to >= s.t. classes are more evenly distributed 
+sideEffects_binarized <- sideEffects %>% 
+  filter(group == "Prebiotic") 
+sideEffects_binarized <- sideEffects_binarized %>%
+  mutate(most_frequent_stool_bin = factor(ifelse(most_frequent_stool > median(sideEffects_binarized$most_frequent_stool),'upper', 'lower'))) %>%
+  mutate(hardest_stool_bin = factor(ifelse(hardest_stool>=median(sideEffects_binarized$hardest_stool), 'upper', 'lower'))) %>% 
+  mutate(softest_stool_bin = factor(ifelse(softest_stool>median(sideEffects_binarized$softest_stool), 'upper', 'lower'))) %>%
+  mutate(GI_discomfort_caused_bin = factor(ifelse(GI_discomfort_caused >= median(sideEffects_binarized$GI_discomfort_caused), 'upper', 'lower'))) %>%
+  mutate(abdominal_pain_bin = factor(ifelse(abdominal_pain > median(sideEffects_binarized$abdominal_pain), 'upper', 'lower'))) %>%
+  mutate(bloating_bin = factor(ifelse(bloating > median(sideEffects_binarized$bloating), 'upper', 'lower'))) %>%
+  mutate(flatulence_bin = factor(ifelse(flatulence > median(sideEffects_binarized$flatulence), 'upper', 'lower'))) %>%
+  mutate(borborygmi_bin = factor(ifelse(borborygmi > median(sideEffects_binarized$borborygmi), 'upper', 'lower'))) %>%
+  mutate(participant = ID) %>%
+  select(most_frequent_stool_bin, GI_discomfort_caused_bin, abdominal_pain_bin,hardest_stool_bin, softest_stool_bin, bloating_bin, flatulence_bin, borborygmi_bin, participant)
+
+# Merge into phyloseq object
+sample_data_df <- as.data.frame(as.matrix(sample_data(ps)))
+sample_data_df <- sample_data_df %>%
+  left_join(sideEffects_binarized) %>%
+  column_to_rownames("X.SampleID")
+sample_data(ps) <- sample_data(sample_data_df)
+
+```
+
+# Basic microbiome plots
+```{r}
+# PCA colored by high/low flatulence, with PERMANOVA
+## Baseline + Treatment weeks
+# Actually, let's do PERMANOVA for all the binarized variables, report results, and show PCA for any significant (or just flatulence if none)
+vars_to_test <- colnames(sample_data(ps))[4:11]
+
+ps_baseline <- subset_samples(ps, day %in% c("T1", "F1"))
+ps_treatment <- subset_samples(ps, day %in% c("T2", "F2"))
+
+# Baseline
+bray_baseline <- distance(ps_baseline, method = "bray") %>% as.matrix()
+baseline_permanova_res_df <- data.frame(var = vars_to_test, R2 = NA, p = NA)
+
+# Iterate through the variables, doing PERMANOVA
+for(i in 1:length(vars_to_test)) {
+  
+  adonis_res <- adonis2(formula = as.formula(paste("bray_baseline ~", vars_to_test[i], "+ participant")), 
+                        data = as.data.frame(as.matrix(sample_data(ps_baseline))),
+                        permutations=9999, method = "bray")
+  
+  baseline_permanova_res_df$R2[i] <- adonis_res$R2[1]
+  baseline_permanova_res_df$p[i] <- adonis_res$`Pr(>F)`[1]
+  
+}
+
+## Treatment
+bray_treatment <- distance(ps_treatment, method = "bray") %>% as.matrix()
+treatment_permanova_res_df <- data.frame(var = vars_to_test, R2 = NA, p = NA)
+
+# Iterate through the variables, doing PERMANOVA
+for(i in 1:length(vars_to_test)) {
+  
+  adonis_res <- adonis2(formula = as.formula(paste("bray_treatment ~", vars_to_test[i], "+ participant")), 
+                        data = as.data.frame(as.matrix(sample_data(ps_treatment))),
+                        permutations=9999, method = "bray")
+  
+  treatment_permanova_res_df$R2[i] <- adonis_res$R2[1]
+  treatment_permanova_res_df$p[i] <- adonis_res$`Pr(>F)`[1]
+  
+}
+
+# Plot NMDS
+sixteenS_ord <- ordinate(ps_baseline, method="NMDS", distance="bray")
+
+ord_plot_16S <- plot_ordination(ps_baseline, sixteenS_ord, color = "flatulence_bin", title="16S Bray NMDS") +
+  geom_line(aes(group = participant), alpha = 0.5)
+
+# ALDEx2
+## Baseline + change
+
+```
+
+
+
+
+
+
