@@ -11,7 +11,9 @@ library(tidyverse)
 library(here)
 library(phyloseq) # Note: this has plyr as a dependency (which messes up dplyr)
 library(vegan)
-#library(microbiome)
+library(microbiome)
+library(ALDEx2)
+library(patchwork)
 
 theme_set(theme_bw() +
             theme(axis.text = element_text(color = "black"),
@@ -63,14 +65,57 @@ sideEffects_binarized <- sideEffects_binarized %>%
   mutate(flatulence_bin = factor(ifelse(flatulence > median(sideEffects_binarized$flatulence), 'upper', 'lower'))) %>%
   mutate(borborygmi_bin = factor(ifelse(borborygmi > median(sideEffects_binarized$borborygmi), 'upper', 'lower'))) %>%
   mutate(participant = ID) %>%
-  select(most_frequent_stool_bin, GI_discomfort_caused_bin, abdominal_pain_bin,hardest_stool_bin, softest_stool_bin, bloating_bin, flatulence_bin, borborygmi_bin, participant)
+  dplyr::select(most_frequent_stool_bin, GI_discomfort_caused_bin, abdominal_pain_bin,hardest_stool_bin, softest_stool_bin, bloating_bin, flatulence_bin, borborygmi_bin, participant)
+
+# Check taxa names before I do things
+original_taxa_names <- taxa_names(ps)
+original_sample_names <- sample_names(ps)
 
 # Merge into phyloseq object
 sample_data_df <- as.data.frame(as.matrix(sample_data(ps)))
 sample_data_df <- sample_data_df %>%
   left_join(sideEffects_binarized) %>%
-  column_to_rownames("X.SampleID")
+  column_to_rownames("X.SampleID") %>%
+  mutate(SumUpper = rowSums(across(everything(), ~ . == "upper")))
 sample_data(ps) <- sample_data(sample_data_df)
+
+# Get taxa names and sample names after the update
+updated_taxa_names <- taxa_names(ps)
+updated_sample_names <- sample_names(ps)
+
+# Compare with original names
+identical(original_taxa_names, updated_taxa_names)  # TRUE
+identical(original_sample_names, updated_sample_names)  # TRUE
+
+```
+
+# Overall PERMANOVA
+```{r}
+bray_all <- distance(ps, method = "bray") %>% as.matrix()
+
+adonis_all_res <- adonis2(formula = bray_all ~ day + most_frequent_stool_bin +
+                            GI_discomfort_caused_bin +
+          abdominal_pain_bin + hardest_stool_bin + softest_stool_bin + bloating_bin +
+          flatulence_bin + borborygmi_bin + participant,
+        data = as.data.frame(as.matrix(sample_data(ps))),
+        permutations=9999, method = "bray")
+
+# Just on the sum metric
+adonis2(formula = bray_all ~ day + as.numeric(SumUpper) + participant,
+        data = as.data.frame(as.matrix(sample_data(ps))),
+        permutations=9999, method = "bray")
+
+#                      Df SumOfSqs      R2      F Pr(>F)    
+#day                    5   0.7867 0.02753 1.1394 0.1551    
+#as.numeric(SumUpper)   1   0.9668 0.03383 7.0009 0.0001 ***
+#participant           17  14.8113 0.51826 6.3093 0.0001 ***
+#Residual              87  12.0139 0.42038
+
+
+# Plot NMDS
+sixteenS_all_ord <- ordinate(ps, method="NMDS", distance="bray")
+
+ord_plot_16S_all <- plot_ordination(ps, sixteenS_all_ord, color = "hardest_stool_bin")
 
 ```
 
@@ -83,6 +128,7 @@ vars_to_test <- colnames(sample_data(ps))[4:11]
 
 ps_baseline <- subset_samples(ps, day %in% c("T1", "F1"))
 ps_treatment <- subset_samples(ps, day %in% c("T2", "F2"))
+ps_followup <- subset_samples(ps, day %in% c("T3", "F3"))
 
 # Baseline
 bray_baseline <- distance(ps_baseline, method = "bray") %>% as.matrix()
@@ -123,11 +169,139 @@ ord_plot_16S <- plot_ordination(ps_baseline, sixteenS_ord, color = "flatulence_b
   geom_line(aes(group = participant), alpha = 0.5)
 
 # ALDEx2
-## Baseline + change
+## Baseline
+otu_flip_baseline <- as.data.frame(t(ps_baseline@otu_table))
+aldex_glm_res_df <- data.frame(var = NA, ASV = NA, pBH = NA, estimate = NA)
+
+for(i in 1:length(vars_to_test)) {
+  mm <- as.data.frame(as.matrix(ps_baseline@sam_data)) %>%
+    model.matrix(as.formula(paste0("~ ", vars_to_test[i], " + day")), data = .)
+  
+  clr <- aldex.clr(otu_flip_baseline, mm, mc.samples = 128, denom ="all")
+  glm.test <- aldex.glm(clr) # slow
+  
+  glm_hits_df <- glm.test %>%
+    mutate(var = vars_to_test[i]) %>%
+    rownames_to_column("ASV") %>%
+    dplyr::select(var, ASV,
+                  pBH = paste0("model.", vars_to_test[i], "upper Pr(>|t|).BH"),
+                  estimate = paste0("model.", vars_to_test[i], "upper Estimate")) %>%
+    filter(pBH < 0.05)
+  
+  if(nrow(glm_hits_df != 0)) {
+    aldex_glm_res_df <- rbind(aldex_glm_res_df, glm_hits_df)
+  }
+  
+}
+# GI_discomfort_caused_bin seq_140 p=0.02006996 est=4.703168
+
+## Treatment?
+otu_flip_trt <- as.data.frame(t(ps_treatment@otu_table))
+aldex_glm_res_df_trt <- data.frame(var = NA, ASV = NA, pBH = NA, estimate = NA)
+
+for(i in 1:length(vars_to_test)) {
+  mm <- as.data.frame(as.matrix(ps_treatment@sam_data)) %>%
+    model.matrix(as.formula(paste0("~ ", vars_to_test[i], " + day")), data = .)
+  
+  clr <- aldex.clr(otu_flip_trt, mm, mc.samples = 128, denom ="all")
+  glm.test <- aldex.glm(clr) # slow
+  
+  glm_hits_df <- glm.test %>%
+    mutate(var = vars_to_test[i]) %>%
+    rownames_to_column("ASV") %>%
+    dplyr::select(var, ASV,
+                  pBH = paste0("model.", vars_to_test[i], "upper Pr(>|t|).BH"),
+                  estimate = paste0("model.", vars_to_test[i], "upper Estimate")) %>%
+    filter(pBH < 0.05)
+  
+  if(nrow(glm_hits_df != 0)) {
+    aldex_glm_res_df_trt <- rbind(aldex_glm_res_df_trt, glm_hits_df)
+  }
+  
+}
+
+# One positive result - same again!
+## GI_discomfort_caused_bin seq_140 p=0.04919296 est=4.824148
+
+# Finally, let's also do followup week
+## Treatment?
+otu_flip_fol <- as.data.frame(t(ps_followup@otu_table))
+aldex_glm_res_df_fol <- data.frame(var = NA, ASV = NA, pBH = NA, estimate = NA)
+
+for(i in 1:length(vars_to_test)) {
+  mm <- as.data.frame(as.matrix(ps_followup@sam_data)) %>%
+    model.matrix(as.formula(paste0("~ ", vars_to_test[2], " + day")), data = .)
+  
+  clr <- aldex.clr(otu_flip_fol, mm, mc.samples = 128, denom ="all")
+  glm.test <- aldex.glm(clr) # slow
+  
+  glm_hits_df <- glm.test %>%
+    mutate(var = vars_to_test[i]) %>%
+    rownames_to_column("ASV") %>%
+    dplyr::select(var, ASV,
+                  pBH = paste0("model.", vars_to_test[i], "upper Pr(>|t|).BH"),
+                  estimate = paste0("model.", vars_to_test[i], "upper Estimate")) %>%
+    filter(pBH < 0.05)
+  
+  if(nrow(glm_hits_df != 0)) {
+    aldex_glm_res_df_fol <- rbind(aldex_glm_res_df_fol, glm_hits_df)
+  }
+  
+}
+
+#Note: seq_140 pBH = 0.9176460
 
 ```
 
+# Plot that one positive result
+```{r}
+#Baseline
+select_asv_df_baseline <- microbiome::transform(ps_baseline, "clr") %>%
+  psmelt() %>%
+  dplyr::filter(OTU == "seq_140") %>%
+  mutate(GI_discomfort_caused_bin = case_when(GI_discomfort_caused_bin == "lower" ~ "Low",
+                                              GI_discomfort_caused_bin == "upper" ~ "High")) %>%
+  mutate(GI_discomfort_caused_bin = factor(GI_discomfort_caused_bin, levels = c("Low", "High")))
 
+seq_140_plot <- ggplot(select_asv_df_baseline,
+                       aes(x = GI_discomfort_caused_bin, y = Abundance)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(aes(color = participant),
+             position = position_jitter(height = 0, width = 0.05)) +
+  theme(legend.position = "none") +
+  labs(x = "GI discomfort level", y = "CLR-transformed abundance")
+  #ggtitle("Christensenellaceae R-7 group sp. (ASV 140)")
+
+
+
+
+# Treatment
+select_asv_df <- microbiome::transform(ps_treatment, "clr") %>%
+  psmelt() %>%
+  dplyr::filter(OTU == "seq_140") %>%
+  mutate(GI_discomfort_caused_bin = case_when(GI_discomfort_caused_bin == "lower" ~ "Low",
+                                              GI_discomfort_caused_bin == "upper" ~ "High")) %>%
+  mutate(GI_discomfort_caused_bin = factor(GI_discomfort_caused_bin, levels = c("Low", "High")))
+
+seq_140_trt_plot <- ggplot(select_asv_df,
+                           aes(x = GI_discomfort_caused_bin, y = Abundance)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(aes(color = participant),
+             position = position_jitter(height = 0, width = 0.05)) +
+  theme(legend.position = "none") +
+  labs(x = "Abdominal pain level", y = "CLR-transformed abundance")
+  #ggtitle("Christensenellaceae R-7 group sp. (ASV 140)")
+
+# 
+
+seq_140_plot + seq_140_trt_plot
+
+```
+
+# Make stacked bar plots
+```{r}
+
+```
 
 
 
