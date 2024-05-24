@@ -129,5 +129,41 @@ final_table_with_pval <- final_table %>%
 
 
 ```
+# DHQ3
+```{r}
+
+ffq <- read.csv("data/FFQ results fixed.csv") %>%
+  filter(ID %in% se$ID) %>%
+  arrange(ID) %>%
+  dplyr::select(c(2, 4, 7, 9, 10, 15, 17:19, 26:27, 43, 45:46)) %>%
+  left_join(post)
+
+mean(ffq$Energy..kcal.) # 1561.758
+sd(ffq$Energy..kcal.) # 612.9338
+mean(ffq$Dietary.fiber..g.) # 19.04359
+sd(ffq$Dietary.fiber..g.) # 11.1715
+
+ffq_pre <- ffq %>%
+  filter(group == "Prebiotic")
+
+mean(ffq_pre$Energy..kcal.) # 1625.124
+sd(ffq_pre$Energy..kcal.) # 735.5438
+mean(ffq_pre$Dietary.fiber..g.) # 19.53111
+sd(ffq_pre$Dietary.fiber..g.) # 11.62798
+
+ffq_pla <- ffq %>%
+  filter(group == "Placebo")
+
+mean(ffq_pla$Energy..kcal.) # 1507.444
+sd(ffq_pla$Energy..kcal.) # 497.217
+mean(ffq_pla$Dietary.fiber..g.) # 18.62571
+sd(ffq_pla$Dietary.fiber..g.) # 11.03625
+
+t.test(ffq_pre$Energy..kcal., ffq_pla$Energy..kcal.) # 0.5694
+t.test(ffq_pre$Dietary.fiber..g., ffq_pla$Dietary.fiber..g.) # 0.8054
+
+
+
+```
 
 
