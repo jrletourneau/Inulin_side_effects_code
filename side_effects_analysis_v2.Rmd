@@ -224,7 +224,7 @@ demo <- demo %>%
   arrange(ID)
 
 # Diet data
-ffq <- read.csv("../diet data/FFQ results fixed.csv") %>%
+ffq <- read.csv("data/FFQ results fixed.csv") %>%
   filter(ID %in% se$ID) %>%
   arrange(ID) %>%
   dplyr::select(c(2, 4, 7, 9, 10, 15, 17:19, 26:27, 43, 45:46))
@@ -385,3 +385,84 @@ sediet.p <- pmat(taxa, cog.sum, p.adj = "fdr")
 
 
 ```
+
+# Post-hoc power calculations
+```{r}
+library(pwr)
+library(effsize)
+
+
+# Constants
+n1 <- 21 # Placebo group
+n2 <- 19 # Prebiotic group
+N <- n1 + n2
+desired_power <- 0.80
+alpha <- 0.05
+
+# Get sample size
+sample_size_power <- function(group1, group2) {
+  
+  d <- cohen.d(group1, group2)
+  
+  sample_size <- pwr.t.test(d = d$estimate, power = desired_power, sig.level = alpha,
+                            type = "two.sample", alternative = "two.sided")
+  return(sample_size)
+}
+
+# Flatulence
+sample_size_power(post[post$group=="Placebo",]$flatulence,
+                  post[post$group=="Prebiotic",]$flatulence)
+sample_size_power(post[post$group=="Placebo",]$borborygmi,
+                  post[post$group=="Prebiotic",]$borborygmi)
+sample_size_power(post[post$group=="Placebo",]$most_frequent_stool,
+                  post[post$group=="Prebiotic",]$most_frequent_stool)
+sample_size_power(post[post$group=="Placebo",]$hardest_stool,
+                  post[post$group=="Prebiotic",]$hardest_stool)
+sample_size_power(post[post$group=="Placebo",]$softest_stool,
+                  post[post$group=="Prebiotic",]$softest_stool)
+sample_size_power(post[post$group=="Placebo",]$GI_discomfort_caused,
+                  post[post$group=="Prebiotic",]$GI_discomfort_caused)
+sample_size_power(post[post$group=="Placebo",]$GI_discomfort_reduced,
+                  post[post$group=="Prebiotic",]$GI_discomfort_reduced)
+sample_size_power(post[post$group=="Placebo",]$abdominal_pain,
+                  post[post$group=="Prebiotic",]$abdominal_pain)
+sample_size_power(post[post$group=="Placebo",]$bloating,
+                  post[post$group=="Prebiotic",]$bloating)
+sample_size_power(post[post$group=="Placebo",]$nausea,
+                  post[post$group=="Prebiotic",]$nausea)
+sample_size_power(post[post$group=="Placebo",]$heartburn,
+                  post[post$group=="Prebiotic",]$heartburn)
+
+
+# Correlation tests
+merge_df_pre <- merge_df %>%
+  filter(group == "Prebiotic")
+
+cor_samplesize_res_df <- data.frame(baseline_characteristic = c(rep("Dietary.fiber..g.", 11),
+                                                                rep("weight", 11)),
+                                    tolerance_var = rep(c("flatulence", "borborygmi",
+                                                          "most_frequent_stool",
+                                                          "hardest_stool", "softest_stool",
+                                                          "GI_discomfort_caused",
+                                                          "GI_discomfort_reduced",
+                                                          "abdominal_pain",
+                                                          "bloating",
+                                                          "nausea", "heartburn"), 2),
+                                    samplesize = NA)
+
+for(i in 1:nrow(cor_samplesize_res_df)) {
+  cor_res <- cor.test(merge_df_pre[,cor_samplesize_res_df$baseline_characteristic[i]],
+                      merge_df_pre[,cor_samplesize_res_df$tolerance_var[i]],
+                      method="spearman")
+  
+  rho <- cor_res$estimate
+  
+  sample_size_cor <- pwr.r.test(n = NULL, r = rho, sig.level = alpha, power = desired_power)
+  
+  cor_samplesize_res_df$samplesize[i] <- sample_size_cor$n
+}
+
+
+
+```
+
