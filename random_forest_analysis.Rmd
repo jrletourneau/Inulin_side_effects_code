@@ -19,6 +19,7 @@ library(MLeval)
 library(caret)
 library(tidyverse)
 library(here)
+library(ROCR)
 ```
 
 ## Load in Data
@@ -291,7 +292,7 @@ aucTrueVsRandom <- ggplot(data = melt(rbind(data.frame(aucDf_clr_asv$aucROC, typ
   scale_x_discrete(labels=c("Most.Frequent.Bristol.Score" = "Most Frequent Bristol Score", "Highest.Bristol.Score" = "Highest Bristol Score", "Lowest.Bristol.Score" = "Lowest Bristol Score", "GI.Discomfort" = "GI Discomfort", "Abdominal.Pain" = "Abdominal Pain", "Bloating" = "Bloating", "Flatulence" = "Flatulence", "Stomach.Rumblings" = "Stomach Rumblings")) +
   theme_bw() +
   theme(axis.text = element_text(color = "black"), axis.ticks = element_line(color = "black"), plot.title = element_text(hjust = 0.5))
-ggsave("plots/figure_s_aucTrueVsRandom.pdf", aucTrueVsRandom, height=3, width=14, dpi = 600)
+#ggsave("plots/figure_s_aucTrueVsRandom.pdf", aucTrueVsRandom, height=3, width=14, dpi = 600)
 
 aucTrueVsRandom
 
@@ -307,6 +308,9 @@ set.seed(12345) # Random seed, keep this to obtain the same figure as in the pap
 importanceDf <- data.frame()
 auc <- c()
 roc.data <- data.frame()
+accuracy <- c()
+pvals <- c()
+auc_pvals <- c()
 
 # isolate just the variable we care about here - flatulence
 clrData <- df_clr_asv %>% 
@@ -343,6 +347,28 @@ for (i in 1:100){
                              point=1:19, iteration=paste0("iteration", i))
   roc.data <- rbind(roc.data, roc.data.tmp)
   auc <- append(auc, plots$stdres$`Group 1`[13,1])
+  
+  # AUC p-value by permutation test
+  perms <- 1000  # Number of permutations
+  auc_perm <- replicate(perms, {
+    shuffled_labels <- sample(rf$pred$obs)  # Permute the labels
+    perf <- performance(prediction(rf$pred$obs, shuffled_labels), "auc")
+    auc_val <- unlist(slot(perf, "y.values"))
+    auc_val
+  })
+  
+  # Calculate the proportion of permutation AUCs greater than or equal to the observed AUC
+  auc_pval <- mean(auc_perm >= auc[i])
+  auc_pvals <- append(auc_pvals, auc_pval)
+  
+  # Summarize confusion matrix
+  confusion <- confusionMatrix(data = rf$pred$pred, reference = rf$pred$obs,
+                               mode = "prec_recall", positive = "upper")
+  
+  #  Compile accuracy metrics
+  accuracy <- append(accuracy, confusion$overall["Accuracy"])
+  pvals <- append(pvals, confusion$overall["AccuracyPValue"])
+  pvals_mcnemar <- append(pvals_mcnemar, confusion$overall["McnemarPValue"])
 
   # Print out how far through the iterations we are
   if((i %% 10) == 0){
@@ -350,11 +376,16 @@ for (i in 1:100){
   }
 }
 
+auc_ci <- quantile(auc, c(0.025, 0.975)) # 0.79 to 0.89
+mean(accuracy) # 0.6611
+mean(pvals)
+
 
 ```
 
 
-Summarize AUC across all iterations
+
+#Summarize AUC across all iterations
 
 ```{r}
 mean(auc)
@@ -434,8 +465,8 @@ clr.plot <- ggplot(clr.select, aes(x=value, y=variable, group=flatulence_bin, co
   axis.ticks = element_line(color = "black"),
   plot.title = element_text(hjust = 0.5))
 
-ggsave("plots/fig3b.pdf", importance.plot, device = "pdf",height=4, width=4, dpi = 600)
-ggsave("plots/fig3c.png", clr.plot, height=4, device = "png", width=4, dpi = 600) # png since PDF has a hard time with delta symbol
+#ggsave("plots/fig3b.pdf", importance.plot, device = "pdf",height=4, width=4, dpi = 600)
+#ggsave("plots/fig3c.png", clr.plot, height=4, device = "png", width=4, dpi = 600) # png since PDF has a hard time with delta symbol
 
 importance.plot
 clr.plot
