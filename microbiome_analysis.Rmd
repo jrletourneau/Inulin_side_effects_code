@@ -249,7 +249,7 @@ for(i in 1:length(vars_to_test)) {
   
 }
 
-#Note: seq_140 pBH = 0.9176460
+#Note: seq_140 pBH = 0.9176460 (for GI discomfort)
 
 ```
 
@@ -269,7 +269,8 @@ seq_140_plot <- ggplot(select_asv_df_baseline,
   geom_point(aes(color = participant),
              position = position_jitter(height = 0, width = 0.05)) +
   theme(legend.position = "none") +
-  labs(x = "GI discomfort level", y = "CLR-transformed abundance")
+  labs(x = "GI discomfort level", y = "CLR-transformed abundance") +
+  ggtitle("Baseline")
   #ggtitle("Christensenellaceae R-7 group sp. (ASV 140)")
 
 
@@ -289,17 +290,55 @@ seq_140_trt_plot <- ggplot(select_asv_df,
   geom_point(aes(color = participant),
              position = position_jitter(height = 0, width = 0.05)) +
   theme(legend.position = "none") +
-  labs(x = "Abdominal pain level", y = "CLR-transformed abundance")
+  labs(x = "GI discomfort level", y = "CLR-transformed abundance") +
+  ggtitle("Treatment")
   #ggtitle("Christensenellaceae R-7 group sp. (ASV 140)")
+
+
+# Followup
+select_asv_df_fol <- microbiome::transform(ps_followup, "clr") %>%
+  psmelt() %>%
+  dplyr::filter(OTU == "seq_140") %>%
+  mutate(GI_discomfort_caused_bin = case_when(GI_discomfort_caused_bin == "lower" ~ "Low",
+                                              GI_discomfort_caused_bin == "upper" ~ "High")) %>%
+  mutate(GI_discomfort_caused_bin = factor(GI_discomfort_caused_bin, levels = c("Low", "High")))
+
+seq_140_fol_plot <- ggplot(select_asv_df_fol,
+                           aes(x = GI_discomfort_caused_bin, y = Abundance)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(aes(color = participant),
+             position = position_jitter(height = 0, width = 0.05)) +
+  theme(legend.position = "none") +
+  labs(x = "GI discomfort level", y = "CLR-transformed abundance") +
+  ggtitle("Followup")
 
 # 
 
-seq_140_plot + seq_140_trt_plot
+seq_140_plot + seq_140_trt_plot + seq_140_fol_plot
 
 ```
 
-# Make stacked bar plots
+# What is the deal with R. torques group
 ```{r}
+#Baseline
+select_asv_df_baseline_113 <- microbiome::transform(ps_baseline, "clr") %>%
+  psmelt() %>%
+  dplyr::filter(OTU %in% c("seq_113", "seq_114")) %>%
+  mutate(flatulence_bin = case_when(flatulence_bin == "lower" ~ "Low",
+                                              flatulence_bin == "upper" ~ "High")) %>%
+  mutate(flatulence_bin = factor(flatulence_bin, levels = c("Low", "High"))) %>%
+  mutate(OTU = case_when(OTU == "seq_113" ~ "[Ruminococcus] torques group sp. (SV 113)",
+                         OTU == "seq_114" ~ "Oscillospiraceae UCG-002 sp. (SV 114)"))
+
+seq_113_plot <- ggplot(select_asv_df_baseline_113,
+                       aes(x = flatulence_bin, y = Abundance)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(aes(color = participant),
+             position = position_jitter(height = 0, width = 0.05)) +
+  theme(legend.position = "none") +
+  labs(x = "Flatulence level", y = "CLR-transformed abundance") +
+  #ggtitle("Baseline, [Ruminococcus] torques group sp. (ASV 113)") +
+  facet_wrap(~OTU)
 
 ```
 
