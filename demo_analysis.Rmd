@@ -1,0 +1,133 @@
+---
+title: "Demographics analysis"
+author: "Jeff Letourneau"
+date: "2024-05-24"
+output: html_document
+---
+
+
+# ONR side effects paper
+## Demographics analysis to create Table 1
+
+# Load libraries
+```{r}
+library(tidyverse)
+
+theme_set(theme_bw() +
+            theme(axis.text = element_text(color = "black"),
+                  axis.ticks = element_line(color = "black"),
+                  plot.title = element_text(hjust = 0.5)))
+
+set.seed(123)
+
+
+```
+
+
+# Load data
+```{r}
+
+post <- read.csv("data/postintervention.csv") %>%
+  dplyr::select(ID, group)
+
+demo <- read.csv("data/onr_demographics.csv") %>%
+  left_join(post)
+
+demo_pre <- demo %>%
+  filter(group == "Prebiotic")
+
+demo_pla <- demo %>%
+  filter(group == "Placebo")
+
+# This file contains average values between the two baseline days
+blood <- read.csv("data/blood_all.csv")
+blood[blood$ID == "SF85", "ID"] <- "SF58" # Fix mistake in name
+
+blood_baseline_avg <- blood %>%
+  filter(day_approx %in% c("T1", "F1")) %>%
+  left_join(post) %>%
+  group_by(ID, group, Analyte.Component.Name) %>%
+  summarize(avg_conc = mean(Result)) %>%
+  ungroup()
+
+```
+
+# t-tests of demo vars
+```{r}
+
+t.test(demo_pre$Age.at.PSV, demo_pla$Age.at.PSV) # 0.3037
+t.test(demo_pre$weight, demo_pla$weight) # 0.873
+t.test(demo_pre$BMI, demo_pla$BMI) # 0.9189
+
+```
+
+# Fisher tests of categorical variables
+```{r}
+
+# Two input variables should be numerical vectors (e.g. women, men)
+fisher_easy <- function(placebo, prebiotic, names = c("type1", "type2")) {
+  contingency_table <- matrix(c(placebo, prebiotic), nrow = length(placebo), byrow = TRUE)
+  
+  rownames(contingency_table) <- names
+  colnames(contingency_table) <- c("Placebo", "Prebiotic")
+  
+  fisher.test(contingency_table) %>%
+    print()
+}
+
+fisher_easy(c(11,10), c(13, 6), names = c("female", "male")) # 0.3487
+fisher_easy(c(11, 1, 0, 1, 10, 1), c(5, 0, 1, 0, 13, 1),
+            names = c("asian", "black", "native_american", "native_hawaiian_other_pacific_islander",
+              "white", "other")) # 0.2683
+fisher_easy(c(2, 18), c(3, 16), c("hispanic_latino", "not_hispanic_latino")) # 0.6614
+fisher_easy(c(14, 3, 4), c(13, 2, 3), c("omni", "no_red", "vegetarian")) # 0.001336
+
+
+```
+
+# Blood
+```{r}
+# Calculate mean and standard deviation for each group
+summary_table <- blood_baseline_avg %>%
+  group_by(Analyte.Component.Name, group) %>%
+  summarize(mean_value = mean(avg_conc, na.rm = TRUE),
+            sd_value = sd(avg_conc, na.rm = TRUE),
+            .groups = 'drop') %>%
+  mutate(mean_sd = paste0(round(mean_value, 2), " ± ", round(sd_value, 2))) %>%
+  dplyr::select(Analyte.Component.Name, group, mean_sd)
+
+# Calculate mean and standard deviation for the overall dataset
+overall_summary <- blood_baseline_avg %>%
+  group_by(Analyte.Component.Name) %>%
+  summarize(mean_value = mean(avg_conc, na.rm = TRUE),
+            sd_value = sd(avg_conc, na.rm = TRUE),
+            .groups = 'drop') %>%
+  mutate(group = "Total",
+         mean_sd = paste0(round(mean_value, 2), " ± ", round(sd_value, 2))) %>%
+  dplyr::select(Analyte.Component.Name, group, mean_sd)
+
+# Combine group and overall summaries
+combined_summary <- bind_rows(summary_table, overall_summary)
+
+# Pivot the data to wide format
+final_table <- combined_summary %>%
+  pivot_wider(names_from = group, values_from = mean_sd)
+
+# Run t-tests for each analyte
+p_values <- blood_baseline_avg %>%
+  group_by(Analyte.Component.Name) %>%
+  summarize(t_test = list(t.test(avg_conc ~ group)),
+            pval = t_test[[1]]$p.value,
+            .groups = 'drop') %>%
+  dplyr::select(Analyte.Component.Name, pval)
+
+# Combine the summary table with p-values
+final_table_with_pval <- final_table %>%
+  left_join(p_values, by = "Analyte.Component.Name") %>%
+  mutate(pval = signif(pval, 2))
+
+
+
+```
+
+

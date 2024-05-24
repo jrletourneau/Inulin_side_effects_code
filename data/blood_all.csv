@@ -1,0 +1,2423 @@
+﻿ID,day_approx,day_exact,Analyte/Component Name,Result,Units
+AA89,F3,F3,Creatinine,0.96,mg/dL
+AA89,T1,T1,Creatinine,1.02,mg/dL
+AA89,T2,T2,Creatinine,1.09,mg/dL
+AA89,T3,T3,Creatinine,1.09,mg/dL
+AA89,F1,F1,Creatinine,1.11,mg/dL
+AA89,F2,F2,Creatinine,1.17,mg/dL
+AA89,F1,F1,Potassium,4,mmol/L
+AA89,T3,T3,Potassium,4.1,mmol/L
+AA89,T2,T2,Potassium,4.2,mmol/L
+AA89,F2,F2,Potassium,4.2,mmol/L
+AA89,F3,F3,Potassium,4.3,mmol/L
+AA89,T1,T1,Potassium,4.4,mmol/L
+AA89,T1,T1,Calcium,9.5,mg/dL
+AA89,T3,T3,Calcium,9.5,mg/dL
+AA89,F3,F3,Calcium,9.5,mg/dL
+AA89,T2,T2,Calcium,9.6,mg/dL
+AA89,F1,F1,Calcium,9.9,mg/dL
+AA89,F2,F2,Calcium,9.9,mg/dL
+AA89,F3,F3,BUN,11,mg/dL
+AA89,T2,T2,BUN/Creatinine Ratio,11,
+AA89,F2,F2,BUN/Creatinine Ratio,11,
+AA89,F3,F3,BUN/Creatinine Ratio,11,
+AA89,T2,T2,BUN,12,mg/dL
+AA89,T1,T1,BUN,13,mg/dL
+AA89,F2,F2,BUN,13,mg/dL
+AA89,T1,T1,BUN/Creatinine Ratio,13,
+AA89,F1,F1,BUN/Creatinine Ratio,14,
+AA89,T3,T3,BUN/Creatinine Ratio,15,
+AA89,F1,F1,"Carbon Dioxide, Total",15,mmol/L
+AA89,F1,F1,BUN,16,mg/dL
+AA89,T3,T3,BUN,16,mg/dL
+AA89,T1,T1,"Carbon Dioxide, Total",20,mmol/L
+AA89,F3,F3,"Carbon Dioxide, Total",20,mmol/L
+AA89,F2,F2,"Carbon Dioxide, Total",21,mmol/L
+AA89,T2,T2,"Carbon Dioxide, Total",23,mmol/L
+AA89,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+AA89,T3,T3,Glucose,45,mg/dL
+AA89,F2,F2,Glucose,57,mg/dL
+AA89,F3,F3,Glucose,61,mg/dL
+AA89,F1,F1,Glucose,68,mg/dL
+AA89,T2,T2,Glucose,69,mg/dL
+AA89,T1,T1,Glucose,83,mg/dL
+AA89,F2,F2,eGFR,87,mL/min/1.73
+AA89,F1,F1,eGFR,92,mL/min/1.73
+AA89,T2,T2,eGFR,94,mL/min/1.73
+AA89,T3,T3,eGFR,94,mL/min/1.73
+AA89,F1,F1,Chloride,102,mmol/L
+AA89,T1,T1,eGFR,102,mL/min/1.73
+AA89,F2,F2,Chloride,103,mmol/L
+AA89,T3,T3,Chloride,103,mmol/L
+AA89,T1,T1,Chloride,104,mmol/L
+AA89,T2,T2,Chloride,104,mmol/L
+AA89,F3,F3,Chloride,104,mmol/L
+AA89,F3,F3,eGFR,110,mL/min/1.73
+AA89,T3,T3,Sodium,139,mmol/L
+AA89,F1,F1,Sodium,140,mmol/L
+AA89,T1,T1,Sodium,141,mmol/L
+AA89,F3,F3,Sodium,141,mmol/L
+AA89,T2,T2,Sodium,142,mmol/L
+AA89,F2,F2,Sodium,144,mmol/L
+AA89,F2,F2,"Serotonin, Whole Blood",167,ng/mL
+AA89,T3,T3,"Serotonin, Whole Blood",169,ng/mL
+AA89,T1,T1,"Serotonin, Whole Blood",170,ng/mL
+AA89,T2,T2,"Serotonin, Whole Blood",172,ng/mL
+AA89,F3,F3,"Serotonin, Whole Blood",172,ng/mL
+AA89,F1,F1,"Serotonin, Whole Blood",221,ng/mL
+AN68,T3,T3,Creatinine,0.81,mg/dL
+AN68,T1,T1,Creatinine,0.88,mg/dL
+AN68,F1,F1,Creatinine,0.89,mg/dL
+AN68,T2,T2,Creatinine,0.9,mg/dL
+AN68,F3,F3,Creatinine,0.9,mg/dL
+AN68,F2,F2,Creatinine,0.93,mg/dL
+AN68,T3,T3,Potassium,4,mmol/L
+AN68,F2,F2,Potassium,4.1,mmol/L
+AN68,T1,T1,Potassium,4.2,mmol/L
+AN68,F1,F1,Potassium,4.4,mmol/L
+AN68,F3,F3,Potassium,4.4,mmol/L
+AN68,T2,T2,Potassium,4.5,mmol/L
+AN68,F2,F2,BUN,9,mg/dL
+AN68,F2,F2,Calcium,9.1,mg/dL
+AN68,T1,T1,Calcium,9.4,mg/dL
+AN68,F1,F1,Calcium,9.5,mg/dL
+AN68,T2,T2,Calcium,9.5,mg/dL
+AN68,T3,T3,Calcium,9.7,mg/dL
+AN68,F3,F3,Calcium,9.7,mg/dL
+AN68,T1,T1,BUN,10,mg/dL
+AN68,F2,F2,BUN/Creatinine Ratio,10,
+AN68,F1,F1,BUN,11,mg/dL
+AN68,T1,T1,BUN/Creatinine Ratio,11,
+AN68,T3,T3,BUN,12,mg/dL
+AN68,F3,F3,BUN,12,mg/dL
+AN68,F1,F1,BUN/Creatinine Ratio,12,
+AN68,T2,T2,BUN,13,mg/dL
+AN68,F3,F3,BUN/Creatinine Ratio,13,
+AN68,T2,T2,BUN/Creatinine Ratio,14,
+AN68,T3,T3,BUN/Creatinine Ratio,15,
+AN68,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+AN68,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+AN68,F1,F1,"Carbon Dioxide, Total",24,mmol/L
+AN68,T2,T2,"Carbon Dioxide, Total",24,mmol/L
+AN68,F2,F2,"Carbon Dioxide, Total",24,mmol/L
+AN68,F3,F3,"Carbon Dioxide, Total",25,mmol/L
+AN68,F1,F1,Glucose,84,mg/dL
+AN68,T1,T1,Glucose,93,mg/dL
+AN68,F3,F3,Glucose,93,mg/dL
+AN68,T2,T2,Glucose,95,mg/dL
+AN68,T3,T3,Chloride,97,mmol/L
+AN68,T2,T2,Chloride,99,mmol/L
+AN68,F3,F3,Chloride,99,mmol/L
+AN68,F1,F1,Chloride,100,mmol/L
+AN68,T1,T1,Chloride,102,mmol/L
+AN68,F2,F2,Chloride,102,mmol/L
+AN68,T3,T3,Glucose,113,mg/dL
+AN68,F2,F2,eGFR,114,mL/min/1.73
+AN68,T2,T2,eGFR,118,mL/min/1.73
+AN68,F3,F3,eGFR,118,mL/min/1.73
+AN68,T2,T2,"Serotonin, Whole Blood",118,ng/mL
+AN68,T1,T1,eGFR,119,mL/min/1.73
+AN68,F1,F1,eGFR,119,mL/min/1.73
+AN68,T3,T3,eGFR,124,mL/min/1.73
+AN68,F2,F2,Glucose,134,mg/dL
+AN68,T3,T3,Sodium,137,mmol/L
+AN68,F3,F3,Sodium,138,mmol/L
+AN68,F2,F2,Sodium,139,mmol/L
+AN68,T1,T1,Sodium,140,mmol/L
+AN68,T2,T2,Sodium,141,mmol/L
+AN68,F1,F1,Sodium,142,mmol/L
+AN68,F2,F2,"Serotonin, Whole Blood",192,ng/mL
+AN68,T1,T1,"Serotonin, Whole Blood",197,ng/mL
+AN68,T3,T3,"Serotonin, Whole Blood",204,ng/mL
+AN68,F1,F1,"Serotonin, Whole Blood",229,ng/mL
+AN68,F3,F3,"Serotonin, Whole Blood",251,ng/mL
+AP25,T3,T3,Creatinine,0.81,mg/dL
+AP25,T1,T1,Creatinine,0.85,mg/dL
+AP25,F1,F1,Creatinine,0.86,mg/dL
+AP25,T2,T2,Creatinine,0.93,mg/dL
+AP25,F2,F2,Creatinine,1,mg/dL
+AP25,F1,F1,Potassium,4.4,mmol/L
+AP25,T2,T2,Potassium,4.5,mmol/L
+AP25,T3,T3,Potassium,4.5,mmol/L
+AP25,T1,T1,Potassium,4.6,mmol/L
+AP25,F2,F2,Potassium,4.6,mmol/L
+AP25,F1,F1,Calcium,9.1,mg/dL
+AP25,T2,T2,Calcium,9.1,mg/dL
+AP25,T3,T3,Calcium,9.1,mg/dL
+AP25,F2,F2,Calcium,9.2,mg/dL
+AP25,T1,T1,Calcium,9.4,mg/dL
+AP25,F2,F2,BUN,12,mg/dL
+AP25,F2,F2,BUN/Creatinine Ratio,12,
+AP25,T1,T1,BUN,13,mg/dL
+AP25,T2,T2,BUN,14,mg/dL
+AP25,T3,T3,BUN,14,mg/dL
+AP25,T1,T1,BUN/Creatinine Ratio,15,
+AP25,T2,T2,BUN/Creatinine Ratio,15,
+AP25,F1,F1,BUN,16,mg/dL
+AP25,T3,T3,BUN/Creatinine Ratio,17,
+AP25,F2,F2,"Carbon Dioxide, Total",17,mmol/L
+AP25,F1,F1,BUN/Creatinine Ratio,19,
+AP25,F1,F1,"Carbon Dioxide, Total",19,mmol/L
+AP25,T2,T2,"Carbon Dioxide, Total",19,mmol/L
+AP25,T1,T1,"Carbon Dioxide, Total",20,mmol/L
+AP25,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+AP25,T3,T3,eGFR,79,mL/min/1.73
+AP25,T2,T2,Glucose,85,mg/dL
+AP25,F1,F1,Glucose,89,mg/dL
+AP25,T3,T3,Glucose,93,mg/dL
+AP25,F2,F2,Chloride,100,mmol/L
+AP25,T1,T1,Chloride,103,mmol/L
+AP25,T3,T3,Chloride,103,mmol/L
+AP25,F2,F2,eGFR,103,mL/min/1.73
+AP25,F1,F1,Chloride,104,mmol/L
+AP25,T2,T2,Chloride,104,mmol/L
+AP25,T1,T1,Glucose,106,mg/dL
+AP25,T2,T2,eGFR,113,mL/min/1.73
+AP25,T1,T1,eGFR,120,mL/min/1.73
+AP25,F1,F1,eGFR,120,mL/min/1.73
+AP25,F2,F2,Glucose,131,mg/dL
+AP25,F2,F2,Sodium,137,mmol/L
+AP25,F1,F1,Sodium,139,mmol/L
+AP25,T3,T3,Sodium,139,mmol/L
+AP25,T1,T1,Sodium,140,mmol/L
+AP25,T2,T2,Sodium,141,mmol/L
+AP25,T3,T3,"Serotonin, Whole Blood",181,ng/mL
+AP25,T1,T1,"Serotonin, Whole Blood",187,ng/mL
+AP25,F2,F2,"Serotonin, Whole Blood",204,ng/mL
+AP25,T2,T2,"Serotonin, Whole Blood",265,ng/mL
+AP25,F1,F1,"Serotonin, Whole Blood",277,ng/mL
+CJ31,T3,T3,Creatinine,0.75,mg/dL
+CJ31,T1,T1,Creatinine,0.76,mg/dL
+CJ31,F3,F3,Creatinine,0.78,mg/dL
+CJ31,T2,T2,Creatinine,0.85,mg/dL
+CJ31,F1,F1,Creatinine,0.9,mg/dL
+CJ31,F2,F2,Creatinine,0.97,mg/dL
+CJ31,F2,F2,Potassium,4.1,mmol/L
+CJ31,F3,F3,Potassium,4.1,mmol/L
+CJ31,T1,T1,Potassium,4.2,mmol/L
+CJ31,F1,F1,Potassium,4.3,mmol/L
+CJ31,T2,T2,Potassium,4.6,mmol/L
+CJ31,T3,T3,Potassium,4.7,mmol/L
+CJ31,F2,F2,BUN,7,mg/dL
+CJ31,T3,T3,BUN,7,mg/dL
+CJ31,F2,F2,BUN/Creatinine Ratio,7,
+CJ31,F1,F1,BUN,9,mg/dL
+CJ31,T2,T2,BUN,9,mg/dL
+CJ31,T3,T3,BUN/Creatinine Ratio,9,
+CJ31,F2,F2,Calcium,9.5,mg/dL
+CJ31,T3,T3,Calcium,9.5,mg/dL
+CJ31,F3,F3,Calcium,9.6,mg/dL
+CJ31,F1,F1,Calcium,9.7,mg/dL
+CJ31,T2,T2,Calcium,9.9,mg/dL
+CJ31,T1,T1,BUN,10,mg/dL
+CJ31,F1,F1,BUN/Creatinine Ratio,10,
+CJ31,T1,T1,Calcium,10,mg/dL
+CJ31,T2,T2,BUN/Creatinine Ratio,11,
+CJ31,F3,F3,BUN,12,mg/dL
+CJ31,T1,T1,BUN/Creatinine Ratio,13,
+CJ31,F3,F3,BUN/Creatinine Ratio,15,
+CJ31,T3,T3,"Carbon Dioxide, Total",19,mmol/L
+CJ31,F3,F3,"Carbon Dioxide, Total",19,mmol/L
+CJ31,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+CJ31,T2,T2,"Carbon Dioxide, Total",21,mmol/L
+CJ31,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+CJ31,F2,F2,"Carbon Dioxide, Total",22,mmol/L
+CJ31,F2,F2,eGFR,79,mL/min/1.73
+CJ31,F1,F1,eGFR,86,mL/min/1.73
+CJ31,F3,F3,Glucose,87,mg/dL
+CJ31,T2,T2,Glucose,91,mg/dL
+CJ31,T3,T3,Glucose,91,mg/dL
+CJ31,T2,T2,eGFR,92,mL/min/1.73
+CJ31,F2,F2,Glucose,92,mg/dL
+CJ31,F1,F1,Glucose,93,mg/dL
+CJ31,T1,T1,Chloride,99,mmol/L
+CJ31,F3,F3,Chloride,99,mmol/L
+CJ31,T1,T1,Glucose,99,mg/dL
+CJ31,T2,T2,Chloride,102,mmol/L
+CJ31,F2,F2,Chloride,102,mmol/L
+CJ31,F3,F3,eGFR,102,mL/min/1.73
+CJ31,F1,F1,Chloride,105,mmol/L
+CJ31,T3,T3,Chloride,106,mmol/L
+CJ31,T1,T1,eGFR,106,mL/min/1.73
+CJ31,T3,T3,eGFR,107,mL/min/1.73
+CJ31,F3,F3,Sodium,135,mmol/L
+CJ31,T1,T1,Sodium,139,mmol/L
+CJ31,F2,F2,Sodium,141,mmol/L
+CJ31,T3,T3,Sodium,141,mmol/L
+CJ31,F1,F1,Sodium,143,mmol/L
+CJ31,T2,T2,Sodium,144,mmol/L
+CJ31,T1,T1,"Serotonin, Whole Blood",148,ng/mL
+CJ31,T2,T2,"Serotonin, Whole Blood",157,ng/mL
+CJ31,T3,T3,"Serotonin, Whole Blood",159,ng/mL
+CJ31,F2,F2,"Serotonin, Whole Blood",184,ng/mL
+CJ31,F3,F3,"Serotonin, Whole Blood",184,ng/mL
+CJ31,F1,F1,"Serotonin, Whole Blood",205,ng/mL
+DZ59,T1,T1,Creatinine,0.62,mg/dL
+DZ59,F1,F1,Creatinine,0.63,mg/dL
+DZ59,T2,T2,Creatinine,0.64,mg/dL
+DZ59,F2,F2,Creatinine,0.67,mg/dL
+DZ59,F3,F3,Creatinine,0.67,mg/dL
+DZ59,T3,T3,Creatinine,0.68,mg/dL
+DZ59,T1,T1,Potassium,3.9,mmol/L
+DZ59,F2,F2,BUN,4,mg/dL
+DZ59,F2,F2,Potassium,4,mmol/L
+DZ59,T3,T3,Potassium,4,mmol/L
+DZ59,F3,F3,Potassium,4,mmol/L
+DZ59,F1,F1,Potassium,4.2,mmol/L
+DZ59,T2,T2,Potassium,4.2,mmol/L
+DZ59,T2,T2,BUN,5,mg/dL
+DZ59,F3,F3,BUN,5,mg/dL
+DZ59,T1,T1,BUN,6,mg/dL
+DZ59,F1,F1,BUN,6,mg/dL
+DZ59,T3,T3,BUN,6,mg/dL
+DZ59,F2,F2,BUN/Creatinine Ratio,6,
+DZ59,F3,F3,BUN/Creatinine Ratio,7,
+DZ59,T2,T2,BUN/Creatinine Ratio,8,
+DZ59,T1,T1,Calcium,8.8,mg/dL
+DZ59,F1,F1,Calcium,8.8,mg/dL
+DZ59,F3,F3,Calcium,8.8,mg/dL
+DZ59,T3,T3,BUN/Creatinine Ratio,9,
+DZ59,F2,F2,Calcium,9,mg/dL
+DZ59,T3,T3,Calcium,9,mg/dL
+DZ59,T2,T2,Calcium,9.3,mg/dL
+DZ59,T1,T1,BUN/Creatinine Ratio,10,
+DZ59,F1,F1,BUN/Creatinine Ratio,10,
+DZ59,F3,F3,"Carbon Dioxide, Total",20,mmol/L
+DZ59,T1,T1,"Carbon Dioxide, Total",21,mmol/L
+DZ59,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+DZ59,T2,T2,"Carbon Dioxide, Total",21,mmol/L
+DZ59,F2,F2,"Carbon Dioxide, Total",21,mmol/L
+DZ59,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+DZ59,T2,T2,Glucose,81,mg/dL
+DZ59,F1,F1,Glucose,90,mg/dL
+DZ59,F2,F2,Glucose,93,mg/dL
+DZ59,T1,T1,Glucose,94,mg/dL
+DZ59,T2,T2,Chloride,102,mmol/L
+DZ59,F2,F2,Chloride,103,mmol/L
+DZ59,F3,F3,Glucose,103,mg/dL
+DZ59,T1,T1,Chloride,104,mmol/L
+DZ59,F1,F1,Chloride,104,mmol/L
+DZ59,F3,F3,Chloride,104,mmol/L
+DZ59,T3,T3,Glucose,104,mg/dL
+DZ59,T3,T3,Chloride,105,mmol/L
+DZ59,F2,F2,eGFR,123,mL/min/1.73
+DZ59,T3,T3,eGFR,123,mL/min/1.73
+DZ59,F3,F3,eGFR,123,mL/min/1.73
+DZ59,T2,T2,eGFR,125,mL/min/1.73
+DZ59,F1,F1,eGFR,126,mL/min/1.73
+DZ59,T1,T1,eGFR,127,mL/min/1.73
+DZ59,T2,T2,Sodium,136,mmol/L
+DZ59,F2,F2,Sodium,137,mmol/L
+DZ59,F1,F1,Sodium,138,mmol/L
+DZ59,T3,T3,Sodium,139,mmol/L
+DZ59,F3,F3,Sodium,139,mmol/L
+DZ59,T1,T1,Sodium,140,mmol/L
+DZ59,T1,T1,"Serotonin, Whole Blood",220,ng/mL
+DZ59,T3,T3,"Serotonin, Whole Blood",222,ng/mL
+DZ59,T2,T2,"Serotonin, Whole Blood",225,ng/mL
+DZ59,F3,F3,"Serotonin, Whole Blood",233,ng/mL
+DZ59,F1,F1,"Serotonin, Whole Blood",248,ng/mL
+DZ59,F2,F2,"Serotonin, Whole Blood",252,ng/mL
+EX17,T1,T1,Creatinine,0.78,mg/dL
+EX17,F3,F3,Creatinine,0.78,mg/dL
+EX17,T3,T3,Creatinine,0.8,mg/dL
+EX17,F1,F1,Creatinine,0.81,mg/dL
+EX17,T2,T2,Creatinine,0.89,mg/dL
+EX17,F2,F2,Creatinine,0.9,mg/dL
+EX17,T2,T2,Potassium,3.9,mmol/L
+EX17,T3,T3,Potassium,3.9,mmol/L
+EX17,F2,F2,Potassium,4,mmol/L
+EX17,T1,T1,Potassium,4.1,mmol/L
+EX17,F1,F1,Potassium,4.1,mmol/L
+EX17,F3,F3,Potassium,4.1,mmol/L
+EX17,T1,T1,Calcium,9.4,mg/dL
+EX17,T3,T3,Calcium,9.5,mg/dL
+EX17,F3,F3,Calcium,9.5,mg/dL
+EX17,T2,T2,Calcium,9.6,mg/dL
+EX17,F2,F2,Calcium,9.6,mg/dL
+EX17,F1,F1,Calcium,9.7,mg/dL
+EX17,T1,T1,BUN,11,mg/dL
+EX17,T2,T2,BUN,11,mg/dL
+EX17,F2,F2,BUN,12,mg/dL
+EX17,T2,T2,BUN/Creatinine Ratio,12,
+EX17,T3,T3,BUN,13,mg/dL
+EX17,F3,F3,BUN,13,mg/dL
+EX17,F2,F2,BUN/Creatinine Ratio,13,
+EX17,F1,F1,BUN,14,mg/dL
+EX17,T1,T1,BUN/Creatinine Ratio,14,
+EX17,T3,T3,BUN/Creatinine Ratio,16,
+EX17,F1,F1,BUN/Creatinine Ratio,17,
+EX17,F3,F3,BUN/Creatinine Ratio,17,
+EX17,F3,F3,"Carbon Dioxide, Total",21,mmol/L
+EX17,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+EX17,T1,T1,"Carbon Dioxide, Total",24,mmol/L
+EX17,F1,F1,"Carbon Dioxide, Total",25,mmol/L
+EX17,F2,F2,"Carbon Dioxide, Total",26,mmol/L
+EX17,T2,T2,"Carbon Dioxide, Total",28,mmol/L
+EX17,F2,F2,Glucose,58,mg/dL
+EX17,T2,T2,Glucose,66,mg/dL
+EX17,F3,F3,Glucose,74,mg/dL
+EX17,T3,T3,Glucose,81,mg/dL
+EX17,T1,T1,Glucose,83,mg/dL
+EX17,F1,F1,Glucose,90,mg/dL
+EX17,T2,T2,Chloride,100,mmol/L
+EX17,T1,T1,Chloride,101,mmol/L
+EX17,F1,F1,Chloride,101,mmol/L
+EX17,F2,F2,Chloride,101,mmol/L
+EX17,F3,F3,Chloride,101,mmol/L
+EX17,T3,T3,Chloride,103,mmol/L
+EX17,F2,F2,eGFR,118,mL/min/1.73
+EX17,T2,T2,eGFR,119,mL/min/1.73
+EX17,F1,F1,eGFR,124,mL/min/1.73
+EX17,T3,T3,eGFR,124,mL/min/1.73
+EX17,T1,T1,eGFR,125,mL/min/1.73
+EX17,F3,F3,eGFR,125,mL/min/1.73
+EX17,T3,T3,"Serotonin, Whole Blood",125,ng/mL
+EX17,T2,T2,"Serotonin, Whole Blood",126,ng/mL
+EX17,T1,T1,"Serotonin, Whole Blood",129,ng/mL
+EX17,F1,F1,Sodium,142,mmol/L
+EX17,T2,T2,Sodium,142,mmol/L
+EX17,T3,T3,Sodium,142,mmol/L
+EX17,F3,F3,Sodium,142,mmol/L
+EX17,F2,F2,"Serotonin, Whole Blood",143,ng/mL
+EX17,T1,T1,Sodium,143,mmol/L
+EX17,F2,F2,Sodium,143,mmol/L
+EX17,F3,F3,"Serotonin, Whole Blood",156,ng/mL
+EX17,F1,F1,"Serotonin, Whole Blood",160,ng/mL
+FS57,F3,F3,Creatinine,0.88,mg/dL
+FS57,T2,T2,Creatinine,0.93,mg/dL
+FS57,F1,F1,Creatinine,0.96,mg/dL
+FS57,T3,T3,Creatinine,1,mg/dL
+FS57,F2,F2,Creatinine,1.02,mg/dL
+FS57,T1,T1,Creatinine,1.04,mg/dL
+FS57,T2,T2,Potassium,4.4,mmol/L
+FS57,F1,F1,Potassium,4.5,mmol/L
+FS57,F3,F3,Potassium,4.6,mmol/L
+FS57,F2,F2,Potassium,4.8,mmol/L
+FS57,T1,T1,Potassium,4.9,mmol/L
+FS57,T3,T3,Potassium,4.9,mmol/L
+FS57,T3,T3,Calcium,9.2,mg/dL
+FS57,F1,F1,Calcium,9.4,mg/dL
+FS57,T1,T1,Calcium,9.5,mg/dL
+FS57,F3,F3,Calcium,9.6,mg/dL
+FS57,T2,T2,Calcium,9.7,mg/dL
+FS57,F2,F2,Calcium,9.8,mg/dL
+FS57,T1,T1,BUN,13,mg/dL
+FS57,F3,F3,BUN,13,mg/dL
+FS57,T1,T1,BUN/Creatinine Ratio,13,
+FS57,T2,T2,BUN,14,mg/dL
+FS57,F2,F2,BUN,14,mg/dL
+FS57,F2,F2,BUN/Creatinine Ratio,14,
+FS57,T3,T3,BUN,15,mg/dL
+FS57,T2,T2,BUN/Creatinine Ratio,15,
+FS57,T3,T3,BUN/Creatinine Ratio,15,
+FS57,F3,F3,BUN/Creatinine Ratio,15,
+FS57,F1,F1,BUN,17,mg/dL
+FS57,F1,F1,BUN/Creatinine Ratio,18,
+FS57,T2,T2,"Carbon Dioxide, Total",20,mmol/L
+FS57,T1,T1,"Carbon Dioxide, Total",21,mmol/L
+FS57,F2,F2,"Carbon Dioxide, Total",21,mmol/L
+FS57,F1,F1,"Carbon Dioxide, Total",22,mmol/L
+FS57,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+FS57,F3,F3,"Carbon Dioxide, Total",23,mmol/L
+FS57,T3,T3,Glucose,64,mg/dL
+FS57,T1,T1,Glucose,77,mg/dL
+FS57,F2,F2,Glucose,84,mg/dL
+FS57,F1,F1,Glucose,85,mg/dL
+FS57,T2,T2,Glucose,87,mg/dL
+FS57,T1,T1,eGFR,95,mL/min/1.73
+FS57,F2,F2,eGFR,97,mL/min/1.73
+FS57,T3,T3,eGFR,99,mL/min/1.73
+FS57,F3,F3,Chloride,102,mmol/L
+FS57,F3,F3,Glucose,103,mg/dL
+FS57,T3,T3,Chloride,104,mmol/L
+FS57,F1,F1,eGFR,104,mL/min/1.73
+FS57,T1,T1,Chloride,105,mmol/L
+FS57,T2,T2,Chloride,105,mmol/L
+FS57,F1,F1,Chloride,106,mmol/L
+FS57,F2,F2,Chloride,107,mmol/L
+FS57,T2,T2,eGFR,108,mL/min/1.73
+FS57,F3,F3,eGFR,114,mL/min/1.73
+FS57,F2,F2,"Serotonin, Whole Blood",124,ng/mL
+FS57,F3,F3,"Serotonin, Whole Blood",124,ng/mL
+FS57,T1,T1,"Serotonin, Whole Blood",127,ng/mL
+FS57,T2,T2,"Serotonin, Whole Blood",127,ng/mL
+FS57,T3,T3,"Serotonin, Whole Blood",130,ng/mL
+FS57,F1,F1,"Serotonin, Whole Blood",141,ng/mL
+FS57,F1,F1,Sodium,141,mmol/L
+FS57,F2,F2,Sodium,141,mmol/L
+FS57,T3,T3,Sodium,141,mmol/L
+FS57,F3,F3,Sodium,141,mmol/L
+FS57,T2,T2,Sodium,142,mmol/L
+FS57,T1,T1,Sodium,143,mmol/L
+GF13,T3,T3,Creatinine,0.68,mg/dL
+GF13,F1,R1,Creatinine,0.69,mg/dL
+GF13,T1,T1,Creatinine,0.77,mg/dL
+GF13,T2,T2,Creatinine,0.83,mg/dL
+GF13,F2,F2,Creatinine,0.83,mg/dL
+GF13,F3,F3,Creatinine,0.88,mg/dL
+GF13,T2,T2,Potassium,4,mmol/L
+GF13,F3,F3,Potassium,4,mmol/L
+GF13,T1,T1,Potassium,4.1,mmol/L
+GF13,F2,F2,Potassium,4.1,mmol/L
+GF13,T3,T3,Potassium,4.2,mmol/L
+GF13,F1,R1,Potassium,4.6,mmol/L
+GF13,F2,F2,BUN,9,mg/dL
+GF13,T3,T3,Calcium,9,mg/dL
+GF13,F2,F2,Calcium,9.2,mg/dL
+GF13,F1,R1,Calcium,9.3,mg/dL
+GF13,T1,T1,Calcium,9.4,mg/dL
+GF13,T2,T2,Calcium,9.4,mg/dL
+GF13,F3,F3,Calcium,9.5,mg/dL
+GF13,T2,T2,BUN,10,mg/dL
+GF13,T3,T3,BUN,10,mg/dL
+GF13,T1,T1,BUN,11,mg/dL
+GF13,F2,F2,BUN/Creatinine Ratio,11,
+GF13,T2,T2,BUN/Creatinine Ratio,12,
+GF13,T1,T1,BUN/Creatinine Ratio,14,
+GF13,T3,T3,BUN/Creatinine Ratio,15,
+GF13,F1,R1,BUN,17,mg/dL
+GF13,F3,F3,BUN,18,mg/dL
+GF13,F1,R1,"Carbon Dioxide, Total",19,mmol/L
+GF13,F3,F3,BUN/Creatinine Ratio,20,
+GF13,T3,T3,"Carbon Dioxide, Total",20,mmol/L
+GF13,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+GF13,F2,F2,"Carbon Dioxide, Total",22,mmol/L
+GF13,F3,F3,"Carbon Dioxide, Total",22,mmol/L
+GF13,T2,T2,"Carbon Dioxide, Total",23,mmol/L
+GF13,F1,R1,BUN/Creatinine Ratio,25,
+GF13,F3,F3,Glucose,81,mg/dL
+GF13,T1,T1,Glucose,86,mg/dL
+GF13,F1,R1,Glucose,87,mg/dL
+GF13,T3,T3,Glucose,87,mg/dL
+GF13,T2,T2,eGFR,99,mL/min/1.73
+GF13,F2,F2,eGFR,99,mL/min/1.73
+GF13,T2,T2,Chloride,102,mmol/L
+GF13,F2,F2,Chloride,102,mmol/L
+GF13,T1,T1,Chloride,103,mmol/L
+GF13,F3,F3,Chloride,103,mmol/L
+GF13,F1,R1,Chloride,107,mmol/L
+GF13,T3,T3,Chloride,108,mmol/L
+GF13,T1,T1,eGFR,108,mL/min/1.73
+GF13,F2,F2,Glucose,115,mg/dL
+GF13,T2,T2,Glucose,120,mg/dL
+GF13,F1,R1,"Serotonin, Whole Blood",121,ng/mL
+GF13,F1,R1,eGFR,122,mL/min/1.73
+GF13,T3,T3,eGFR,123,mL/min/1.73
+GF13,T3,T3,"Serotonin, Whole Blood",126,ng/mL
+GF13,T2,T2,"Serotonin, Whole Blood",127,ng/mL
+GF13,F2,F2,"Serotonin, Whole Blood",130,ng/mL
+GF13,F3,F3,"Serotonin, Whole Blood",132,ng/mL
+GF13,F2,F2,Sodium,138,mmol/L
+GF13,F3,F3,Sodium,138,mmol/L
+GF13,T2,T2,Sodium,139,mmol/L
+GF13,T1,T1,Sodium,140,mmol/L
+GF13,F1,R1,Sodium,141,mmol/L
+GF13,T3,T3,Sodium,141,mmol/L
+GF13,T1,T1,"Serotonin, Whole Blood",178,ng/mL
+GT64,F1,F1,Creatinine,0.79,mg/dL
+GT64,T1,T1,Creatinine,0.86,mg/dL
+GT64,T3,T3,Creatinine,0.87,mg/dL
+GT64,F3,F3,Creatinine,0.88,mg/dL
+GT64,T2,T2,Creatinine,0.91,mg/dL
+GT64,F2,F2,Creatinine,0.94,mg/dL
+GT64,T3,T3,Potassium,4.1,mmol/L
+GT64,F1,F1,Potassium,4.3,mmol/L
+GT64,F2,F2,Potassium,4.3,mmol/L
+GT64,F3,F3,Potassium,4.4,mmol/L
+GT64,T1,T1,Potassium,4.6,mmol/L
+GT64,T2,T2,Potassium,4.7,mmol/L
+GT64,F1,F1,Calcium,9.5,mg/dL
+GT64,F2,F2,Calcium,9.5,mg/dL
+GT64,T2,T2,Calcium,9.6,mg/dL
+GT64,T3,T3,Calcium,9.6,mg/dL
+GT64,F3,F3,Calcium,9.7,mg/dL
+GT64,T1,T1,Calcium,9.9,mg/dL
+GT64,T2,T2,BUN,10,mg/dL
+GT64,F1,F1,BUN,11,mg/dL
+GT64,T3,T3,BUN,11,mg/dL
+GT64,F3,F3,BUN,11,mg/dL
+GT64,T2,T2,BUN/Creatinine Ratio,11,
+GT64,F2,F2,BUN,13,mg/dL
+GT64,T3,T3,BUN/Creatinine Ratio,13,
+GT64,F3,F3,BUN/Creatinine Ratio,13,
+GT64,T1,T1,BUN,14,mg/dL
+GT64,F1,F1,BUN/Creatinine Ratio,14,
+GT64,F2,F2,BUN/Creatinine Ratio,14,
+GT64,T1,T1,BUN/Creatinine Ratio,16,
+GT64,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+GT64,T1,T1,"Carbon Dioxide, Total",24,mmol/L
+GT64,F2,F2,"Carbon Dioxide, Total",24,mmol/L
+GT64,F3,F3,"Carbon Dioxide, Total",24,mmol/L
+GT64,T2,T2,"Carbon Dioxide, Total",25,mmol/L
+GT64,F1,F1,"Carbon Dioxide, Total",26,mmol/L
+GT64,T1,T1,Glucose,87,mg/dL
+GT64,F3,F3,Glucose,88,mg/dL
+GT64,T3,T3,Glucose,91,mg/dL
+GT64,T2,T2,Glucose,94,mg/dL
+GT64,F2,F2,Chloride,98,mmol/L
+GT64,F3,F3,Chloride,99,mmol/L
+GT64,F2,F2,Glucose,99,mg/dL
+GT64,T1,T1,Chloride,100,mmol/L
+GT64,F1,F1,Chloride,100,mmol/L
+GT64,T2,T2,Chloride,101,mmol/L
+GT64,T3,T3,Chloride,101,mmol/L
+GT64,F1,F1,Glucose,101,mg/dL
+GT64,F2,F2,eGFR,111,mL/min/1.73
+GT64,T2,T2,eGFR,115,mL/min/1.73
+GT64,T3,T3,eGFR,118,mL/min/1.73
+GT64,F3,F3,eGFR,118,mL/min/1.73
+GT64,T1,T1,eGFR,119,mL/min/1.73
+GT64,T3,T3,"Serotonin, Whole Blood",134,ng/mL
+GT64,F2,F2,Sodium,135,mmol/L
+GT64,F1,F1,Sodium,139,mmol/L
+GT64,T2,T2,"Serotonin, Whole Blood",140,ng/mL
+GT64,T2,T2,Sodium,140,mmol/L
+GT64,T3,T3,Sodium,140,mmol/L
+GT64,F3,F3,Sodium,140,mmol/L
+GT64,T1,T1,Sodium,141,mmol/L
+GT64,F2,F2,"Serotonin, Whole Blood",148,ng/mL
+GT64,F1,F1,"Serotonin, Whole Blood",149,ng/mL
+GT64,T1,T1,"Serotonin, Whole Blood",153,ng/mL
+GT64,F3,F3,"Serotonin, Whole Blood",171,ng/mL
+HE12,F2,F2,Creatinine,0.81,mg/dL
+HE12,F3,F3,Creatinine,0.81,mg/dL
+HE12,T1,T1,Creatinine,0.82,mg/dL
+HE12,T3,T3,Creatinine,0.83,mg/dL
+HE12,F1,F1,Creatinine,0.86,mg/dL
+HE12,T2,T2,Creatinine,0.91,mg/dL
+HE12,T3,T3,Potassium,4.2,mmol/L
+HE12,T1,T1,Potassium,4.3,mmol/L
+HE12,F1,F1,Potassium,4.5,mmol/L
+HE12,F2,F2,Potassium,4.5,mmol/L
+HE12,T2,T2,Potassium,4.6,mmol/L
+HE12,F3,F3,Potassium,4.8,mmol/L
+HE12,F1,F1,BUN,8,mg/dL
+HE12,T3,T3,BUN,8,mg/dL
+HE12,T2,T2,BUN,9,mg/dL
+HE12,F1,F1,BUN/Creatinine Ratio,9,
+HE12,F2,F2,Calcium,9.1,mg/dL
+HE12,T3,T3,Calcium,9.1,mg/dL
+HE12,T1,T1,Calcium,9.3,mg/dL
+HE12,F3,F3,Calcium,9.3,mg/dL
+HE12,F1,F1,Calcium,9.4,mg/dL
+HE12,T2,T2,Calcium,9.6,mg/dL
+HE12,F2,F2,BUN,10,mg/dL
+HE12,F3,F3,BUN,10,mg/dL
+HE12,T2,T2,BUN/Creatinine Ratio,10,
+HE12,T3,T3,BUN/Creatinine Ratio,10,
+HE12,T1,T1,BUN,11,mg/dL
+HE12,F2,F2,BUN/Creatinine Ratio,12,
+HE12,F3,F3,BUN/Creatinine Ratio,12,
+HE12,T1,T1,BUN/Creatinine Ratio,13,
+HE12,T1,T1,"Carbon Dioxide, Total",20,mmol/L
+HE12,F2,F2,"Carbon Dioxide, Total",21,mmol/L
+HE12,F3,F3,"Carbon Dioxide, Total",21,mmol/L
+HE12,T2,T2,"Carbon Dioxide, Total",22,mmol/L
+HE12,T3,T3,"Carbon Dioxide, Total",24,mmol/L
+HE12,F1,F1,"Carbon Dioxide, Total",25,mmol/L
+HE12,F1,F1,Glucose,72,mg/dL
+HE12,F3,F3,Glucose,77,mg/dL
+HE12,T3,T3,Glucose,78,mg/dL
+HE12,F2,F2,Glucose,80,mg/dL
+HE12,T2,T2,Glucose,89,mg/dL
+HE12,F2,F2,Chloride,99,mmol/L
+HE12,T1,T1,Glucose,99,mg/dL
+HE12,T3,T3,Chloride,101,mmol/L
+HE12,F1,F1,Chloride,102,mmol/L
+HE12,T1,T1,Chloride,103,mmol/L
+HE12,F3,F3,Chloride,103,mmol/L
+HE12,T2,T2,Chloride,104,mmol/L
+HE12,T2,T2,eGFR,121,mL/min/1.73
+HE12,F1,F1,eGFR,125,mL/min/1.73
+HE12,T1,T1,eGFR,127,mL/min/1.73
+HE12,T3,T3,eGFR,127,mL/min/1.73
+HE12,F2,F2,eGFR,128,mL/min/1.73
+HE12,F3,F3,eGFR,128,mL/min/1.73
+HE12,F2,F2,Sodium,135,mmol/L
+HE12,T1,T1,Sodium,139,mmol/L
+HE12,T3,T3,Sodium,140,mmol/L
+HE12,T2,T2,Sodium,141,mmol/L
+HE12,F1,F1,Sodium,142,mmol/L
+HE12,F3,F3,Sodium,142,mmol/L
+HE12,T3,T3,"Serotonin, Whole Blood",174,ng/mL
+HE12,T2,T2,"Serotonin, Whole Blood",188,ng/mL
+HE12,F2,F2,"Serotonin, Whole Blood",225,ng/mL
+HE12,F3,F3,"Serotonin, Whole Blood",234,ng/mL
+HE12,T1,T1,"Serotonin, Whole Blood",271,ng/mL
+HE12,F1,F1,"Serotonin, Whole Blood",272,ng/mL
+HE41,T1,T1,Creatinine,0.79,mg/dL
+HE41,T2,T2,Creatinine,0.83,mg/dL
+HE41,T3,T3,Creatinine,0.87,mg/dL
+HE41,F3,F3,Creatinine,0.87,mg/dL
+HE41,F1,F1,Creatinine,0.88,mg/dL
+HE41,F2,F2,Creatinine,0.95,mg/dL
+HE41,T1,T1,Potassium,4,mmol/L
+HE41,F1,F1,Potassium,4,mmol/L
+HE41,F3,F3,Potassium,4,mmol/L
+HE41,T2,T2,Potassium,4.1,mmol/L
+HE41,T3,T3,Potassium,4.1,mmol/L
+HE41,F2,F2,Potassium,4.3,mmol/L
+HE41,T3,T3,Calcium,9.4,mg/dL
+HE41,T1,T1,Calcium,9.5,mg/dL
+HE41,T2,T2,Calcium,9.5,mg/dL
+HE41,F3,F3,Calcium,9.7,mg/dL
+HE41,F1,F1,Calcium,9.8,mg/dL
+HE41,F2,F2,Calcium,9.8,mg/dL
+HE41,T1,T1,BUN,13,mg/dL
+HE41,T2,T2,BUN,13,mg/dL
+HE41,T3,T3,BUN,13,mg/dL
+HE41,F2,F2,BUN,14,mg/dL
+HE41,F3,F3,BUN,14,mg/dL
+HE41,F2,F2,BUN/Creatinine Ratio,15,
+HE41,T3,T3,BUN/Creatinine Ratio,15,
+HE41,F1,F1,BUN,16,mg/dL
+HE41,T1,T1,BUN/Creatinine Ratio,16,
+HE41,T2,T2,BUN/Creatinine Ratio,16,
+HE41,F3,F3,BUN/Creatinine Ratio,16,
+HE41,F1,F1,BUN/Creatinine Ratio,18,
+HE41,F3,F3,"Carbon Dioxide, Total",18,mmol/L
+HE41,F2,F2,"Carbon Dioxide, Total",19,mmol/L
+HE41,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+HE41,T1,T1,"Carbon Dioxide, Total",24,mmol/L
+HE41,F1,F1,"Carbon Dioxide, Total",24,mmol/L
+HE41,T2,T2,"Carbon Dioxide, Total",24,mmol/L
+HE41,T1,T1,Glucose,80,mg/dL
+HE41,T2,T2,Glucose,89,mg/dL
+HE41,F1,F1,Glucose,93,mg/dL
+HE41,T1,T1,Chloride,102,mmol/L
+HE41,F1,F1,Chloride,102,mmol/L
+HE41,T2,T2,Chloride,102,mmol/L
+HE41,F3,F3,Chloride,103,mmol/L
+HE41,F2,F2,Glucose,103,mg/dL
+HE41,F2,F2,Chloride,105,mmol/L
+HE41,T3,T3,Chloride,105,mmol/L
+HE41,F2,F2,eGFR,105,mL/min/1.73
+HE41,T3,T3,eGFR,113,mL/min/1.73
+HE41,F3,F3,eGFR,113,mL/min/1.73
+HE41,F1,F1,eGFR,114,mL/min/1.73
+HE41,T2,T2,eGFR,116,mL/min/1.73
+HE41,T1,T1,eGFR,118,mL/min/1.73
+HE41,F3,F3,Sodium,139,mmol/L
+HE41,F2,F2,Sodium,140,mmol/L
+HE41,F1,F1,Sodium,141,mmol/L
+HE41,T2,T2,Sodium,141,mmol/L
+HE41,T1,T1,Sodium,142,mmol/L
+HE41,T3,T3,Sodium,143,mmol/L
+HE41,T3,T3,Glucose,145,mg/dL
+HE41,T2,T2,"Serotonin, Whole Blood",153,ng/mL
+HE41,F3,F3,Glucose,155,mg/dL
+HE41,T1,T1,"Serotonin, Whole Blood",169,ng/mL
+HE41,T3,T3,"Serotonin, Whole Blood",179,ng/mL
+HE41,F1,F1,"Serotonin, Whole Blood",190,ng/mL
+HE41,F2,F2,"Serotonin, Whole Blood",213,ng/mL
+HE41,F3,F3,"Serotonin, Whole Blood",230,ng/mL
+JM84,T3,T3,Creatinine,0.84,mg/dL
+JM84,T1,T1,Creatinine,0.87,mg/dL
+JM84,F2,F2,Creatinine,0.87,mg/dL
+JM84,F3,F3,Creatinine,0.89,mg/dL
+JM84,T2,T2,Creatinine,0.91,mg/dL
+JM84,F1,F1,Creatinine,0.93,mg/dL
+JM84,T1,T1,Potassium,3.8,mmol/L
+JM84,T2,T2,Potassium,4,mmol/L
+JM84,F1,F1,Potassium,4.1,mmol/L
+JM84,T3,T3,Potassium,4.2,mmol/L
+JM84,F3,F3,Potassium,4.2,mmol/L
+JM84,F2,F2,Potassium,4.3,mmol/L
+JM84,F2,F2,Calcium,9.2,mg/dL
+JM84,T1,T1,Calcium,9.4,mg/dL
+JM84,T3,T3,Calcium,9.4,mg/dL
+JM84,F1,F1,Calcium,9.5,mg/dL
+JM84,F3,F3,Calcium,9.5,mg/dL
+JM84,T2,T2,Calcium,9.6,mg/dL
+JM84,T2,T2,BUN,12,mg/dL
+JM84,T1,T1,BUN,13,mg/dL
+JM84,T2,T2,BUN/Creatinine Ratio,13,
+JM84,F2,F2,BUN,14,mg/dL
+JM84,T3,T3,BUN,14,mg/dL
+JM84,F1,F1,BUN,15,mg/dL
+JM84,F3,F3,BUN,15,mg/dL
+JM84,T1,T1,BUN/Creatinine Ratio,15,
+JM84,F1,F1,BUN/Creatinine Ratio,16,
+JM84,F2,F2,BUN/Creatinine Ratio,16,
+JM84,T3,T3,BUN/Creatinine Ratio,17,
+JM84,F3,F3,BUN/Creatinine Ratio,17,
+JM84,F1,F1,"Carbon Dioxide, Total",20,mmol/L
+JM84,T1,T1,"Carbon Dioxide, Total",21,mmol/L
+JM84,T2,T2,"Carbon Dioxide, Total",21,mmol/L
+JM84,F2,F2,"Carbon Dioxide, Total",21,mmol/L
+JM84,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+JM84,F3,F3,"Carbon Dioxide, Total",22,mmol/L
+JM84,T3,T3,Glucose,81,mg/dL
+JM84,F3,F3,Glucose,88,mg/dL
+JM84,T1,T1,"Serotonin, Whole Blood",93,ng/mL
+JM84,T1,T1,Glucose,94,mg/dL
+JM84,F2,F2,Glucose,94,mg/dL
+JM84,T2,T2,Glucose,98,mg/dL
+JM84,F1,F1,"Serotonin, Whole Blood",98,ng/mL
+JM84,T1,T1,Chloride,103,mmol/L
+JM84,T2,T2,Chloride,103,mmol/L
+JM84,F3,F3,Chloride,103,mmol/L
+JM84,F1,F1,Chloride,104,mmol/L
+JM84,F2,F2,Chloride,105,mmol/L
+JM84,T3,T3,Chloride,105,mmol/L
+JM84,F1,F1,Glucose,111,mg/dL
+JM84,T3,T3,"Serotonin, Whole Blood",113,ng/mL
+JM84,F1,F1,eGFR,117,mL/min/1.73
+JM84,F3,F3,"Serotonin, Whole Blood",117,ng/mL
+JM84,T2,T2,eGFR,119,mL/min/1.73
+JM84,F3,F3,eGFR,121,mL/min/1.73
+JM84,T1,T1,eGFR,123,mL/min/1.73
+JM84,F2,F2,eGFR,123,mL/min/1.73
+JM84,T3,T3,eGFR,124,mL/min/1.73
+JM84,T2,T2,"Serotonin, Whole Blood",129,ng/mL
+JM84,F2,F2,"Serotonin, Whole Blood",138,ng/mL
+JM84,T1,T1,Sodium,140,mmol/L
+JM84,F1,F1,Sodium,140,mmol/L
+JM84,T2,T2,Sodium,140,mmol/L
+JM84,F2,F2,Sodium,140,mmol/L
+JM84,F3,F3,Sodium,140,mmol/L
+JM84,T3,T3,Sodium,142,mmol/L
+KC86,F1,F1,Creatinine,0.53,mg/dL
+KC86,T3,T3,Creatinine,0.53,mg/dL
+KC86,T1,T1,Creatinine,0.57,mg/dL
+KC86,F3,F3,Creatinine,0.57,mg/dL
+KC86,T2,T2,Creatinine,0.62,mg/dL
+KC86,F2,F2,Creatinine,0.63,mg/dL
+KC86,T2,T2,Potassium,3.7,mmol/L
+KC86,F3,F3,Potassium,4,mmol/L
+KC86,F1,F1,Potassium,4.2,mmol/L
+KC86,T1,T1,Potassium,4.3,mmol/L
+KC86,F2,F2,Potassium,4.3,mmol/L
+KC86,T3,T3,Potassium,4.5,mmol/L
+KC86,T2,T2,BUN,7,mg/dL
+KC86,F2,F2,BUN,7,mg/dL
+KC86,T1,T1,BUN,8,mg/dL
+KC86,F1,F1,BUN,8,mg/dL
+KC86,T3,T3,BUN,8,mg/dL
+KC86,F3,F3,BUN,9,mg/dL
+KC86,T1,T1,Calcium,9.5,mg/dL
+KC86,F1,F1,Calcium,9.6,mg/dL
+KC86,F2,F2,Calcium,9.6,mg/dL
+KC86,T3,T3,Calcium,9.7,mg/dL
+KC86,F3,F3,Calcium,9.7,mg/dL
+KC86,T2,T2,Calcium,9.8,mg/dL
+KC86,T2,T2,BUN/Creatinine Ratio,11,
+KC86,F2,F2,BUN/Creatinine Ratio,11,
+KC86,T1,T1,BUN/Creatinine Ratio,14,
+KC86,F1,F1,BUN/Creatinine Ratio,15,
+KC86,T3,T3,BUN/Creatinine Ratio,15,
+KC86,F3,F3,BUN/Creatinine Ratio,16,
+KC86,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+KC86,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+KC86,T2,T2,"Carbon Dioxide, Total",23,mmol/L
+KC86,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+KC86,F2,F2,"Carbon Dioxide, Total",24,mmol/L
+KC86,F3,F3,"Carbon Dioxide, Total",25,mmol/L
+KC86,T2,T2,Glucose,63,mg/dL
+KC86,T3,T3,Glucose,64,mg/dL
+KC86,F3,F3,Glucose,73,mg/dL
+KC86,T1,T1,Glucose,80,mg/dL
+KC86,F2,F2,Glucose,80,mg/dL
+KC86,F1,F1,Glucose,81,mg/dL
+KC86,T2,T2,Chloride,100,mmol/L
+KC86,T1,T1,Chloride,101,mmol/L
+KC86,F1,F1,Chloride,101,mmol/L
+KC86,F2,F2,Chloride,101,mmol/L
+KC86,T3,T3,Chloride,102,mmol/L
+KC86,F3,F3,Chloride,102,mmol/L
+KC86,T2,T2,eGFR,130,mL/min/1.73
+KC86,F2,F2,eGFR,130,mL/min/1.73
+KC86,T1,T1,eGFR,134,mL/min/1.73
+KC86,F3,F3,eGFR,134,mL/min/1.73
+KC86,F1,F1,eGFR,137,mL/min/1.73
+KC86,T3,T3,eGFR,137,mL/min/1.73
+KC86,T1,T1,Sodium,139,mmol/L
+KC86,F1,F1,Sodium,139,mmol/L
+KC86,T3,T3,Sodium,141,mmol/L
+KC86,F2,F2,Sodium,142,mmol/L
+KC86,F3,F3,Sodium,142,mmol/L
+KC86,T2,T2,Sodium,143,mmol/L
+KC86,T1,T1,"Serotonin, Whole Blood",197,ng/mL
+KC86,T3,T3,"Serotonin, Whole Blood",225,ng/mL
+KC86,T2,T2,"Serotonin, Whole Blood",229,ng/mL
+KC86,F2,F2,"Serotonin, Whole Blood",253,ng/mL
+KC86,F1,F1,"Serotonin, Whole Blood",266,ng/mL
+KC86,F3,F3,"Serotonin, Whole Blood",267,ng/mL
+KD32,T2,T2,Creatinine,0.69,mg/dL
+KD32,F3,F3,Creatinine,0.7,mg/dL
+KD32,T1,T1,Creatinine,0.71,mg/dL
+KD32,F1,F1,Creatinine,0.77,mg/dL
+KD32,T3,T3,Creatinine,0.79,mg/dL
+KD32,F2,F2,Creatinine,0.81,mg/dL
+KD32,F2,F2,Potassium,3.8,mmol/L
+KD32,T1,T1,Potassium,3.9,mmol/L
+KD32,F1,F1,Potassium,3.9,mmol/L
+KD32,F3,F3,Potassium,3.9,mmol/L
+KD32,T3,T3,Potassium,4.1,mmol/L
+KD32,T2,T2,Potassium,4.3,mmol/L
+KD32,T2,T2,BUN,8,mg/dL
+KD32,F2,F2,BUN,8,mg/dL
+KD32,F2,F2,Calcium,8.9,mg/dL
+KD32,T3,T3,BUN,9,mg/dL
+KD32,F3,F3,Calcium,9.1,mg/dL
+KD32,T1,T1,Calcium,9.4,mg/dL
+KD32,F1,F1,Calcium,9.4,mg/dL
+KD32,T2,T2,Calcium,9.6,mg/dL
+KD32,T3,T3,Calcium,9.7,mg/dL
+KD32,T1,T1,BUN,10,mg/dL
+KD32,F1,F1,BUN,10,mg/dL
+KD32,F3,F3,BUN,10,mg/dL
+KD32,F2,F2,BUN/Creatinine Ratio,10,
+KD32,T3,T3,BUN/Creatinine Ratio,11,
+KD32,T2,T2,BUN/Creatinine Ratio,12,
+KD32,F1,F1,BUN/Creatinine Ratio,13,
+KD32,T1,T1,BUN/Creatinine Ratio,14,
+KD32,F3,F3,BUN/Creatinine Ratio,14,
+KD32,F1,F1,"Carbon Dioxide, Total",20,mmol/L
+KD32,F2,F2,"Carbon Dioxide, Total",20,mmol/L
+KD32,T3,T3,"Carbon Dioxide, Total",22,mmol/L
+KD32,F3,F3,"Carbon Dioxide, Total",23,mmol/L
+KD32,T1,T1,"Carbon Dioxide, Total",24,mmol/L
+KD32,T2,T2,"Carbon Dioxide, Total",24,mmol/L
+KD32,F3,F3,Glucose,82,mg/dL
+KD32,T1,T1,Glucose,85,mg/dL
+KD32,T3,T3,Glucose,85,mg/dL
+KD32,F2,F2,Glucose,93,mg/dL
+KD32,T2,T2,Glucose,94,mg/dL
+KD32,F2,F2,eGFR,97,mL/min/1.73
+KD32,F2,F2,"Serotonin, Whole Blood",98,ng/mL
+KD32,T3,T3,eGFR,100,mL/min/1.73
+KD32,F1,F1,"Serotonin, Whole Blood",100,ng/mL
+KD32,T2,T2,"Serotonin, Whole Blood",100,ng/mL
+KD32,T3,T3,Chloride,102,mmol/L
+KD32,T1,T1,Chloride,103,mmol/L
+KD32,F1,F1,Chloride,103,mmol/L
+KD32,F3,F3,Chloride,103,mmol/L
+KD32,F1,F1,eGFR,103,mL/min/1.73
+KD32,T1,T1,"Serotonin, Whole Blood",104,ng/mL
+KD32,T2,T2,Chloride,105,mmol/L
+KD32,F2,F2,Chloride,105,mmol/L
+KD32,T3,T3,"Serotonin, Whole Blood",106,ng/mL
+KD32,F3,F3,"Serotonin, Whole Blood",106,ng/mL
+KD32,T1,T1,eGFR,114,mL/min/1.73
+KD32,T2,T2,eGFR,116,mL/min/1.73
+KD32,F3,F3,eGFR,116,mL/min/1.73
+KD32,F1,F1,Glucose,134,mg/dL
+KD32,F2,F2,Sodium,139,mmol/L
+KD32,F1,F1,Sodium,140,mmol/L
+KD32,T3,T3,Sodium,141,mmol/L
+KD32,F3,F3,Sodium,141,mmol/L
+KD32,T1,T1,Sodium,142,mmol/L
+KD32,T2,T2,Sodium,143,mmol/L
+KM79,T2,T2,Creatinine,1.06,mg/dL
+KM79,T3,T3,Creatinine,1.22,mg/dL
+KM79,F1,F1,Creatinine,1.23,mg/dL
+KM79,F2,F2,Creatinine,1.25,mg/dL
+KM79,F3,F3,Creatinine,1.32,mg/dL
+KM79,T1,T1,Creatinine,1.39,mg/dL
+KM79,T2,T2,Potassium,4,mmol/L
+KM79,T3,T3,Potassium,4,mmol/L
+KM79,T1,T1,Potassium,4.1,mmol/L
+KM79,F2,F2,Potassium,4.1,mmol/L
+KM79,F1,F1,Potassium,4.3,mmol/L
+KM79,F3,F3,Potassium,4.5,mmol/L
+KM79,T2,T2,Calcium,8.9,mg/dL
+KM79,T1,T1,Calcium,9.1,mg/dL
+KM79,F2,F2,Calcium,9.1,mg/dL
+KM79,F1,F1,Calcium,9.5,mg/dL
+KM79,F3,F3,Calcium,9.6,mg/dL
+KM79,T3,T3,Calcium,9.7,mg/dL
+KM79,F2,F2,BUN/Creatinine Ratio,14,
+KM79,T3,T3,BUN/Creatinine Ratio,17,
+KM79,F2,F2,BUN,18,mg/dL
+KM79,F1,F1,BUN/Creatinine Ratio,18,
+KM79,T3,T3,"Carbon Dioxide, Total",18,mmol/L
+KM79,T2,T2,BUN/Creatinine Ratio,19,
+KM79,F3,F3,BUN/Creatinine Ratio,19,
+KM79,T2,T2,BUN,20,mg/dL
+KM79,F3,F3,"Carbon Dioxide, Total",20,mmol/L
+KM79,T3,T3,BUN,21,mg/dL
+KM79,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+KM79,F1,F1,BUN,22,mg/dL
+KM79,T1,T1,BUN/Creatinine Ratio,22,
+KM79,T2,T2,"Carbon Dioxide, Total",22,mmol/L
+KM79,T1,T1,"Carbon Dioxide, Total",23,mmol/L
+KM79,F2,F2,"Carbon Dioxide, Total",24,mmol/L
+KM79,F3,F3,BUN,25,mg/dL
+KM79,T1,T1,BUN,30,mg/dL
+KM79,T1,T1,eGFR,72,mL/min/1.73
+KM79,F3,F3,eGFR,77,mL/min/1.73
+KM79,T1,T1,Glucose,78,mg/dL
+KM79,F2,F2,eGFR,82,mL/min/1.73
+KM79,F1,F1,Glucose,83,mg/dL
+KM79,F2,F2,Glucose,83,mg/dL
+KM79,F1,F1,eGFR,84,mL/min/1.73
+KM79,T2,T2,Glucose,84,mg/dL
+KM79,T3,T3,eGFR,85,mL/min/1.73
+KM79,F3,F3,Glucose,86,mg/dL
+KM79,T3,T3,Glucose,89,mg/dL
+KM79,T1,T1,Chloride,99,mmol/L
+KM79,T2,T2,Chloride,99,mmol/L
+KM79,T2,T2,eGFR,101,mL/min/1.73
+KM79,F2,F2,Chloride,102,mmol/L
+KM79,F1,F1,Chloride,103,mmol/L
+KM79,T3,T3,Chloride,103,mmol/L
+KM79,F3,F3,Chloride,104,mmol/L
+KM79,T1,T1,Sodium,138,mmol/L
+KM79,T3,T3,Sodium,138,mmol/L
+KM79,T2,T2,Sodium,139,mmol/L
+KM79,F2,F2,Sodium,139,mmol/L
+KM79,F3,F3,Sodium,140,mmol/L
+KM79,F1,F1,Sodium,141,mmol/L
+KM79,T2,T2,"Serotonin, Whole Blood",233,ng/mL
+KM79,T1,T1,"Serotonin, Whole Blood",279,ng/mL
+KM79,F2,F2,"Serotonin, Whole Blood",290,ng/mL
+KM79,T3,T3,"Serotonin, Whole Blood",307,ng/mL
+KM79,F1,F1,"Serotonin, Whole Blood",335,ng/mL
+KM79,F3,F3,"Serotonin, Whole Blood",338,ng/mL
+KX62,T1,T1,Creatinine,0.66,mg/dL
+KX62,T3,T3,Creatinine,0.66,mg/dL
+KX62,F3,F3,Creatinine,0.71,mg/dL
+KX62,T2,T2,Creatinine,0.74,mg/dL
+KX62,F2,F2,Creatinine,0.76,mg/dL
+KX62,F1,F1,Creatinine,0.77,mg/dL
+KX62,F3,F3,Potassium,4,mmol/L
+KX62,T2,T2,Potassium,4.1,mmol/L
+KX62,F2,F2,Potassium,4.1,mmol/L
+KX62,T3,T3,Potassium,4.1,mmol/L
+KX62,F1,F1,Potassium,4.3,mmol/L
+KX62,T1,T1,Potassium,4.5,mmol/L
+KX62,T3,T3,Calcium,9.2,mg/dL
+KX62,F1,F1,Calcium,9.3,mg/dL
+KX62,T2,T2,Calcium,9.3,mg/dL
+KX62,F2,F2,Calcium,9.3,mg/dL
+KX62,T1,T1,Calcium,9.4,mg/dL
+KX62,F3,F3,Calcium,9.5,mg/dL
+KX62,F3,F3,BUN,11,mg/dL
+KX62,F2,F2,BUN,12,mg/dL
+KX62,T3,T3,BUN,12,mg/dL
+KX62,T1,T1,BUN,13,mg/dL
+KX62,T2,T2,BUN,14,mg/dL
+KX62,F3,F3,BUN/Creatinine Ratio,15,
+KX62,F1,F1,BUN,16,mg/dL
+KX62,F2,F2,BUN/Creatinine Ratio,16,
+KX62,T3,T3,BUN/Creatinine Ratio,18,
+KX62,T2,T2,BUN/Creatinine Ratio,19,
+KX62,T1,T1,BUN/Creatinine Ratio,20,
+KX62,F1,F1,BUN/Creatinine Ratio,21,
+KX62,T3,T3,"Carbon Dioxide, Total",22,mmol/L
+KX62,F3,F3,"Carbon Dioxide, Total",22,mmol/L
+KX62,T2,T2,"Carbon Dioxide, Total",23,mmol/L
+KX62,T1,T1,"Carbon Dioxide, Total",24,mmol/L
+KX62,F2,F2,"Carbon Dioxide, Total",24,mmol/L
+KX62,F1,F1,"Carbon Dioxide, Total",25,mmol/L
+KX62,T2,T2,Glucose,79,mg/dL
+KX62,F2,F2,Glucose,82,mg/dL
+KX62,F3,F3,Glucose,86,mg/dL
+KX62,T3,T3,Glucose,87,mg/dL
+KX62,T1,T1,Glucose,92,mg/dL
+KX62,F1,F1,Chloride,100,mmol/L
+KX62,T1,T1,Chloride,102,mmol/L
+KX62,F2,F2,Chloride,102,mmol/L
+KX62,T3,T3,Chloride,102,mmol/L
+KX62,T2,T2,Chloride,103,mmol/L
+KX62,F3,F3,Chloride,103,mmol/L
+KX62,F1,F1,eGFR,108,mL/min/1.73
+KX62,F2,F2,eGFR,110,mL/min/1.73
+KX62,T2,T2,eGFR,114,mL/min/1.73
+KX62,F3,F3,eGFR,120,mL/min/1.73
+KX62,T1,T1,eGFR,124,mL/min/1.73
+KX62,T3,T3,eGFR,124,mL/min/1.73
+KX62,F1,F1,Sodium,139,mmol/L
+KX62,T3,T3,Sodium,140,mmol/L
+KX62,T2,T2,Sodium,141,mmol/L
+KX62,F2,F2,Sodium,141,mmol/L
+KX62,T1,T1,Sodium,142,mmol/L
+KX62,F3,F3,Sodium,142,mmol/L
+KX62,F1,F1,Glucose,173,mg/dL
+KX62,T1,T1,"Serotonin, Whole Blood",247,ng/mL
+KX62,F1,F1,"Serotonin, Whole Blood",292,ng/mL
+KX62,T2,T2,"Serotonin, Whole Blood",300,ng/mL
+KX62,F2,F2,"Serotonin, Whole Blood",303,ng/mL
+KX62,T3,T3,"Serotonin, Whole Blood",314,ng/mL
+KX62,F3,F3,"Serotonin, Whole Blood",331,ng/mL
+LA27,T1,T1,Creatinine,0.54,mg/dL
+LA27,T3,T3,Creatinine,0.6,mg/dL
+LA27,T2,T2,Creatinine,0.61,mg/dL
+LA27,F2,F2,Creatinine,0.63,mg/dL
+LA27,F3,F3,Creatinine,0.63,mg/dL
+LA27,F1,R1,Creatinine,0.66,mg/dL
+LA27,T1,T1,Potassium,4,mmol/L
+LA27,F1,R1,Potassium,4.3,mmol/L
+LA27,T2,T2,Potassium,4.3,mmol/L
+LA27,F2,F2,Potassium,4.4,mmol/L
+LA27,F3,F3,Potassium,4.4,mmol/L
+LA27,T3,T3,Potassium,4.5,mmol/L
+LA27,F2,F2,Calcium,9.1,mg/dL
+LA27,T2,T2,Calcium,9.2,mg/dL
+LA27,T3,T3,Calcium,9.2,mg/dL
+LA27,F1,R1,Calcium,9.3,mg/dL
+LA27,F3,F3,Calcium,9.3,mg/dL
+LA27,T1,T1,Calcium,9.8,mg/dL
+LA27,F2,F2,BUN,12,mg/dL
+LA27,T3,T3,BUN,12,mg/dL
+LA27,T2,T2,BUN,14,mg/dL
+LA27,F3,F3,BUN,14,mg/dL
+LA27,T1,T1,BUN,16,mg/dL
+LA27,T2,T2,"Carbon Dioxide, Total",18,mmol/L
+LA27,F2,F2,"Carbon Dioxide, Total",18,mmol/L
+LA27,T3,T3,"Carbon Dioxide, Total",18,mmol/L
+LA27,F1,R1,BUN,19,mg/dL
+LA27,F2,F2,BUN/Creatinine Ratio,19,
+LA27,F3,F3,"Carbon Dioxide, Total",19,mmol/L
+LA27,T3,T3,BUN/Creatinine Ratio,20,
+LA27,F1,R1,"Carbon Dioxide, Total",20,mmol/L
+LA27,F3,F3,BUN/Creatinine Ratio,22,
+LA27,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+LA27,T2,T2,BUN/Creatinine Ratio,23,
+LA27,F1,R1,BUN/Creatinine Ratio,29,
+LA27,T1,T1,BUN/Creatinine Ratio,30,
+LA27,F1,R1,Glucose,81,mg/dL
+LA27,T1,T1,Glucose,83,mg/dL
+LA27,T3,T3,Glucose,88,mg/dL
+LA27,F2,F2,Glucose,89,mg/dL
+LA27,F3,F3,Glucose,91,mg/dL
+LA27,T1,T1,Chloride,100,mmol/L
+LA27,T2,T2,Chloride,100,mmol/L
+LA27,F1,R1,Chloride,101,mmol/L
+LA27,T3,T3,Chloride,102,mmol/L
+LA27,F2,F2,Chloride,104,mmol/L
+LA27,F3,F3,Chloride,104,mmol/L
+LA27,T2,T2,Glucose,119,mg/dL
+LA27,F1,R1,eGFR,123,mL/min/1.73
+LA27,F2,F2,eGFR,125,mL/min/1.73
+LA27,F3,F3,eGFR,125,mL/min/1.73
+LA27,T2,T2,eGFR,126,mL/min/1.73
+LA27,T3,T3,eGFR,127,mL/min/1.73
+LA27,T1,T1,eGFR,132,mL/min/1.73
+LA27,T2,T2,Sodium,136,mmol/L
+LA27,F1,R1,Sodium,137,mmol/L
+LA27,F2,F2,Sodium,137,mmol/L
+LA27,T3,T3,Sodium,137,mmol/L
+LA27,T1,T1,Sodium,138,mmol/L
+LA27,F3,F3,Sodium,140,mmol/L
+LA27,F1,R1,"Serotonin, Whole Blood",159,ng/mL
+LA27,F2,F2,"Serotonin, Whole Blood",181,ng/mL
+LA27,T3,T3,"Serotonin, Whole Blood",191,ng/mL
+LA27,T1,T1,"Serotonin, Whole Blood",193,ng/mL
+LA27,F3,F3,"Serotonin, Whole Blood",195,ng/mL
+LA27,T2,T2,"Serotonin, Whole Blood",199,ng/mL
+LJ71,T1,T1,Creatinine,0.72,mg/dL
+LJ71,T3,T3,Creatinine,0.73,mg/dL
+LJ71,T2,T2,Creatinine,0.8,mg/dL
+LJ71,F1,F1,Creatinine,0.85,mg/dL
+LJ71,F2,F2,Creatinine,0.86,mg/dL
+LJ71,F2,F2,Potassium,4,mmol/L
+LJ71,T3,T3,Potassium,4.1,mmol/L
+LJ71,T1,T1,Potassium,4.2,mmol/L
+LJ71,T2,T2,Potassium,4.2,mmol/L
+LJ71,F1,F1,Potassium,4.3,mmol/L
+LJ71,T2,T2,BUN,6,mg/dL
+LJ71,T1,T1,BUN,7,mg/dL
+LJ71,F2,F2,BUN,7,mg/dL
+LJ71,T3,T3,BUN,8,mg/dL
+LJ71,T2,T2,BUN/Creatinine Ratio,8,
+LJ71,F2,F2,BUN/Creatinine Ratio,8,
+LJ71,F1,F1,BUN,9,mg/dL
+LJ71,T3,T3,Calcium,9.3,mg/dL
+LJ71,F1,F1,Calcium,9.4,mg/dL
+LJ71,T1,T1,Calcium,9.5,mg/dL
+LJ71,T2,T2,Calcium,9.5,mg/dL
+LJ71,F2,F2,Calcium,9.6,mg/dL
+LJ71,T1,T1,BUN/Creatinine Ratio,10,
+LJ71,F1,F1,BUN/Creatinine Ratio,11,
+LJ71,T3,T3,BUN/Creatinine Ratio,11,
+LJ71,F1,F1,"Carbon Dioxide, Total",19,mmol/L
+LJ71,T1,T1,"Carbon Dioxide, Total",20,mmol/L
+LJ71,F2,F2,"Carbon Dioxide, Total",20,mmol/L
+LJ71,T2,T2,"Carbon Dioxide, Total",21,mmol/L
+LJ71,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+LJ71,T3,T3,Glucose,89,mg/dL
+LJ71,T1,T1,Glucose,90,mg/dL
+LJ71,F2,F2,Glucose,93,mg/dL
+LJ71,F2,F2,eGFR,98,mL/min/1.73
+LJ71,F1,F1,eGFR,100,mL/min/1.73
+LJ71,F2,F2,Chloride,101,mmol/L
+LJ71,T3,T3,Chloride,102,mmol/L
+LJ71,T2,T2,Glucose,102,mg/dL
+LJ71,T1,T1,Chloride,104,mmol/L
+LJ71,F1,F1,Chloride,104,mmol/L
+LJ71,T2,T2,Chloride,105,mmol/L
+LJ71,T2,T2,eGFR,107,mL/min/1.73
+LJ71,F1,F1,Glucose,112,mg/dL
+LJ71,T3,T3,eGFR,120,mL/min/1.73
+LJ71,T1,T1,eGFR,122,mL/min/1.73
+LJ71,T3,T3,Sodium,137,mmol/L
+LJ71,T1,T1,Sodium,140,mmol/L
+LJ71,F2,F2,Sodium,140,mmol/L
+LJ71,F1,F1,Sodium,142,mmol/L
+LJ71,T2,T2,Sodium,143,mmol/L
+LJ71,T3,T3,"Serotonin, Whole Blood",166,ng/mL
+LJ71,T2,T2,"Serotonin, Whole Blood",214,ng/mL
+LJ71,T1,T1,"Serotonin, Whole Blood",233,ng/mL
+LJ71,F2,F2,"Serotonin, Whole Blood",237,ng/mL
+LJ71,F1,F1,"Serotonin, Whole Blood",241,ng/mL
+MH99,F3,F3,Creatinine,0.47,mg/dL
+MH99,T1,T1,Creatinine,0.54,mg/dL
+MH99,T3,T3,Creatinine,0.55,mg/dL
+MH99,F1,F1,Creatinine,0.64,mg/dL
+MH99,F2,F2,Creatinine,0.65,mg/dL
+MH99,T2,T2,Creatinine,0.67,mg/dL
+MH99,F3,F3,Potassium,3.7,mmol/L
+MH99,F1,F1,Potassium,3.9,mmol/L
+MH99,F2,F2,Potassium,3.9,mmol/L
+MH99,T1,T1,Potassium,4,mmol/L
+MH99,T2,T2,Potassium,4,mmol/L
+MH99,T3,T3,Potassium,4.4,mmol/L
+MH99,F3,F3,Calcium,8.7,mg/dL
+MH99,T1,T1,Calcium,8.9,mg/dL
+MH99,F3,F3,BUN,9,mg/dL
+MH99,F1,F1,Calcium,9,mg/dL
+MH99,F2,F2,Calcium,9.1,mg/dL
+MH99,T3,T3,Calcium,9.1,mg/dL
+MH99,T2,T2,Calcium,9.4,mg/dL
+MH99,T1,T1,BUN,10,mg/dL
+MH99,F1,F1,BUN,10,mg/dL
+MH99,F2,F2,BUN,10,mg/dL
+MH99,T3,T3,BUN,10,mg/dL
+MH99,F2,F2,BUN/Creatinine Ratio,15,
+MH99,T2,T2,BUN,16,mg/dL
+MH99,F1,F1,BUN/Creatinine Ratio,16,
+MH99,T1,T1,"Carbon Dioxide, Total",17,mmol/L
+MH99,T3,T3,BUN/Creatinine Ratio,18,
+MH99,T1,T1,BUN/Creatinine Ratio,19,
+MH99,F3,F3,BUN/Creatinine Ratio,19,
+MH99,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+MH99,T2,T2,"Carbon Dioxide, Total",23,mmol/L
+MH99,F2,F2,"Carbon Dioxide, Total",23,mmol/L
+MH99,T2,T2,BUN/Creatinine Ratio,24,
+MH99,T3,T3,"Carbon Dioxide, Total",25,mmol/L
+MH99,F3,F3,"Carbon Dioxide, Total",25,mmol/L
+MH99,T3,T3,"Serotonin, Whole Blood",85,ng/mL
+MH99,F3,F3,Glucose,86,mg/dL
+MH99,T2,T2,Glucose,90,mg/dL
+MH99,T1,T1,"Serotonin, Whole Blood",91,ng/mL
+MH99,F2,F2,Glucose,93,mg/dL
+MH99,T3,T3,Glucose,93,mg/dL
+MH99,T1,T1,Glucose,95,mg/dL
+MH99,F1,F1,Glucose,96,mg/dL
+MH99,T2,T2,"Serotonin, Whole Blood",96,ng/mL
+MH99,F2,F2,Chloride,100,mmol/L
+MH99,T3,T3,Chloride,100,mmol/L
+MH99,F3,F3,"Serotonin, Whole Blood",101,ng/mL
+MH99,T2,T2,Chloride,102,mmol/L
+MH99,F3,F3,Chloride,102,mmol/L
+MH99,T1,T1,Chloride,103,mmol/L
+MH99,F1,F1,Chloride,105,mmol/L
+MH99,F2,F2,"Serotonin, Whole Blood",119,ng/mL
+MH99,T2,T2,eGFR,123,mL/min/1.73
+MH99,F1,F1,"Serotonin, Whole Blood",124,ng/mL
+MH99,F2,F2,eGFR,125,mL/min/1.73
+MH99,T3,T3,eGFR,132,mL/min/1.73
+MH99,T1,T1,eGFR,133,mL/min/1.73
+MH99,F1,F1,eGFR,137,mL/min/1.73
+MH99,F2,F2,Sodium,138,mmol/L
+MH99,F3,F3,Sodium,138,mmol/L
+MH99,F3,F3,eGFR,139,mL/min/1.73
+MH99,T3,T3,Sodium,140,mmol/L
+MH99,T1,T1,Sodium,141,mmol/L
+MH99,F1,F1,Sodium,141,mmol/L
+MH99,T2,T2,Sodium,142,mmol/L
+MJ64,F3,F3,Creatinine,0.9,mg/dL
+MJ64,T3,T3,Creatinine,0.97,mg/dL
+MJ64,T1,T1,Creatinine,0.98,mg/dL
+MJ64,F1,F1,Creatinine,0.98,mg/dL
+MJ64,F2,F2,Creatinine,0.98,mg/dL
+MJ64,T2,T2,Creatinine,1,mg/dL
+MJ64,T2,T2,Potassium,4.1,mmol/L
+MJ64,F2,F2,Potassium,4.1,mmol/L
+MJ64,T1,T1,Potassium,4.4,mmol/L
+MJ64,T3,T3,Potassium,4.4,mmol/L
+MJ64,F3,F3,Potassium,4.4,mmol/L
+MJ64,F1,F1,Potassium,4.5,mmol/L
+MJ64,T1,T1,Calcium,9.2,mg/dL
+MJ64,F2,F2,Calcium,9.2,mg/dL
+MJ64,F1,F1,Calcium,9.3,mg/dL
+MJ64,T2,T2,Calcium,9.4,mg/dL
+MJ64,T3,T3,Calcium,9.4,mg/dL
+MJ64,F3,F3,Calcium,9.6,mg/dL
+MJ64,T3,T3,BUN,11,mg/dL
+MJ64,T3,T3,BUN/Creatinine Ratio,11,
+MJ64,F1,F1,BUN,13,mg/dL
+MJ64,T2,T2,BUN,13,mg/dL
+MJ64,F2,F2,BUN,13,mg/dL
+MJ64,F3,F3,BUN,13,mg/dL
+MJ64,F1,F1,BUN/Creatinine Ratio,13,
+MJ64,T2,T2,BUN/Creatinine Ratio,13,
+MJ64,F2,F2,BUN/Creatinine Ratio,13,
+MJ64,T1,T1,BUN,14,mg/dL
+MJ64,T1,T1,BUN/Creatinine Ratio,14,
+MJ64,F3,F3,BUN/Creatinine Ratio,14,
+MJ64,T3,T3,"Carbon Dioxide, Total",20,mmol/L
+MJ64,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+MJ64,F2,F2,"Carbon Dioxide, Total",22,mmol/L
+MJ64,T1,T1,"Carbon Dioxide, Total",23,mmol/L
+MJ64,F3,F3,"Carbon Dioxide, Total",23,mmol/L
+MJ64,T2,T2,"Carbon Dioxide, Total",24,mmol/L
+MJ64,T2,T2,eGFR,77,mL/min/1.73
+MJ64,T1,T1,eGFR,79,mL/min/1.73
+MJ64,F1,F1,eGFR,79,mL/min/1.73
+MJ64,F2,F2,eGFR,79,mL/min/1.73
+MJ64,T3,T3,eGFR,80,mL/min/1.73
+MJ64,F3,F3,Glucose,83,mg/dL
+MJ64,F3,F3,eGFR,88,mL/min/1.73
+MJ64,T2,T2,Glucose,90,mg/dL
+MJ64,F3,F3,Chloride,100,mmol/L
+MJ64,T1,T1,Chloride,103,mmol/L
+MJ64,T2,T2,Chloride,103,mmol/L
+MJ64,F2,F2,Chloride,103,mmol/L
+MJ64,T3,T3,Chloride,103,mmol/L
+MJ64,F1,F1,Chloride,105,mmol/L
+MJ64,F1,F1,Glucose,105,mg/dL
+MJ64,T1,T1,Glucose,110,mg/dL
+MJ64,F2,F2,Glucose,112,mg/dL
+MJ64,F2,F2,"Serotonin, Whole Blood",114,ng/mL
+MJ64,T3,T3,"Serotonin, Whole Blood",114,ng/mL
+MJ64,T3,T3,Glucose,115,mg/dL
+MJ64,T2,T2,"Serotonin, Whole Blood",123,ng/mL
+MJ64,T1,T1,"Serotonin, Whole Blood",132,ng/mL
+MJ64,F3,F3,"Serotonin, Whole Blood",133,ng/mL
+MJ64,T3,T3,Sodium,140,mmol/L
+MJ64,F3,F3,Sodium,140,mmol/L
+MJ64,T2,T2,Sodium,142,mmol/L
+MJ64,F2,F2,Sodium,142,mmol/L
+MJ64,T1,T1,Sodium,143,mmol/L
+MJ64,F1,F1,Sodium,143,mmol/L
+NH84,T3,T3,Creatinine,0.67,mg/dL
+NH84,F2,F2,Creatinine,0.94,mg/dL
+NH84,F3,F3,Creatinine,0.94,mg/dL
+NH84,F1,F1,Creatinine,1.03,mg/dL
+NH84,T2,T2,Creatinine,1.03,mg/dL
+NH84,T1,T1,Creatinine,1.06,mg/dL
+NH84,F1,F1,Potassium,4.1,mmol/L
+NH84,F3,F3,Potassium,4.1,mmol/L
+NH84,F2,F2,Potassium,4.2,mmol/L
+NH84,T3,T3,Potassium,4.2,mmol/L
+NH84,T2,T2,Potassium,4.3,mmol/L
+NH84,T1,T1,Potassium,4.6,mmol/L
+NH84,F2,F2,Calcium,9.5,mg/dL
+NH84,T3,T3,Calcium,9.7,mg/dL
+NH84,T2,T2,Calcium,9.8,mg/dL
+NH84,F3,F3,Calcium,9.9,mg/dL
+NH84,T1,T1,BUN/Creatinine Ratio,10,
+NH84,F1,F1,Calcium,10,mg/dL
+NH84,T1,T1,Calcium,10.1,mg/dL
+NH84,T1,T1,BUN,11,mg/dL
+NH84,T2,T2,BUN,11,mg/dL
+NH84,T3,T3,BUN,11,mg/dL
+NH84,T2,T2,BUN/Creatinine Ratio,11,
+NH84,F1,F1,BUN,13,mg/dL
+NH84,F3,F3,BUN,13,mg/dL
+NH84,F1,F1,BUN/Creatinine Ratio,13,
+NH84,F2,F2,BUN,14,mg/dL
+NH84,F3,F3,BUN/Creatinine Ratio,14,
+NH84,F2,F2,BUN/Creatinine Ratio,15,
+NH84,T3,T3,BUN/Creatinine Ratio,16,
+NH84,F3,F3,"Carbon Dioxide, Total",19,mmol/L
+NH84,T2,T2,"Carbon Dioxide, Total",20,mmol/L
+NH84,F1,F1,"Carbon Dioxide, Total",23,mmol/L
+NH84,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+NH84,T1,T1,"Carbon Dioxide, Total",24,mmol/L
+NH84,F2,F2,"Carbon Dioxide, Total",24,mmol/L
+NH84,T3,T3,Glucose,75,mg/dL
+NH84,T1,T1,Glucose,82,mg/dL
+NH84,T2,T2,Glucose,85,mg/dL
+NH84,F2,F2,Glucose,85,mg/dL
+NH84,T1,T1,eGFR,90,mL/min/1.73
+NH84,F1,F1,eGFR,93,mL/min/1.73
+NH84,T2,T2,eGFR,94,mL/min/1.73
+NH84,F1,F1,Glucose,96,mg/dL
+NH84,F3,F3,Glucose,98,mg/dL
+NH84,T1,T1,Chloride,100,mmol/L
+NH84,F1,F1,Chloride,102,mmol/L
+NH84,F2,F2,Chloride,103,mmol/L
+NH84,T2,T2,Chloride,104,mmol/L
+NH84,F3,F3,Chloride,104,mmol/L
+NH84,T3,T3,Chloride,105,mmol/L
+NH84,F2,F2,eGFR,105,mL/min/1.73
+NH84,F3,F3,eGFR,105,mL/min/1.73
+NH84,T1,T1,Sodium,138,mmol/L
+NH84,F1,F1,Sodium,140,mmol/L
+NH84,T2,T2,Sodium,140,mmol/L
+NH84,F2,F2,Sodium,141,mmol/L
+NH84,F3,F3,Sodium,141,mmol/L
+NH84,T3,T3,Sodium,143,mmol/L
+NH84,F1,F1,"Serotonin, Whole Blood",230,ng/mL
+NH84,T2,T2,"Serotonin, Whole Blood",236,ng/mL
+NH84,T3,T3,"Serotonin, Whole Blood",241,ng/mL
+NH84,T1,T1,"Serotonin, Whole Blood",244,ng/mL
+NH84,F3,F3,"Serotonin, Whole Blood",277,ng/mL
+NH84,F2,F2,"Serotonin, Whole Blood",314,ng/mL
+NV93,F3,F3,Creatinine,0.68,mg/dL
+NV93,F2,F2,Creatinine,0.73,mg/dL
+NV93,T1,T1,Creatinine,0.78,mg/dL
+NV93,T2,T2,Creatinine,0.78,mg/dL
+NV93,F1,F1,Creatinine,0.83,mg/dL
+NV93,T3,T3,Creatinine,0.9,mg/dL
+NV93,T2,T2,Potassium,4.1,mmol/L
+NV93,F3,F3,Potassium,4.1,mmol/L
+NV93,T1,T1,Potassium,4.3,mmol/L
+NV93,F1,F1,Potassium,4.3,mmol/L
+NV93,T3,T3,Potassium,4.5,mmol/L
+NV93,F2,F2,Potassium,4.7,mmol/L
+NV93,T3,T3,Calcium,8.9,mg/dL
+NV93,F1,F1,Calcium,9.3,mg/dL
+NV93,T2,T2,Calcium,9.4,mg/dL
+NV93,F3,F3,Calcium,9.4,mg/dL
+NV93,T1,T1,Calcium,9.6,mg/dL
+NV93,F2,F2,Calcium,9.7,mg/dL
+NV93,T1,T1,BUN,10,mg/dL
+NV93,T2,T2,BUN,10,mg/dL
+NV93,F1,F1,BUN,12,mg/dL
+NV93,F2,F2,BUN,13,mg/dL
+NV93,F3,F3,BUN,13,mg/dL
+NV93,T1,T1,BUN/Creatinine Ratio,13,
+NV93,T2,T2,BUN/Creatinine Ratio,13,
+NV93,T3,T3,BUN,14,mg/dL
+NV93,F1,F1,BUN/Creatinine Ratio,14,
+NV93,T3,T3,BUN/Creatinine Ratio,16,
+NV93,F2,F2,BUN/Creatinine Ratio,18,
+NV93,F3,F3,BUN/Creatinine Ratio,19,
+NV93,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+NV93,F2,F2,"Carbon Dioxide, Total",22,mmol/L
+NV93,T1,T1,"Carbon Dioxide, Total",23,mmol/L
+NV93,T2,T2,"Carbon Dioxide, Total",23,mmol/L
+NV93,F3,F3,"Carbon Dioxide, Total",23,mmol/L
+NV93,F1,F1,"Carbon Dioxide, Total",24,mmol/L
+NV93,T1,T1,Glucose,86,mg/dL
+NV93,F3,F3,Glucose,86,mg/dL
+NV93,T3,T3,Glucose,87,mg/dL
+NV93,T2,T2,Glucose,91,mg/dL
+NV93,T3,T3,eGFR,92,mL/min/1.73
+NV93,F1,F1,Glucose,94,mg/dL
+NV93,T1,T1,Chloride,101,mmol/L
+NV93,F1,F1,eGFR,101,mL/min/1.73
+NV93,F1,F1,Chloride,102,mmol/L
+NV93,T3,T3,Chloride,102,mmol/L
+NV93,F2,F2,Chloride,103,mmol/L
+NV93,F3,F3,Chloride,103,mmol/L
+NV93,T2,T2,Chloride,106,mmol/L
+NV93,F2,F2,Glucose,108,mg/dL
+NV93,T1,T1,eGFR,109,mL/min/1.73
+NV93,T2,T2,eGFR,109,mL/min/1.73
+NV93,F2,F2,eGFR,114,mL/min/1.73
+NV93,F3,F3,eGFR,125,mL/min/1.73
+NV93,T3,T3,Sodium,137,mmol/L
+NV93,F1,F1,Sodium,140,mmol/L
+NV93,F3,F3,Sodium,140,mmol/L
+NV93,T1,T1,Sodium,141,mmol/L
+NV93,F2,F2,Sodium,141,mmol/L
+NV93,T2,T2,Sodium,142,mmol/L
+NV93,T2,T2,"Serotonin, Whole Blood",227,ng/mL
+NV93,F1,F1,"Serotonin, Whole Blood",246,ng/mL
+NV93,T1,T1,"Serotonin, Whole Blood",250,ng/mL
+NV93,F3,F3,"Serotonin, Whole Blood",257,ng/mL
+NV93,T3,T3,"Serotonin, Whole Blood",264,ng/mL
+NV93,F2,F2,"Serotonin, Whole Blood",266,ng/mL
+PJ48,T2,T2,Creatinine,0.6,mg/dL
+PJ48,F2,F2,Creatinine,0.63,mg/dL
+PJ48,T1,T1,Creatinine,0.64,mg/dL
+PJ48,F1,F1,Creatinine,0.67,mg/dL
+PJ48,F3,F3,Creatinine,0.7,mg/dL
+PJ48,T3,T3,Creatinine,0.77,mg/dL
+PJ48,F2,F2,Potassium,3.9,mmol/L
+PJ48,F1,F1,Potassium,4,mmol/L
+PJ48,T3,T3,Potassium,4.1,mmol/L
+PJ48,F3,F3,Potassium,4.2,mmol/L
+PJ48,T2,T2,Potassium,4.3,mmol/L
+PJ48,T1,T1,Potassium,4.6,mmol/L
+PJ48,T2,T2,BUN,7,mg/dL
+PJ48,F1,F1,BUN,8,mg/dL
+PJ48,F3,F3,BUN,8,mg/dL
+PJ48,T3,T3,BUN,9,mg/dL
+PJ48,F1,F1,Calcium,9,mg/dL
+PJ48,T3,T3,Calcium,9.1,mg/dL
+PJ48,F3,F3,Calcium,9.1,mg/dL
+PJ48,F2,F2,Calcium,9.3,mg/dL
+PJ48,T2,T2,Calcium,9.4,mg/dL
+PJ48,T1,T1,Calcium,9.9,mg/dL
+PJ48,T1,T1,BUN,10,mg/dL
+PJ48,F2,F2,BUN,10,mg/dL
+PJ48,F3,F3,BUN/Creatinine Ratio,11,
+PJ48,F1,F1,BUN/Creatinine Ratio,12,
+PJ48,T2,T2,BUN/Creatinine Ratio,12,
+PJ48,T3,T3,BUN/Creatinine Ratio,12,
+PJ48,T1,T1,BUN/Creatinine Ratio,16,
+PJ48,F2,F2,BUN/Creatinine Ratio,16,
+PJ48,T3,T3,"Carbon Dioxide, Total",19,mmol/L
+PJ48,T1,T1,"Carbon Dioxide, Total",20,mmol/L
+PJ48,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+PJ48,T2,T2,"Carbon Dioxide, Total",21,mmol/L
+PJ48,F3,F3,"Carbon Dioxide, Total",21,mmol/L
+PJ48,F2,F2,"Carbon Dioxide, Total",23,mmol/L
+PJ48,F2,F2,Glucose,80,mg/dL
+PJ48,T1,T1,Glucose,88,mg/dL
+PJ48,T3,T3,Glucose,91,mg/dL
+PJ48,F1,F1,Glucose,97,mg/dL
+PJ48,F3,F3,Glucose,99,mg/dL
+PJ48,T1,T1,Chloride,101,mmol/L
+PJ48,F1,F1,Chloride,102,mmol/L
+PJ48,F2,F2,Chloride,102,mmol/L
+PJ48,F3,F3,Chloride,102,mmol/L
+PJ48,T2,T2,Chloride,103,mmol/L
+PJ48,T3,T3,Chloride,104,mmol/L
+PJ48,T2,T2,"Serotonin, Whole Blood",106,ng/mL
+PJ48,T2,T2,Glucose,111,mg/dL
+PJ48,T3,T3,eGFR,112,mL/min/1.73
+PJ48,F3,F3,"Serotonin, Whole Blood",121,ng/mL
+PJ48,F3,F3,eGFR,126,mL/min/1.73
+PJ48,F1,F1,eGFR,128,mL/min/1.73
+PJ48,T1,T1,eGFR,130,mL/min/1.73
+PJ48,F2,F2,eGFR,130,mL/min/1.73
+PJ48,T2,T2,eGFR,133,mL/min/1.73
+PJ48,T1,T1,Sodium,137,mmol/L
+PJ48,F1,F1,Sodium,138,mmol/L
+PJ48,F2,F2,Sodium,138,mmol/L
+PJ48,F3,F3,Sodium,140,mmol/L
+PJ48,T2,T2,Sodium,142,mmol/L
+PJ48,T3,T3,Sodium,143,mmol/L
+PJ48,T3,T3,"Serotonin, Whole Blood",145,ng/mL
+PJ48,F1,F1,"Serotonin, Whole Blood",151,ng/mL
+PJ48,T1,T1,"Serotonin, Whole Blood",158,ng/mL
+PJ48,F2,F2,"Serotonin, Whole Blood",165,ng/mL
+PV75,T3,T3,Creatinine,0.72,mg/dL
+PV75,T2,T2,Creatinine,0.74,mg/dL
+PV75,F3,F3,Creatinine,0.77,mg/dL
+PV75,T1,T1,Creatinine,0.91,mg/dL
+PV75,T1,T1,Potassium,3.8,mmol/L
+PV75,T2,T2,Potassium,3.9,mmol/L
+PV75,T3,T3,Potassium,3.9,mmol/L
+PV75,F3,F3,Potassium,3.9,mmol/L
+PV75,T1,T1,Calcium,9.2,mg/dL
+PV75,T2,T2,Calcium,9.4,mg/dL
+PV75,T3,T3,Calcium,9.5,mg/dL
+PV75,F3,F3,Calcium,9.6,mg/dL
+PV75,T2,T2,BUN,10,mg/dL
+PV75,F3,F3,BUN,10,mg/dL
+PV75,T3,T3,BUN,13,mg/dL
+PV75,F3,F3,BUN/Creatinine Ratio,13,
+PV75,T2,T2,BUN/Creatinine Ratio,14,
+PV75,T1,T1,BUN,17,mg/dL
+PV75,T3,T3,BUN/Creatinine Ratio,18,
+PV75,T1,T1,BUN/Creatinine Ratio,19,
+PV75,T1,T1,"Carbon Dioxide, Total",19,mmol/L
+PV75,T3,T3,"Carbon Dioxide, Total",19,mmol/L
+PV75,T2,T2,"Carbon Dioxide, Total",20,mmol/L
+PV75,F3,F3,"Carbon Dioxide, Total",22,mmol/L
+PV75,F3,F3,Glucose,76,mg/dL
+PV75,T3,T3,Glucose,81,mg/dL
+PV75,T1,T1,eGFR,83,mL/min/1.73
+PV75,T2,T2,"Serotonin, Whole Blood",83,ng/mL
+PV75,F3,F3,"Serotonin, Whole Blood",87,ng/mL
+PV75,T3,T3,"Serotonin, Whole Blood",88,ng/mL
+PV75,T2,T2,Glucose,90,mg/dL
+PV75,T1,T1,Glucose,91,mg/dL
+PV75,T1,T1,"Serotonin, Whole Blood",93,ng/mL
+PV75,F3,F3,eGFR,102,mL/min/1.73
+PV75,T2,T2,Chloride,104,mmol/L
+PV75,F3,F3,Chloride,104,mmol/L
+PV75,T1,T1,Chloride,105,mmol/L
+PV75,T3,T3,Chloride,105,mmol/L
+PV75,T2,T2,eGFR,107,mL/min/1.73
+PV75,T3,T3,eGFR,110,mL/min/1.73
+PV75,T1,T1,Sodium,140,mmol/L
+PV75,T2,T2,Sodium,140,mmol/L
+PV75,T3,T3,Sodium,141,mmol/L
+PV75,F3,F3,Sodium,142,mmol/L
+PW58,F3,W3,Creatinine,0.87,mg/dL
+PW58,T3,T3,Creatinine,0.99,mg/dL
+PW58,T1,T1,Creatinine,1,mg/dL
+PW58,F2,F2,Creatinine,1.04,mg/dL
+PW58,F1,F1,Creatinine,1.06,mg/dL
+PW58,T2,T2,Creatinine,1.06,mg/dL
+PW58,F2,F2,Potassium,3.9,mmol/L
+PW58,F1,F1,Potassium,4.1,mmol/L
+PW58,T2,T2,Potassium,4.3,mmol/L
+PW58,F3,W3,Potassium,4.3,mmol/L
+PW58,T1,T1,Potassium,4.4,mmol/L
+PW58,T3,T3,Potassium,4.6,mmol/L
+PW58,T2,T2,BUN,7,mg/dL
+PW58,T2,T2,BUN/Creatinine Ratio,7,
+PW58,F2,F2,BUN,9,mg/dL
+PW58,F1,F1,BUN/Creatinine Ratio,9,
+PW58,F2,F2,BUN/Creatinine Ratio,9,
+PW58,F1,F1,Calcium,9.3,mg/dL
+PW58,T1,T1,Calcium,9.4,mg/dL
+PW58,F3,W3,Calcium,9.5,mg/dL
+PW58,T2,T2,Calcium,9.6,mg/dL
+PW58,T3,T3,Calcium,9.6,mg/dL
+PW58,F2,F2,Calcium,9.7,mg/dL
+PW58,F1,F1,BUN,10,mg/dL
+PW58,T3,T3,BUN,11,mg/dL
+PW58,T3,T3,BUN/Creatinine Ratio,11,
+PW58,T1,T1,BUN,13,mg/dL
+PW58,F3,W3,BUN,13,mg/dL
+PW58,T1,T1,BUN/Creatinine Ratio,13,
+PW58,F3,W3,BUN/Creatinine Ratio,15,
+PW58,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+PW58,T2,T2,"Carbon Dioxide, Total",23,mmol/L
+PW58,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+PW58,F3,W3,"Carbon Dioxide, Total",23,mmol/L
+PW58,F1,F1,"Carbon Dioxide, Total",24,mmol/L
+PW58,F2,F2,"Carbon Dioxide, Total",24,mmol/L
+PW58,F1,F1,Glucose,84,mg/dL
+PW58,F2,F2,Glucose,89,mg/dL
+PW58,T2,T2,Glucose,91,mg/dL
+PW58,T3,T3,"Serotonin, Whole Blood",92,ng/mL
+PW58,T1,T1,Glucose,93,mg/dL
+PW58,T1,T1,"Serotonin, Whole Blood",93,ng/mL
+PW58,F3,W3,"Serotonin, Whole Blood",93,ng/mL
+PW58,F1,F1,eGFR,94,mL/min/1.73
+PW58,T2,T2,eGFR,94,mL/min/1.73
+PW58,T3,T3,Glucose,94,mg/dL
+PW58,T2,T2,"Serotonin, Whole Blood",95,ng/mL
+PW58,F2,F2,eGFR,97,mL/min/1.73
+PW58,T2,T2,Chloride,101,mmol/L
+PW58,T1,T1,eGFR,101,mL/min/1.73
+PW58,T3,T3,Chloride,102,mmol/L
+PW58,F3,W3,Chloride,102,mmol/L
+PW58,T3,T3,eGFR,102,mL/min/1.73
+PW58,F2,F2,Chloride,103,mmol/L
+PW58,T1,T1,Chloride,104,mmol/L
+PW58,F1,F1,Chloride,104,mmol/L
+PW58,F1,F1,"Serotonin, Whole Blood",104,ng/mL
+PW58,F2,F2,"Serotonin, Whole Blood",111,ng/mL
+PW58,F3,W3,eGFR,117,mL/min/1.73
+PW58,F3,W3,Glucose,119,mg/dL
+PW58,F2,F2,Sodium,138,mmol/L
+PW58,F3,W3,Sodium,138,mmol/L
+PW58,T2,T2,Sodium,140,mmol/L
+PW58,T1,T1,Sodium,141,mmol/L
+PW58,F1,F1,Sodium,141,mmol/L
+PW58,T3,T3,Sodium,142,mmol/L
+QL85,F3,F3,Creatinine,0.82,mg/dL
+QL85,T3,T3,Creatinine,0.85,mg/dL
+QL85,F1,F1,Creatinine,0.91,mg/dL
+QL85,T1,T1,Creatinine,0.97,mg/dL
+QL85,T2,T2,Creatinine,0.99,mg/dL
+QL85,F2,F2,Creatinine,1.05,mg/dL
+QL85,T2,T2,Potassium,3.9,mmol/L
+QL85,T3,T3,Potassium,3.9,mmol/L
+QL85,F3,F3,Potassium,3.9,mmol/L
+QL85,F1,F1,Potassium,4.3,mmol/L
+QL85,T1,T1,Potassium,4.4,mmol/L
+QL85,F2,F2,Potassium,4.6,mmol/L
+QL85,T2,T2,BUN,7,mg/dL
+QL85,T2,T2,BUN/Creatinine Ratio,7,
+QL85,F2,F2,BUN,9,mg/dL
+QL85,T3,T3,BUN,9,mg/dL
+QL85,F2,F2,BUN/Creatinine Ratio,9,
+QL85,T3,T3,Calcium,9,mg/dL
+QL85,F3,F3,Calcium,9,mg/dL
+QL85,T1,T1,Calcium,9.2,mg/dL
+QL85,T2,T2,Calcium,9.2,mg/dL
+QL85,F1,F1,Calcium,9.4,mg/dL
+QL85,F2,F2,Calcium,9.6,mg/dL
+QL85,T1,T1,BUN,10,mg/dL
+QL85,T1,T1,BUN/Creatinine Ratio,10,
+QL85,F1,F1,BUN,11,mg/dL
+QL85,F3,F3,BUN,11,mg/dL
+QL85,T3,T3,BUN/Creatinine Ratio,11,
+QL85,F1,F1,BUN/Creatinine Ratio,12,
+QL85,F3,F3,BUN/Creatinine Ratio,13,
+QL85,F2,F2,"Carbon Dioxide, Total",16,mmol/L
+QL85,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+QL85,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+QL85,F3,F3,"Carbon Dioxide, Total",22,mmol/L
+QL85,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+QL85,T2,T2,"Carbon Dioxide, Total",25,mmol/L
+QL85,F2,F2,eGFR,70,mL/min/1.73
+QL85,T2,T2,eGFR,76,mL/min/1.73
+QL85,T1,T1,eGFR,78,mL/min/1.73
+QL85,T3,T3,Glucose,83,mg/dL
+QL85,F3,F3,Glucose,83,mg/dL
+QL85,F1,F1,eGFR,84,mL/min/1.73
+QL85,T2,T2,Glucose,89,mg/dL
+QL85,T3,T3,eGFR,91,mL/min/1.73
+QL85,T1,T1,Glucose,93,mg/dL
+QL85,F1,F1,Glucose,93,mg/dL
+QL85,F3,F3,eGFR,95,mL/min/1.73
+QL85,T3,T3,Chloride,101,mmol/L
+QL85,F3,F3,Chloride,101,mmol/L
+QL85,T2,T2,Chloride,102,mmol/L
+QL85,T1,T1,Chloride,103,mmol/L
+QL85,F2,F2,Chloride,103,mmol/L
+QL85,F1,F1,Chloride,104,mmol/L
+QL85,F2,F2,Glucose,108,mg/dL
+QL85,T1,T1,"Serotonin, Whole Blood",129,ng/mL
+QL85,F3,F3,Sodium,137,mmol/L
+QL85,F2,F2,Sodium,138,mmol/L
+QL85,T1,T1,Sodium,139,mmol/L
+QL85,F1,F1,Sodium,139,mmol/L
+QL85,T2,T2,Sodium,139,mmol/L
+QL85,T3,T3,Sodium,140,mmol/L
+QL85,T3,T3,"Serotonin, Whole Blood",153,ng/mL
+QL85,F2,F2,"Serotonin, Whole Blood",155,ng/mL
+QL85,T2,T2,"Serotonin, Whole Blood",160,ng/mL
+QL85,F3,F3,"Serotonin, Whole Blood",173,ng/mL
+QL85,F1,F1,"Serotonin, Whole Blood",181,ng/mL
+QX74,T3,T3,Creatinine,0.63,mg/dL
+QX74,F1,F1,Creatinine,0.7,mg/dL
+QX74,F2,F2,Creatinine,0.71,mg/dL
+QX74,T1,T1,Creatinine,0.73,mg/dL
+QX74,T2,T2,Creatinine,0.74,mg/dL
+QX74,F1,F1,Potassium,3.8,mmol/L
+QX74,F2,F2,Potassium,4.1,mmol/L
+QX74,T3,T3,Potassium,4.1,mmol/L
+QX74,T2,T2,Potassium,4.2,mmol/L
+QX74,T1,T1,Potassium,4.4,mmol/L
+QX74,T1,T1,BUN,8,mg/dL
+QX74,T2,T2,BUN,9,mg/dL
+QX74,F1,F1,Calcium,9.1,mg/dL
+QX74,T3,T3,Calcium,9.3,mg/dL
+QX74,T2,T2,Calcium,9.5,mg/dL
+QX74,F2,F2,Calcium,9.7,mg/dL
+QX74,T1,T1,Calcium,9.9,mg/dL
+QX74,F2,F2,BUN,10,mg/dL
+QX74,F1,F1,BUN,11,mg/dL
+QX74,T3,T3,BUN,11,mg/dL
+QX74,T1,T1,BUN/Creatinine Ratio,11,
+QX74,T2,T2,BUN/Creatinine Ratio,12,
+QX74,F2,F2,BUN/Creatinine Ratio,14,
+QX74,F1,F1,BUN/Creatinine Ratio,16,
+QX74,T3,T3,BUN/Creatinine Ratio,17,
+QX74,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+QX74,T2,T2,"Carbon Dioxide, Total",21,mmol/L
+QX74,F2,F2,"Carbon Dioxide, Total",21,mmol/L
+QX74,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+QX74,T3,T3,"Carbon Dioxide, Total",23,mmol/L
+QX74,F1,F1,Glucose,62,mg/dL
+QX74,T3,T3,Glucose,76,mg/dL
+QX74,T1,T1,Glucose,82,mg/dL
+QX74,T2,T2,Glucose,87,mg/dL
+QX74,F2,F2,Glucose,94,mg/dL
+QX74,T2,T2,Chloride,103,mmol/L
+QX74,T3,T3,Chloride,103,mmol/L
+QX74,T1,T1,Chloride,104,mmol/L
+QX74,F1,F1,Chloride,104,mmol/L
+QX74,F2,F2,Chloride,104,mmol/L
+QX74,T2,T2,eGFR,112,mL/min/1.73
+QX74,T1,T1,eGFR,114,mL/min/1.73
+QX74,F2,F2,eGFR,118,mL/min/1.73
+QX74,F1,F1,eGFR,120,mL/min/1.73
+QX74,T3,T3,eGFR,124,mL/min/1.73
+QX74,F1,F1,Sodium,139,mmol/L
+QX74,T2,T2,Sodium,140,mmol/L
+QX74,F2,F2,Sodium,140,mmol/L
+QX74,T3,T3,Sodium,140,mmol/L
+QX74,T1,T1,Sodium,141,mmol/L
+QX74,T3,T3,"Serotonin, Whole Blood",166,ng/mL
+QX74,F1,F1,"Serotonin, Whole Blood",171,ng/mL
+QX74,T1,T1,"Serotonin, Whole Blood",178,ng/mL
+QX74,F2,F2,"Serotonin, Whole Blood",194,ng/mL
+QX74,T2,T2,"Serotonin, Whole Blood",202,ng/mL
+QY45,F3,F3,Creatinine,0.97,mg/dL
+QY45,T1,T1,Creatinine,0.98,mg/dL
+QY45,F1,F1,Creatinine,1,mg/dL
+QY45,T3,T3,Creatinine,1.01,mg/dL
+QY45,F2,F2,Creatinine,1.11,mg/dL
+QY45,T2,T2,Creatinine,1.24,mg/dL
+QY45,T2,T2,Potassium,3.7,mmol/L
+QY45,F1,F1,Potassium,3.8,mmol/L
+QY45,F2,F2,Potassium,3.9,mmol/L
+QY45,T3,T3,Potassium,3.9,mmol/L
+QY45,T1,T1,Potassium,4,mmol/L
+QY45,F3,F3,Potassium,4.1,mmol/L
+QY45,F2,F2,BUN/Creatinine Ratio,7,
+QY45,F2,F2,BUN,8,mg/dL
+QY45,T2,T2,BUN/Creatinine Ratio,8,
+QY45,T1,T1,BUN,9,mg/dL
+QY45,F1,F1,BUN,9,mg/dL
+QY45,T1,T1,BUN/Creatinine Ratio,9,
+QY45,F1,F1,BUN/Creatinine Ratio,9,
+QY45,F2,F2,Calcium,9.1,mg/dL
+QY45,F3,F3,Calcium,9.1,mg/dL
+QY45,F1,F1,Calcium,9.2,mg/dL
+QY45,T2,T2,Calcium,9.5,mg/dL
+QY45,T3,T3,Calcium,9.5,mg/dL
+QY45,T1,T1,Calcium,9.6,mg/dL
+QY45,T2,T2,BUN,10,mg/dL
+QY45,T3,T3,BUN,10,mg/dL
+QY45,T3,T3,BUN/Creatinine Ratio,10,
+QY45,F3,F3,BUN,13,mg/dL
+QY45,F3,F3,BUN/Creatinine Ratio,13,
+QY45,F2,F2,"Carbon Dioxide, Total",21,mmol/L
+QY45,F3,F3,"Carbon Dioxide, Total",21,mmol/L
+QY45,T1,T1,"Carbon Dioxide, Total",22,mmol/L
+QY45,T3,T3,"Carbon Dioxide, Total",22,mmol/L
+QY45,F1,F1,"Carbon Dioxide, Total",23,mmol/L
+QY45,T2,T2,"Carbon Dioxide, Total",23,mmol/L
+QY45,T2,T2,Glucose,80,mg/dL
+QY45,T2,T2,eGFR,81,mL/min/1.73
+QY45,F1,F1,Glucose,88,mg/dL
+QY45,F2,F2,Glucose,89,mg/dL
+QY45,F2,F2,eGFR,92,mL/min/1.73
+QY45,F3,F3,Glucose,92,mg/dL
+QY45,T2,T2,Chloride,95,mmol/L
+QY45,F1,F1,Chloride,101,mmol/L
+QY45,T3,T3,Chloride,101,mmol/L
+QY45,T1,T1,Glucose,101,mg/dL
+QY45,T1,T1,Chloride,103,mmol/L
+QY45,F3,F3,Chloride,103,mmol/L
+QY45,F2,F2,Chloride,104,mmol/L
+QY45,T3,T3,eGFR,104,mL/min/1.73
+QY45,F1,F1,eGFR,105,mL/min/1.73
+QY45,T1,T1,eGFR,107,mL/min/1.73
+QY45,F3,F3,eGFR,109,mL/min/1.73
+QY45,T3,T3,Glucose,110,mg/dL
+QY45,F1,F1,Sodium,139,mmol/L
+QY45,T1,T1,Sodium,140,mmol/L
+QY45,T2,T2,Sodium,140,mmol/L
+QY45,T3,T3,Sodium,140,mmol/L
+QY45,F3,F3,Sodium,140,mmol/L
+QY45,F2,F2,Sodium,143,mmol/L
+QY45,T1,T1,"Serotonin, Whole Blood",161,ng/mL
+QY45,T2,T2,"Serotonin, Whole Blood",171,ng/mL
+QY45,F1,F1,"Serotonin, Whole Blood",179,ng/mL
+QY45,F3,F3,"Serotonin, Whole Blood",182,ng/mL
+QY45,F2,F2,"Serotonin, Whole Blood",183,ng/mL
+QY45,T3,T3,"Serotonin, Whole Blood",246,ng/mL
+RD12,T3,T3,Creatinine,0.84,mg/dL
+RD12,F2,F2,Creatinine,0.85,mg/dL
+RD12,F3,F3,Creatinine,0.85,mg/dL
+RD12,T1,T1,Creatinine,0.86,mg/dL
+RD12,T2,T2,Creatinine,0.87,mg/dL
+RD12,F1,F1,Creatinine,0.92,mg/dL
+RD12,F1,F1,Potassium,4.2,mmol/L
+RD12,T1,T1,Potassium,4.4,mmol/L
+RD12,T2,T2,Potassium,4.4,mmol/L
+RD12,T3,T3,Potassium,4.4,mmol/L
+RD12,F3,F3,Potassium,4.4,mmol/L
+RD12,F2,F2,Potassium,4.5,mmol/L
+RD12,F2,F2,BUN,9,mg/dL
+RD12,F1,F1,Calcium,9.2,mg/dL
+RD12,T3,T3,Calcium,9.3,mg/dL
+RD12,F3,F3,Calcium,9.4,mg/dL
+RD12,T2,T2,Calcium,9.5,mg/dL
+RD12,F2,F2,Calcium,9.6,mg/dL
+RD12,T1,T1,Calcium,9.7,mg/dL
+RD12,T1,T1,BUN,10,mg/dL
+RD12,F1,F1,BUN,10,mg/dL
+RD12,T2,T2,BUN,10,mg/dL
+RD12,T3,T3,BUN,10,mg/dL
+RD12,F3,F3,BUN,11,mg/dL
+RD12,F1,F1,BUN/Creatinine Ratio,11,
+RD12,T2,T2,BUN/Creatinine Ratio,11,
+RD12,F2,F2,BUN/Creatinine Ratio,11,
+RD12,T1,T1,BUN/Creatinine Ratio,12,
+RD12,T3,T3,BUN/Creatinine Ratio,12,
+RD12,F3,F3,BUN/Creatinine Ratio,13,
+RD12,F2,F2,"Carbon Dioxide, Total",18,mmol/L
+RD12,F3,F3,"Carbon Dioxide, Total",18,mmol/L
+RD12,T1,T1,"Carbon Dioxide, Total",19,mmol/L
+RD12,F1,F1,"Carbon Dioxide, Total",19,mmol/L
+RD12,T2,T2,"Carbon Dioxide, Total",19,mmol/L
+RD12,T3,T3,"Carbon Dioxide, Total",19,mmol/L
+RD12,T1,T1,Glucose,80,mg/dL
+RD12,F2,F2,Glucose,85,mg/dL
+RD12,F1,F1,eGFR,89,mL/min/1.73
+RD12,F1,F1,Glucose,89,mg/dL
+RD12,T2,T2,Glucose,93,mg/dL
+RD12,T3,T3,Glucose,93,mg/dL
+RD12,F3,F3,Glucose,94,mg/dL
+RD12,T2,T2,eGFR,96,mL/min/1.73
+RD12,T1,T1,eGFR,97,mL/min/1.73
+RD12,F2,F2,eGFR,98,mL/min/1.73
+RD12,F3,F3,eGFR,98,mL/min/1.73
+RD12,T3,T3,eGFR,100,mL/min/1.73
+RD12,F1,F1,Chloride,106,mmol/L
+RD12,F2,F2,Chloride,106,mmol/L
+RD12,T3,T3,Chloride,106,mmol/L
+RD12,T1,T1,Chloride,107,mmol/L
+RD12,T2,T2,Chloride,108,mmol/L
+RD12,F3,F3,Chloride,108,mmol/L
+RD12,T3,T3,Sodium,138,mmol/L
+RD12,F2,F2,Sodium,139,mmol/L
+RD12,F3,F3,Sodium,141,mmol/L
+RD12,T1,T1,Sodium,142,mmol/L
+RD12,F1,F1,Sodium,142,mmol/L
+RD12,T2,T2,Sodium,142,mmol/L
+RD12,T3,T3,"Serotonin, Whole Blood",202,ng/mL
+RD12,F2,F2,"Serotonin, Whole Blood",220,ng/mL
+RD12,F3,F3,"Serotonin, Whole Blood",251,ng/mL
+RD12,T2,T2,"Serotonin, Whole Blood",298,ng/mL
+RD12,T1,T1,"Serotonin, Whole Blood",308,ng/mL
+RD12,F1,F1,"Serotonin, Whole Blood",403,ng/mL
+SF85,T3,T3,Creatinine,0.66,mg/dL
+SF85,F1,F1,Creatinine,0.81,mg/dL
+SF85,T2,T2,Creatinine,0.82,mg/dL
+SF85,F2,F2,Creatinine,0.82,mg/dL
+SF85,F2,F2,Potassium,4,mmol/L
+SF85,F1,F1,Potassium,4.3,mmol/L
+SF85,T2,T2,Potassium,4.4,mmol/L
+SF85,T3,T3,Potassium,4.4,mmol/L
+SF85,T3,T3,Calcium,9.4,mg/dL
+SF85,F1,F1,Calcium,9.5,mg/dL
+SF85,F2,F2,Calcium,9.5,mg/dL
+SF85,T2,T2,Calcium,9.7,mg/dL
+SF85,F1,F1,BUN,11,mg/dL
+SF85,T2,T2,BUN,11,mg/dL
+SF85,F2,F2,BUN,12,mg/dL
+SF85,T3,T3,BUN,12,mg/dL
+SF85,T2,T2,BUN/Creatinine Ratio,13,
+SF85,F1,F1,BUN/Creatinine Ratio,14,
+SF85,F2,F2,BUN/Creatinine Ratio,15,
+SF85,T3,T3,BUN/Creatinine Ratio,18,
+SF85,F1,F1,"Carbon Dioxide, Total",18,mmol/L
+SF85,F2,F2,"Carbon Dioxide, Total",18,mmol/L
+SF85,T3,T3,"Carbon Dioxide, Total",19,mmol/L
+SF85,T2,T2,"Carbon Dioxide, Total",20,mmol/L
+SF85,T2,T2,"Serotonin, Whole Blood",30,ng/mL
+SF85,F1,F1,"Serotonin, Whole Blood",37,ng/mL
+SF85,T3,T3,"Serotonin, Whole Blood",42,ng/mL
+SF85,F2,F2,"Serotonin, Whole Blood",67,ng/mL
+SF85,F1,F1,Glucose,81,mg/dL
+SF85,T3,T3,Glucose,90,mg/dL
+SF85,F2,F2,Glucose,93,mg/dL
+SF85,T2,T2,Chloride,105,mmol/L
+SF85,T2,T2,eGFR,105,mL/min/1.73
+SF85,F2,F2,eGFR,105,mL/min/1.73
+SF85,F1,F1,Chloride,106,mmol/L
+SF85,F2,F2,Chloride,106,mmol/L
+SF85,F1,F1,eGFR,106,mL/min/1.73
+SF85,T3,T3,Chloride,109,mmol/L
+SF85,T2,T2,Glucose,114,mg/dL
+SF85,T3,T3,eGFR,129,mL/min/1.73
+SF85,T2,T2,Sodium,141,mmol/L
+SF85,F1,F1,Sodium,142,mmol/L
+SF85,F2,F2,Sodium,142,mmol/L
+SF85,T3,T3,Sodium,142,mmol/L
+SH68,F1,F1,Creatinine,1.1,mg/dL
+SH68,F3,F3,Creatinine,1.12,mg/dL
+SH68,T2,T2,Creatinine,1.13,mg/dL
+SH68,F2,F2,Creatinine,1.13,mg/dL
+SH68,T3,T3,Creatinine,1.15,mg/dL
+SH68,T1,T1,Creatinine,1.16,mg/dL
+SH68,F3,F3,Potassium,3.7,mmol/L
+SH68,F2,F2,Potassium,3.8,mmol/L
+SH68,T3,T3,Potassium,3.8,mmol/L
+SH68,F1,F1,Potassium,3.9,mmol/L
+SH68,T1,T1,Potassium,4,mmol/L
+SH68,T2,T2,Potassium,4,mmol/L
+SH68,T1,T1,BUN/Creatinine Ratio,9,
+SH68,F3,F3,Calcium,9.3,mg/dL
+SH68,F2,F2,Calcium,9.4,mg/dL
+SH68,T1,T1,Calcium,9.5,mg/dL
+SH68,T2,T2,Calcium,9.6,mg/dL
+SH68,T3,T3,Calcium,9.6,mg/dL
+SH68,F1,F1,Calcium,9.8,mg/dL
+SH68,T1,T1,BUN,11,mg/dL
+SH68,T2,T2,BUN/Creatinine Ratio,12,
+SH68,T2,T2,BUN,13,mg/dL
+SH68,F3,F3,BUN/Creatinine Ratio,13,
+SH68,F1,F1,BUN/Creatinine Ratio,14,
+SH68,F2,F2,BUN/Creatinine Ratio,14,
+SH68,F1,F1,BUN,15,mg/dL
+SH68,F3,F3,BUN,15,mg/dL
+SH68,F2,F2,BUN,16,mg/dL
+SH68,T3,T3,BUN/Creatinine Ratio,16,
+SH68,T3,T3,BUN,18,mg/dL
+SH68,T1,T1,"Carbon Dioxide, Total",25,mmol/L
+SH68,T2,T2,"Carbon Dioxide, Total",25,mmol/L
+SH68,T3,T3,"Carbon Dioxide, Total",25,mmol/L
+SH68,F3,F3,"Carbon Dioxide, Total",25,mmol/L
+SH68,F1,F1,"Carbon Dioxide, Total",26,mmol/L
+SH68,F2,F2,"Carbon Dioxide, Total",27,mmol/L
+SH68,T3,T3,Glucose,66,mg/dL
+SH68,F3,F3,Glucose,73,mg/dL
+SH68,F1,F1,Glucose,82,mg/dL
+SH68,T2,T2,Glucose,82,mg/dL
+SH68,T1,T1,eGFR,85,mL/min/1.73
+SH68,T3,T3,eGFR,86,mL/min/1.73
+SH68,T1,T1,Glucose,88,mg/dL
+SH68,F1,F1,eGFR,91,mL/min/1.73
+SH68,T2,T2,eGFR,92,mL/min/1.73
+SH68,F2,F2,Glucose,92,mg/dL
+SH68,T2,T2,Chloride,100,mmol/L
+SH68,T1,T1,Chloride,101,mmol/L
+SH68,F1,F1,Chloride,101,mmol/L
+SH68,F2,F2,Chloride,102,mmol/L
+SH68,T3,T3,Chloride,102,mmol/L
+SH68,F3,F3,Chloride,104,mmol/L
+SH68,T2,T2,"Serotonin, Whole Blood",130,ng/mL
+SH68,T3,T3,"Serotonin, Whole Blood",131,ng/mL
+SH68,F2,F2,"Serotonin, Whole Blood",137,ng/mL
+SH68,T2,T2,Sodium,139,mmol/L
+SH68,T1,T1,Sodium,141,mmol/L
+SH68,F1,F1,Sodium,141,mmol/L
+SH68,F2,F2,Sodium,141,mmol/L
+SH68,T3,T3,Sodium,141,mmol/L
+SH68,F3,F3,Sodium,144,mmol/L
+SH68,F1,F1,"Serotonin, Whole Blood",145,ng/mL
+SH68,F3,F3,"Serotonin, Whole Blood",154,ng/mL
+SH68,T1,T1,"Serotonin, Whole Blood",159,ng/mL
+SM56,T2,T2,Creatinine,0.71,mg/dL
+SM56,T3,T3,Creatinine,0.72,mg/dL
+SM56,T1,T1,Creatinine,0.78,mg/dL
+SM56,F1,R1,Creatinine,0.78,mg/dL
+SM56,T1,T1,Potassium,4.2,mmol/L
+SM56,T3,T3,Potassium,4.2,mmol/L
+SM56,F1,R1,Potassium,4.3,mmol/L
+SM56,T2,T2,Potassium,4.3,mmol/L
+SM56,F1,R1,Calcium,8.9,mg/dL
+SM56,T3,T3,Calcium,9.2,mg/dL
+SM56,T2,T2,Calcium,9.4,mg/dL
+SM56,T1,T1,Calcium,9.5,mg/dL
+SM56,T2,T2,BUN,11,mg/dL
+SM56,T3,T3,BUN,11,mg/dL
+SM56,T2,T2,BUN/Creatinine Ratio,15,
+SM56,T3,T3,BUN/Creatinine Ratio,15,
+SM56,T1,T1,BUN,16,mg/dL
+SM56,F1,R1,BUN,16,mg/dL
+SM56,F1,R1,"Carbon Dioxide, Total",20,mmol/L
+SM56,T1,T1,BUN/Creatinine Ratio,21,
+SM56,F1,R1,BUN/Creatinine Ratio,21,
+SM56,T2,T2,"Carbon Dioxide, Total",21,mmol/L
+SM56,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+SM56,T1,T1,"Carbon Dioxide, Total",23,mmol/L
+SM56,T1,T1,Glucose,78,mg/dL
+SM56,F1,R1,Glucose,91,mg/dL
+SM56,T3,T3,Glucose,91,mg/dL
+SM56,T1,T1,Chloride,100,mmol/L
+SM56,T3,T3,Chloride,101,mmol/L
+SM56,T2,T2,Chloride,104,mmol/L
+SM56,F1,R1,Chloride,105,mmol/L
+SM56,T3,T3,"Serotonin, Whole Blood",106,ng/mL
+SM56,T1,T1,eGFR,108,mL/min/1.73
+SM56,F1,R1,eGFR,108,mL/min/1.73
+SM56,F1,R1,"Serotonin, Whole Blood",111,ng/mL
+SM56,T2,T2,Glucose,113,mg/dL
+SM56,T3,T3,eGFR,119,mL/min/1.73
+SM56,T2,T2,"Serotonin, Whole Blood",119,ng/mL
+SM56,T2,T2,eGFR,121,mL/min/1.73
+SM56,T1,T1,"Serotonin, Whole Blood",132,ng/mL
+SM56,T3,T3,Sodium,140,mmol/L
+SM56,T1,T1,Sodium,141,mmol/L
+SM56,F1,R1,Sodium,142,mmol/L
+SM56,T2,T2,Sodium,143,mmol/L
+TQ79,T3,T3,Creatinine,0.73,mg/dL
+TQ79,F1,F1,Creatinine,0.79,mg/dL
+TQ79,T2,T2,Creatinine,0.82,mg/dL
+TQ79,F3,F3,Creatinine,0.82,mg/dL
+TQ79,F2,F2,Creatinine,0.83,mg/dL
+TQ79,F2,F2,Potassium,3.9,mmol/L
+TQ79,F3,F3,Potassium,4,mmol/L
+TQ79,F1,F1,Potassium,4.1,mmol/L
+TQ79,T2,T2,Potassium,4.1,mmol/L
+TQ79,T3,T3,Potassium,4.1,mmol/L
+TQ79,F1,F1,BUN,7,mg/dL
+TQ79,T2,T2,BUN,7,mg/dL
+TQ79,F3,F3,BUN,9,mg/dL
+TQ79,F1,F1,BUN/Creatinine Ratio,9,
+TQ79,T2,T2,BUN/Creatinine Ratio,9,
+TQ79,T2,T2,Calcium,9.2,mg/dL
+TQ79,F1,F1,Calcium,9.3,mg/dL
+TQ79,F3,F3,Calcium,9.4,mg/dL
+TQ79,F2,F2,Calcium,9.6,mg/dL
+TQ79,T3,T3,Calcium,9.6,mg/dL
+TQ79,F2,F2,BUN,10,mg/dL
+TQ79,F3,F3,BUN/Creatinine Ratio,11,
+TQ79,T3,T3,BUN,12,mg/dL
+TQ79,F2,F2,BUN/Creatinine Ratio,12,
+TQ79,T3,T3,BUN/Creatinine Ratio,16,
+TQ79,F3,F3,"Carbon Dioxide, Total",17,mmol/L
+TQ79,T2,T2,"Carbon Dioxide, Total",19,mmol/L
+TQ79,F2,F2,"Carbon Dioxide, Total",20,mmol/L
+TQ79,T3,T3,"Carbon Dioxide, Total",20,mmol/L
+TQ79,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+TQ79,F2,F2,Glucose,63,mg/dL
+TQ79,T3,T3,Glucose,79,mg/dL
+TQ79,F3,F3,Glucose,82,mg/dL
+TQ79,F1,F1,Glucose,87,mg/dL
+TQ79,F2,F2,eGFR,94,mL/min/1.73
+TQ79,T2,T2,eGFR,95,mL/min/1.73
+TQ79,F1,F1,eGFR,99,mL/min/1.73
+TQ79,F3,F3,Chloride,104,mmol/L
+TQ79,F1,F1,Chloride,105,mmol/L
+TQ79,T2,T2,Glucose,105,mg/dL
+TQ79,T2,T2,Chloride,106,mmol/L
+TQ79,T3,T3,Chloride,106,mmol/L
+TQ79,F2,F2,Chloride,108,mmol/L
+TQ79,T3,T3,eGFR,109,mL/min/1.73
+TQ79,F3,F3,eGFR,117,mL/min/1.73
+TQ79,F3,F3,Sodium,138,mmol/L
+TQ79,T3,T3,Sodium,139,mmol/L
+TQ79,T2,T2,Sodium,140,mmol/L
+TQ79,F1,F1,Sodium,142,mmol/L
+TQ79,F2,F2,Sodium,142,mmol/L
+TQ79,T2,T2,"Serotonin, Whole Blood",145,ng/mL
+TQ79,F2,F2,"Serotonin, Whole Blood",157,ng/mL
+TQ79,F1,F1,"Serotonin, Whole Blood",172,ng/mL
+TQ79,T3,T3,"Serotonin, Whole Blood",182,ng/mL
+TQ79,F3,F3,"Serotonin, Whole Blood",187,ng/mL
+VP72,F1,F1,Creatinine,0.6,mg/dL
+VP72,T1,T1,Creatinine,0.61,mg/dL
+VP72,F3,F3,Creatinine,0.63,mg/dL
+VP72,F2,F2,Creatinine,0.73,mg/dL
+VP72,T2,T2,Creatinine,0.76,mg/dL
+VP72,T1,T1,Potassium,3.8,mmol/L
+VP72,F3,F3,Potassium,3.8,mmol/L
+VP72,F1,F1,Potassium,3.9,mmol/L
+VP72,T2,T2,Potassium,4,mmol/L
+VP72,F2,F2,Potassium,4.3,mmol/L
+VP72,F3,F3,Calcium,9.2,mg/dL
+VP72,T1,T1,Calcium,9.4,mg/dL
+VP72,F2,F2,Calcium,9.6,mg/dL
+VP72,F1,F1,Calcium,9.7,mg/dL
+VP72,T2,T2,Calcium,9.7,mg/dL
+VP72,F1,F1,BUN,10,mg/dL
+VP72,T1,T1,BUN,11,mg/dL
+VP72,T2,T2,BUN,11,mg/dL
+VP72,F3,F3,BUN,11,mg/dL
+VP72,F2,F2,BUN,13,mg/dL
+VP72,T2,T2,BUN/Creatinine Ratio,14,
+VP72,T2,T2,"Carbon Dioxide, Total",14,mmol/L
+VP72,F1,F1,BUN/Creatinine Ratio,17,
+VP72,F3,F3,BUN/Creatinine Ratio,17,
+VP72,T1,T1,BUN/Creatinine Ratio,18,
+VP72,F2,F2,BUN/Creatinine Ratio,18,
+VP72,F3,F3,"Carbon Dioxide, Total",19,mmol/L
+VP72,F1,F1,"Carbon Dioxide, Total",22,mmol/L
+VP72,F2,F2,"Carbon Dioxide, Total",22,mmol/L
+VP72,T1,T1,"Carbon Dioxide, Total",24,mmol/L
+VP72,F2,F2,Glucose,82,mg/dL
+VP72,F3,F3,Glucose,93,mg/dL
+VP72,F1,F1,Glucose,97,mg/dL
+VP72,T1,T1,Chloride,101,mmol/L
+VP72,F1,F1,Chloride,101,mmol/L
+VP72,T2,T2,Chloride,101,mmol/L
+VP72,F2,F2,Chloride,103,mmol/L
+VP72,F3,F3,Chloride,103,mmol/L
+VP72,T2,T2,eGFR,104,mL/min/1.73
+VP72,T1,T1,Glucose,108,mg/dL
+VP72,F2,F2,eGFR,109,mL/min/1.73
+VP72,F3,F3,eGFR,119,mL/min/1.73
+VP72,T1,T1,eGFR,120,mL/min/1.73
+VP72,F1,F1,eGFR,121,mL/min/1.73
+VP72,T2,T2,Glucose,137,mg/dL
+VP72,T1,T1,Sodium,138,mmol/L
+VP72,T2,T2,Sodium,138,mmol/L
+VP72,F1,F1,Sodium,140,mmol/L
+VP72,F2,F2,Sodium,141,mmol/L
+VP72,F3,F3,Sodium,142,mmol/L
+VP72,T1,T1,"Serotonin, Whole Blood",150,ng/mL
+VP72,F1,F1,"Serotonin, Whole Blood",167,ng/mL
+VP72,F3,F3,"Serotonin, Whole Blood",193,ng/mL
+VP72,F2,F2,"Serotonin, Whole Blood",223,ng/mL
+VP72,T2,T2,"Serotonin, Whole Blood",230,ng/mL
+WB74,T2,T2,Creatinine,0.85,mg/dL
+WB74,T3,T3,Creatinine,0.89,mg/dL
+WB74,F2,F2,Creatinine,0.95,mg/dL
+WB74,T1,T1,Creatinine,0.96,mg/dL
+WB74,F1,F1,Creatinine,0.96,mg/dL
+WB74,F3,F3,Creatinine,0.99,mg/dL
+WB74,T3,T3,Potassium,4.2,mmol/L
+WB74,F1,F1,Potassium,4.3,mmol/L
+WB74,T2,T2,Potassium,4.3,mmol/L
+WB74,F3,F3,Potassium,4.3,mmol/L
+WB74,T1,T1,Potassium,4.4,mmol/L
+WB74,F2,F2,Potassium,4.4,mmol/L
+WB74,T3,T3,Calcium,9.1,mg/dL
+WB74,T2,T2,Calcium,9.2,mg/dL
+WB74,F2,F2,Calcium,9.3,mg/dL
+WB74,T1,T1,Calcium,9.4,mg/dL
+WB74,F3,F3,Calcium,9.4,mg/dL
+WB74,F1,F1,Calcium,9.5,mg/dL
+WB74,T1,T1,BUN,15,mg/dL
+WB74,F2,F2,BUN,15,mg/dL
+WB74,T2,T2,BUN,16,mg/dL
+WB74,T1,T1,BUN/Creatinine Ratio,16,
+WB74,F2,F2,BUN/Creatinine Ratio,16,
+WB74,T3,T3,BUN,17,mg/dL
+WB74,F1,F1,"Carbon Dioxide, Total",17,mmol/L
+WB74,T1,T1,"Carbon Dioxide, Total",18,mmol/L
+WB74,T2,T2,"Carbon Dioxide, Total",18,mmol/L
+WB74,T3,T3,"Carbon Dioxide, Total",18,mmol/L
+WB74,F1,F1,BUN,19,mg/dL
+WB74,F3,F3,BUN,19,mg/dL
+WB74,T2,T2,BUN/Creatinine Ratio,19,
+WB74,T3,T3,BUN/Creatinine Ratio,19,
+WB74,F3,F3,BUN/Creatinine Ratio,19,
+WB74,F1,F1,BUN/Creatinine Ratio,20,
+WB74,F2,F2,"Carbon Dioxide, Total",20,mmol/L
+WB74,F3,F3,"Carbon Dioxide, Total",23,mmol/L
+WB74,T2,T2,Glucose,91,mg/dL
+WB74,T1,T1,Glucose,93,mg/dL
+WB74,F1,F1,Glucose,93,mg/dL
+WB74,F2,F2,Glucose,95,mg/dL
+WB74,T3,T3,Glucose,96,mg/dL
+WB74,F3,F3,Chloride,99,mmol/L
+WB74,T1,T1,Chloride,103,mmol/L
+WB74,F1,F1,Chloride,103,mmol/L
+WB74,F2,F2,Chloride,103,mmol/L
+WB74,T2,T2,Chloride,104,mmol/L
+WB74,T3,T3,Chloride,104,mmol/L
+WB74,F3,F3,eGFR,107,mL/min/1.73
+WB74,T1,T1,eGFR,111,mL/min/1.73
+WB74,F1,F1,eGFR,111,mL/min/1.73
+WB74,F2,F2,eGFR,112,mL/min/1.73
+WB74,F3,F3,Glucose,119,mg/dL
+WB74,T3,T3,eGFR,121,mL/min/1.73
+WB74,T2,T2,eGFR,123,mL/min/1.73
+WB74,T2,T2,Sodium,138,mmol/L
+WB74,F3,F3,Sodium,139,mmol/L
+WB74,T1,T1,Sodium,141,mmol/L
+WB74,F1,F1,Sodium,141,mmol/L
+WB74,F2,F2,Sodium,141,mmol/L
+WB74,T3,T3,Sodium,144,mmol/L
+WB74,T3,T3,"Serotonin, Whole Blood",150,ng/mL
+WB74,F2,F2,"Serotonin, Whole Blood",160,ng/mL
+WB74,F3,F3,"Serotonin, Whole Blood",182,ng/mL
+WB74,T1,T1,"Serotonin, Whole Blood",198,ng/mL
+WB74,T2,T2,"Serotonin, Whole Blood",231,ng/mL
+WB74,F1,F1,"Serotonin, Whole Blood",244,ng/mL
+XD99,T2,T2,Creatinine,0.67,mg/dL
+XD99,F2,F2,Creatinine,0.7,mg/dL
+XD99,T1,T1,Creatinine,0.74,mg/dL
+XD99,F1,F1,Creatinine,0.8,mg/dL
+XD99,T3,T3,Creatinine,0.81,mg/dL
+XD99,T3,T3,Potassium,3.9,mmol/L
+XD99,F1,F1,Potassium,4.1,mmol/L
+XD99,F2,F2,Potassium,4.1,mmol/L
+XD99,T1,T1,Potassium,4.2,mmol/L
+XD99,T2,T2,Potassium,4.2,mmol/L
+XD99,T2,T2,BUN,9,mg/dL
+XD99,F2,F2,Calcium,9.2,mg/dL
+XD99,T2,T2,Calcium,9.3,mg/dL
+XD99,T1,T1,Calcium,9.4,mg/dL
+XD99,F1,F1,Calcium,9.5,mg/dL
+XD99,T3,T3,Calcium,9.6,mg/dL
+XD99,F1,F1,BUN,10,mg/dL
+XD99,T1,T1,BUN,12,mg/dL
+XD99,F2,F2,BUN,13,mg/dL
+XD99,T3,T3,BUN,13,mg/dL
+XD99,F1,F1,BUN/Creatinine Ratio,13,
+XD99,T2,T2,BUN/Creatinine Ratio,13,
+XD99,T1,T1,BUN/Creatinine Ratio,16,
+XD99,T3,T3,BUN/Creatinine Ratio,16,
+XD99,T3,T3,"Carbon Dioxide, Total",17,mmol/L
+XD99,T1,T1,"Carbon Dioxide, Total",18,mmol/L
+XD99,F2,F2,"Carbon Dioxide, Total",18,mmol/L
+XD99,F2,F2,BUN/Creatinine Ratio,19,
+XD99,F1,F1,"Carbon Dioxide, Total",19,mmol/L
+XD99,T2,T2,"Carbon Dioxide, Total",22,mmol/L
+XD99,F1,F1,Glucose,82,mg/dL
+XD99,T2,T2,Glucose,84,mg/dL
+XD99,F2,F2,Glucose,89,mg/dL
+XD99,T3,T3,Glucose,89,mg/dL
+XD99,T2,T2,"Serotonin, Whole Blood",89,ng/mL
+XD99,T1,T1,Glucose,91,mg/dL
+XD99,F2,F2,"Serotonin, Whole Blood",95,ng/mL
+XD99,T3,T3,eGFR,96,mL/min/1.73
+XD99,F1,F1,eGFR,98,mL/min/1.73
+XD99,T3,T3,Chloride,101,mmol/L
+XD99,T1,T1,Chloride,103,mmol/L
+XD99,F1,F1,Chloride,104,mmol/L
+XD99,T2,T2,Chloride,107,mmol/L
+XD99,F2,F2,Chloride,107,mmol/L
+XD99,T1,T1,eGFR,108,mL/min/1.73
+XD99,F2,F2,eGFR,115,mL/min/1.73
+XD99,T2,T2,eGFR,117,mL/min/1.73
+XD99,F1,F1,"Serotonin, Whole Blood",118,ng/mL
+XD99,T3,T3,"Serotonin, Whole Blood",123,ng/mL
+XD99,T1,T1,"Serotonin, Whole Blood",136,ng/mL
+XD99,F2,F2,Sodium,139,mmol/L
+XD99,T3,T3,Sodium,139,mmol/L
+XD99,T1,T1,Sodium,141,mmol/L
+XD99,F1,F1,Sodium,142,mmol/L
+XD99,T2,T2,Sodium,143,mmol/L
+YV19,T2,T2,Creatinine,0.76,mg/dL
+YV19,F3,F3,Creatinine,0.8,mg/dL
+YV19,T1,T1,Creatinine,0.83,mg/dL
+YV19,F2,F2,Creatinine,0.84,mg/dL
+YV19,F1,F1,Creatinine,0.96,mg/dL
+YV19,T1,T1,Potassium,3.9,mmol/L
+YV19,F3,F3,Potassium,3.9,mmol/L
+YV19,F1,F1,Potassium,4,mmol/L
+YV19,T2,T2,Potassium,4.1,mmol/L
+YV19,F2,F2,Potassium,4.1,mmol/L
+YV19,T2,T2,BUN,9,mg/dL
+YV19,T2,T2,Calcium,9.1,mg/dL
+YV19,F3,F3,Calcium,9.1,mg/dL
+YV19,F2,F2,Calcium,9.3,mg/dL
+YV19,T1,T1,Calcium,9.5,mg/dL
+YV19,F1,F1,Calcium,9.6,mg/dL
+YV19,F2,F2,BUN,10,mg/dL
+YV19,F3,F3,BUN,10,mg/dL
+YV19,T1,T1,BUN,12,mg/dL
+YV19,F1,F1,BUN,12,mg/dL
+YV19,T2,T2,BUN/Creatinine Ratio,12,
+YV19,F2,F2,BUN/Creatinine Ratio,12,
+YV19,F1,F1,BUN/Creatinine Ratio,13,
+YV19,F3,F3,BUN/Creatinine Ratio,13,
+YV19,T1,T1,BUN/Creatinine Ratio,14,
+YV19,F3,F3,"Carbon Dioxide, Total",19,mmol/L
+YV19,F1,F1,"Carbon Dioxide, Total",20,mmol/L
+YV19,T2,T2,"Carbon Dioxide, Total",22,mmol/L
+YV19,F2,F2,"Carbon Dioxide, Total",22,mmol/L
+YV19,T1,T1,"Carbon Dioxide, Total",24,mmol/L
+YV19,T2,T2,Glucose,76,mg/dL
+YV19,F1,F1,eGFR,82,mL/min/1.73
+YV19,F3,F3,Glucose,85,mg/dL
+YV19,T1,T1,Glucose,88,mg/dL
+YV19,F1,F1,Glucose,91,mg/dL
+YV19,F2,F2,eGFR,97,mL/min/1.73
+YV19,T1,T1,eGFR,98,mL/min/1.73
+YV19,T1,T1,Chloride,100,mmol/L
+YV19,F2,F2,Chloride,100,mmol/L
+YV19,F1,F1,Chloride,102,mmol/L
+YV19,F2,F2,Glucose,102,mg/dL
+YV19,T2,T2,Chloride,103,mmol/L
+YV19,F3,F3,eGFR,103,mL/min/1.73
+YV19,F3,F3,Chloride,104,mmol/L
+YV19,T2,T2,eGFR,109,mL/min/1.73
+YV19,F2,F2,Sodium,139,mmol/L
+YV19,F3,F3,Sodium,140,mmol/L
+YV19,T1,T1,Sodium,141,mmol/L
+YV19,F1,F1,Sodium,141,mmol/L
+YV19,T2,T2,Sodium,142,mmol/L
+YV19,F2,F2,"Serotonin, Whole Blood",171,ng/mL
+YV19,T1,T1,"Serotonin, Whole Blood",176,ng/mL
+YV19,F1,F1,"Serotonin, Whole Blood",189,ng/mL
+YV19,T2,T2,"Serotonin, Whole Blood",198,ng/mL
+ZE74,F2,F2,Creatinine,0.73,mg/dL
+ZE74,F3,F3,Creatinine,0.76,mg/dL
+ZE74,F1,F1,Creatinine,0.77,mg/dL
+ZE74,T3,T3,Creatinine,0.82,mg/dL
+ZE74,T2,T2,Creatinine,0.83,mg/dL
+ZE74,T1,T1,Creatinine,0.84,mg/dL
+ZE74,F2,F2,Potassium,3.9,mmol/L
+ZE74,F1,F1,Potassium,4.2,mmol/L
+ZE74,T3,T3,Potassium,4.2,mmol/L
+ZE74,F3,F3,Potassium,4.2,mmol/L
+ZE74,T1,T1,Potassium,4.4,mmol/L
+ZE74,T2,T2,BUN,6,mg/dL
+ZE74,F2,F2,BUN,6,mg/dL
+ZE74,T3,T3,BUN,6,mg/dL
+ZE74,F1,F1,BUN,7,mg/dL
+ZE74,T2,T2,BUN/Creatinine Ratio,7,
+ZE74,T3,T3,BUN/Creatinine Ratio,7,
+ZE74,F3,F3,BUN,8,mg/dL
+ZE74,F2,F2,BUN/Creatinine Ratio,8,
+ZE74,T1,T1,BUN,9,mg/dL
+ZE74,F1,F1,BUN/Creatinine Ratio,9,
+ZE74,T1,T1,Calcium,9.3,mg/dL
+ZE74,F2,F2,Calcium,9.4,mg/dL
+ZE74,T3,T3,Calcium,9.6,mg/dL
+ZE74,F1,F1,Calcium,9.7,mg/dL
+ZE74,T2,T2,Calcium,9.7,mg/dL
+ZE74,F3,F3,Calcium,9.8,mg/dL
+ZE74,T1,T1,BUN/Creatinine Ratio,11,
+ZE74,F3,F3,BUN/Creatinine Ratio,11,
+ZE74,T2,T2,"Carbon Dioxide, Total",20,mmol/L
+ZE74,T1,T1,"Carbon Dioxide, Total",21,mmol/L
+ZE74,F1,F1,"Carbon Dioxide, Total",21,mmol/L
+ZE74,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+ZE74,F3,F3,"Carbon Dioxide, Total",21,mmol/L
+ZE74,F2,F2,"Carbon Dioxide, Total",23,mmol/L
+ZE74,F2,F2,Glucose,89,mg/dL
+ZE74,T1,T1,Glucose,92,mg/dL
+ZE74,F1,F1,Glucose,95,mg/dL
+ZE74,F3,F3,Glucose,97,mg/dL
+ZE74,F3,F3,Chloride,101,mmol/L
+ZE74,F2,F2,Chloride,103,mmol/L
+ZE74,T2,T2,Chloride,104,mmol/L
+ZE74,F1,F1,Chloride,105,mmol/L
+ZE74,T1,T1,Chloride,107,mmol/L
+ZE74,T3,T3,Chloride,107,mmol/L
+ZE74,T3,T3,Glucose,112,mg/dL
+ZE74,T1,T1,eGFR,115,mL/min/1.73
+ZE74,T2,T2,eGFR,116,mL/min/1.73
+ZE74,T3,T3,eGFR,116,mL/min/1.73
+ZE74,F1,F1,eGFR,119,mL/min/1.73
+ZE74,F3,F3,eGFR,120,mL/min/1.73
+ZE74,F2,F2,eGFR,122,mL/min/1.73
+ZE74,F3,F3,Sodium,140,mmol/L
+ZE74,T1,T1,Sodium,142,mmol/L
+ZE74,F1,F1,Sodium,143,mmol/L
+ZE74,T2,T2,Sodium,143,mmol/L
+ZE74,F2,F2,Sodium,143,mmol/L
+ZE74,T3,T3,Sodium,144,mmol/L
+ZE74,T1,T1,"Serotonin, Whole Blood",199,ng/mL
+ZE74,T3,T3,"Serotonin, Whole Blood",207,ng/mL
+ZE74,F1,F1,"Serotonin, Whole Blood",216,ng/mL
+ZE74,F3,F3,"Serotonin, Whole Blood",216,ng/mL
+ZE74,T2,T2,"Serotonin, Whole Blood",225,ng/mL
+ZE74,F2,F2,"Serotonin, Whole Blood",257,ng/mL
+ZY61,T3,T3,Creatinine,0.47,mg/dL
+ZY61,T2,T2,Creatinine,0.48,mg/dL
+ZY61,F3,F3,Creatinine,0.48,mg/dL
+ZY61,T1,T1,Creatinine,0.52,mg/dL
+ZY61,F1,F1,Creatinine,0.54,mg/dL
+ZY61,F2,F2,Creatinine,0.54,mg/dL
+ZY61,T1,T1,Potassium,4.1,mmol/L
+ZY61,F1,F1,Potassium,4.1,mmol/L
+ZY61,T3,T3,Potassium,4.2,mmol/L
+ZY61,F3,F3,Potassium,4.2,mmol/L
+ZY61,F2,F2,Potassium,4.3,mmol/L
+ZY61,T2,T2,Potassium,4.4,mmol/L
+ZY61,T1,T1,BUN,5,mg/dL
+ZY61,F2,F2,BUN,5,mg/dL
+ZY61,T3,T3,BUN,6,mg/dL
+ZY61,T2,T2,BUN,7,mg/dL
+ZY61,F3,F3,BUN,8,mg/dL
+ZY61,F2,F2,Calcium,8.8,mg/dL
+ZY61,F1,F1,BUN,9,mg/dL
+ZY61,F2,F2,BUN/Creatinine Ratio,9,
+ZY61,T1,T1,Calcium,9,mg/dL
+ZY61,T3,T3,Calcium,9.1,mg/dL
+ZY61,F1,F1,Calcium,9.3,mg/dL
+ZY61,T2,T2,Calcium,9.3,mg/dL
+ZY61,F3,F3,Calcium,9.3,mg/dL
+ZY61,T1,T1,BUN/Creatinine Ratio,10,
+ZY61,T3,T3,BUN/Creatinine Ratio,13,
+ZY61,T2,T2,BUN/Creatinine Ratio,15,
+ZY61,F1,F1,BUN/Creatinine Ratio,17,
+ZY61,F3,F3,BUN/Creatinine Ratio,17,
+ZY61,F1,F1,"Carbon Dioxide, Total",19,mmol/L
+ZY61,T1,T1,"Carbon Dioxide, Total",20,mmol/L
+ZY61,T2,T2,"Carbon Dioxide, Total",21,mmol/L
+ZY61,T3,T3,"Carbon Dioxide, Total",21,mmol/L
+ZY61,F2,F2,"Carbon Dioxide, Total",22,mmol/L
+ZY61,F3,F3,"Carbon Dioxide, Total",22,mmol/L
+ZY61,T3,T3,Glucose,83,mg/dL
+ZY61,F1,F1,Glucose,90,mg/dL
+ZY61,T2,T2,Glucose,91,mg/dL
+ZY61,T1,T1,Glucose,95,mg/dL
+ZY61,F2,F2,Glucose,98,mg/dL
+ZY61,F3,F3,Glucose,99,mg/dL
+ZY61,T2,T2,Chloride,103,mmol/L
+ZY61,T1,T1,Chloride,104,mmol/L
+ZY61,F2,F2,Chloride,104,mmol/L
+ZY61,F1,F1,Chloride,106,mmol/L
+ZY61,T3,T3,Chloride,106,mmol/L
+ZY61,F3,F3,Chloride,107,mmol/L
+ZY61,F1,F1,eGFR,134,mL/min/1.73
+ZY61,F2,F2,eGFR,134,mL/min/1.73
+ZY61,T1,T1,eGFR,136,mL/min/1.73
+ZY61,T1,T1,Sodium,138,mmol/L
+ZY61,F1,F1,Sodium,139,mmol/L
+ZY61,T2,T2,eGFR,140,mL/min/1.73
+ZY61,F3,F3,eGFR,140,mL/min/1.73
+ZY61,T2,T2,Sodium,140,mmol/L
+ZY61,T3,T3,eGFR,141,mL/min/1.73
+ZY61,F2,F2,Sodium,142,mmol/L
+ZY61,T3,T3,Sodium,142,mmol/L
+ZY61,F3,F3,Sodium,144,mmol/L
+ZY61,F2,F2,"Serotonin, Whole Blood",352,ng/mL
+ZY61,T2,T2,"Serotonin, Whole Blood",359,ng/mL
+ZY61,T3,T3,"Serotonin, Whole Blood",369,ng/mL
+ZY61,T1,T1,"Serotonin, Whole Blood",385,ng/mL
+ZY61,F3,F3,"Serotonin, Whole Blood",389,ng/mL
+ZY61,F1,F1,"Serotonin, Whole Blood",428,ng/mL
