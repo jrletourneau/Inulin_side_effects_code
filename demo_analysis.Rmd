@@ -66,7 +66,7 @@ t.test(demo_pre$BMI, demo_pla$BMI) # 0.9189
 
 # Two input variables should be numerical vectors (e.g. women, men)
 fisher_easy <- function(placebo, prebiotic, names = c("type1", "type2")) {
-  contingency_table <- matrix(c(placebo, prebiotic), nrow = length(placebo), byrow = TRUE)
+  contingency_table <- matrix(c(placebo, prebiotic), nrow = length(placebo), byrow = F)
   
   rownames(contingency_table) <- names
   colnames(contingency_table) <- c("Placebo", "Prebiotic")
@@ -78,9 +78,9 @@ fisher_easy <- function(placebo, prebiotic, names = c("type1", "type2")) {
 fisher_easy(c(11,10), c(13, 6), names = c("female", "male")) # 0.3487
 fisher_easy(c(11, 1, 0, 1, 10, 1), c(5, 0, 1, 0, 13, 1),
             names = c("asian", "black", "native_american", "native_hawaiian_other_pacific_islander",
-              "white", "other")) # 0.2683
+              "white", "other")) # 0.2912
 fisher_easy(c(2, 18), c(3, 16), c("hispanic_latino", "not_hispanic_latino")) # 0.6614
-fisher_easy(c(14, 3, 4), c(13, 2, 3), c("omni", "no_red", "vegetarian")) # 0.001336
+fisher_easy(c(14, 3, 4), c(13, 2, 3), c("omni", "no_red", "vegetarian")) # 1
 
 
 ```
